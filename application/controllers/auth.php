@@ -24,9 +24,13 @@ class auth extends CI_Controller {
     public function register()
 	{
 		
-		$this->load->view('template/header');
+		$this->load->view('include/meta');
+		$this->load->view('include/header');
+		$this->load->view('include/topbar');
+		$this->load->view('include/responsive');
+		$this->load->view('include/detail_chart');
 		$this->load->view('auth/register');
-		$this->load->view('template/footer');
+		$this->load->view('include/footer');
 	}
     
     public function register_warung()

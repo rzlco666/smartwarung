@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>SmartWarung</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ::::::::::::::Favicon icon::::::::::::::-->
-    <link rel="shortcut icon" href="<?php echo base_url('assets_user/') ?>img/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="<?php echo base_url('assets_user/') ?>img/icon.png" type="image/png">
 
     <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
 
