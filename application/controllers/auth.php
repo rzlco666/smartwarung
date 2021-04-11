@@ -12,8 +12,13 @@ class auth extends CI_Controller {
     
 	public function login()
 	{
-		
+		$this->load->view('include/meta');
+		$this->load->view('include/header');
+		$this->load->view('include/topbar');
+		$this->load->view('include/responsive');
+		$this->load->view('include/detail_chart');
 		$this->load->view('auth/login');
+		$this->load->view('include/footer');	
 	}
     
     public function register()
