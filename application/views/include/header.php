@@ -45,7 +45,7 @@
                                             <div class="user-info user-set-role">
                                                 <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
                                                 <ul class="expand-dropdown-menu dropdown-menu">
-                                                    <li><a href="auth/login">Login</a></li>
+                                                    <li><a href="<?php echo base_url('auth/login') ?>">Login</a></li>
                                                 </ul>
                                             </div>
 
@@ -54,9 +54,9 @@
                                                 <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
                                                 <ul class="expand-dropdown-menu dropdown-menu">
                                                     <li><a href="#">Hello, <?php echo $this->session->userdata('name') ?></a></li>
-                                                    <li><a href="profile">Akun</a></li>
-                                                    <li><a href="profile/order">Pesanan</a></li>
-                                                    <li><a href="auth/logout">Logout</a></li>
+                                                    <li><a href="<?php echo base_url('profile') ?>">Akun</a></li>
+                                                    <li><a href="<?php echo base_url('profile/order') ?>">Pesanan</a></li>
+                                                    <li><a href="<?php echo base_url('auth/logout') ?>">Logout</a></li>
                                                 </ul>
                                             </div>
 
@@ -66,7 +66,7 @@
                                         <!-- Start Header Add Cart Box -->
                                         <div class="header-add-cart pos-relative m-l-40">
                                             <!-- <a href="#offcanvas-add-cart__box" class="offcanvas-toggle"> -->
-                                            <a href="cart">    
+                                            <a href="<?php echo base_url('cart') ?>">    
                                                 <i class="icon-shopping-cart"></i>
                                                 <span class="wishlist-item-count pos-absolute"><?php echo count($this->carts->get_all($this->session->userdata('username'))) ?></span>
                                             </a>
