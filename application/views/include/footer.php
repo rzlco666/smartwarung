@@ -103,7 +103,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-12">
                         <div class="footer__copyright-text">
-                            <p>Copyright <a href="https://hasthemes.com/">HasTheme</a>. All Rights Reserved</p>
+                            <p>Copyright <a target="_blank" href="https://instagram.com/vitajassinda">Ocha</a>. All Rights Reserved</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12">

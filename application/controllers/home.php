@@ -35,9 +35,14 @@ class home extends CI_Controller {
 		$data['warungs'] = $this->users->get_warungs();
         $data['week_sale'] = $this->templates->view_where('items',['is_week_sale'=>1])->result_array();
 
-		$this->load->view('template/header');
+		$this->load->view('include/meta');
+		$this->load->view('include/header');
+		$this->load->view('include/topbar');
+		$this->load->view('include/responsive');
+		$this->load->view('include/detail_chart');
 		$this->load->view('home/index', $data);
-		$this->load->view('template/footer');
+		$this->load->view('include/add_chart');
+		$this->load->view('include/footer');
 	}
 	public function week_sale(){
         $data['categories'] = $this->categories->get_all();

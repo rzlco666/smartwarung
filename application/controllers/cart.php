@@ -13,9 +13,13 @@ class cart extends CI_Controller {
     public function index(){
         $data['carts'] = $this->carts->get_all($this->session->userdata('username'));
 
-         $this->load->view('template/header');
-         $this->load->view('cart/index',$data);
-         $this->load->view('template/footer');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
+        $this->load->view('cart/index',$data);
+        $this->load->view('include/footer');
     }
 
     public function store($id_item){

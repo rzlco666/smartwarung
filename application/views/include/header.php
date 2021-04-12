@@ -11,7 +11,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3">
                             <div class="header__logo">
-                                <a href="index.html" class="header__logo-link">
+                                <a href="<?php echo base_url('') ?>" class="header__logo-link">
                                     <img src="<?php echo base_url('assets_user/') ?>img/logo/logo-color.png" height="50%" width="50%" alt="" class="header__logo-img">
                                 </a>
                             </div>
@@ -23,15 +23,12 @@
                                         <div class="header__search-category">
                                             <select class="bootstrap-select" name="poscats">
                                                 <option value="0">All categories</option>
-                                                <option value="12">
-                                                    Fashion
+                                                <?php $categories = $this->categories->get_all();
+                                                foreach($categories as $category): ?>
+                                                <option value="<?php echo $category['id'] ?>">
+                                                    <?php echo $category['name'] ?>
                                                 </option>
-                                                <option value="27">
-                                                    Women
-                                                </option>
-                                                <option value="30">
-                                                    Dresses
-                                                </option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="header__search-input">
@@ -44,22 +41,34 @@
                                     <div class="header__wishlist-box">
                                         <!-- Start Header Wishlist Box -->
                                         <div class="header__wishlist pos-relative">
+                                            <?php if($this->session->userdata('role') == ""): ?>
                                             <div class="user-info user-set-role">
                                                 <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
                                                 <ul class="expand-dropdown-menu dropdown-menu">
-                                                    <li><a href="my-account.html">My account</a></li>
-                                                    <li><a href="wishlist.html">My wishlist</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="login.html">Sign in</a></li>
+                                                    <li><a href="auth/login">Login</a></li>
                                                 </ul>
                                             </div>
+
+                                            <?php elseif($this->session->userdata('role') == 0): ?>
+                                            <div class="user-info user-set-role">
+                                                <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
+                                                <ul class="expand-dropdown-menu dropdown-menu">
+                                                    <li><a href="#">Hello, <?php echo $this->session->userdata('name') ?></a></li>
+                                                    <li><a href="profile">Akun</a></li>
+                                                    <li><a href="profile/order">Pesanan</a></li>
+                                                    <li><a href="auth/logout">Logout</a></li>
+                                                </ul>
+                                            </div>
+
+                                            <?php endif; ?>
                                         </div> <!-- End Header Wishlist Box -->
 
                                         <!-- Start Header Add Cart Box -->
                                         <div class="header-add-cart pos-relative m-l-40">
-                                            <a href="#offcanvas-add-cart__box" class="offcanvas-toggle">
+                                            <!-- <a href="#offcanvas-add-cart__box" class="offcanvas-toggle"> -->
+                                            <a href="cart">    
                                                 <i class="icon-shopping-cart"></i>
-                                                <span class="wishlist-item-count pos-absolute">3</span>
+                                                <span class="wishlist-item-count pos-absolute"><?php echo count($this->carts->get_all($this->session->userdata('username'))) ?></span>
                                             </a>
                                         </div> <!-- End Header Add Cart Box -->
                                     </div>
