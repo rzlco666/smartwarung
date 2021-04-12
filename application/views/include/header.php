@@ -22,7 +22,7 @@
                                     <form class="header__search-form" action="#">
                                         <div class="header__search-category">
                                             <select class="bootstrap-select" name="poscats">
-                                                <option value="0">All categories</option>
+                                                <option value="0">Semua kategori</option>
                                                 <?php $categories = $this->categories->get_all();
                                                 foreach($categories as $category): ?>
                                                 <option value="<?php echo $category['id'] ?>">
@@ -32,7 +32,7 @@
                                             </select>
                                         </div>
                                         <div class="header__search-input">
-                                            <input type="search" placeholder="Enter your search key">
+                                            <input type="search" placeholder="Masukkan kata pencarian">
                                             <button class="btn btn--submit btn--blue btn--uppercase btn--weight " type="submit">Telusuri</button>
                                         </div>
                                     </form>

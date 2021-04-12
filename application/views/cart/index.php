@@ -146,7 +146,7 @@
                         </div>
                         <h6 class="total-cost">Total diskon<span><?php echo "<del>Rp ".number_format($discount, 0, ".", ".")."</del>" ?></span></h6>
                         <h4 class="grand-total m-tb-25">Total Akhir <span><?php echo "Rp ".number_format($total, 0, ".", ".") ?></span></h4>
-                        <button class="btn btn--box btn--small btn--blue btn--uppercase btn--weight" type="submit">PROCEED TO CHECKOUT</button>
+                        <a href="<?php echo site_url('invoice/create') ?>" class="btn btn--box btn--small btn--blue btn--uppercase btn--weight">LANJUTKAN KE PEMBAYARAN</a>
                     </div>
                 </div>
             </div>

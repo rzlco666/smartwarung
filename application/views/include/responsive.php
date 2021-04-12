@@ -14,23 +14,34 @@
                                 <!-- Start Header Wishlist Box -->
                                 <div class="header__wishlist pos-relative">
                                     <a href="wishlist.html" class="header__wishlist-link">
-                                        <div class="user-info user-set-role">
+                                        <?php if($this->session->userdata('role') == ""): ?>
+                                            <div class="user-info user-set-role">
                                                 <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
                                                 <ul class="expand-dropdown-menu dropdown-menu">
-                                                    <li><a href="my-account.html">My account</a></li>
-                                                    <li><a href="wishlist.html">My wishlist</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="login.html">Sign in</a></li>
+                                                    <li><a href="auth/login">Login</a></li>
                                                 </ul>
                                             </div>
+
+                                            <?php elseif($this->session->userdata('role') == 0): ?>
+                                            <div class="user-info user-set-role">
+                                                <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
+                                                <ul class="expand-dropdown-menu dropdown-menu">
+                                                    <li><a href="#">Hello, <?php echo $this->session->userdata('name') ?></a></li>
+                                                    <li><a href="profile">Akun</a></li>
+                                                    <li><a href="profile/order">Pesanan</a></li>
+                                                    <li><a href="auth/logout">Logout</a></li>
+                                                </ul>
+                                            </div>
+
+                                        <?php endif; ?>
                                     </a>
                                 </div> <!-- End Header Wishlist Box -->
 
                                 <!-- Start Header Add Cart Box -->
                                 <div class="header-add-cart pos-relative m-l-20">
-                                    <a href="#offcanvas-add-cart__box" class="header__wishlist-link offcanvas--open-checkout offcanvas-toggle">
+                                    <a href="cart" class="header__wishlist-link">
                                         <i class="icon-shopping-cart"></i>
-                                        <span class="wishlist-item-count pos-absolute">3</span>
+                                        <span class="wishlist-item-count pos-absolute"><?php echo count($this->carts->get_all($this->session->userdata('username'))) ?></span>
                                     </a>
                                 </div> <!-- End Header Add Cart Box -->
 
@@ -44,20 +55,17 @@
                             <form class="header__search-form" action="#">
                                 <div class="header__search-category header__search-category--mobile">
                                     <select class="bootstrap-select">
-                                        <option value="0">All</option>
-                                        <option value="12">
-                                            Fashion
-                                        </option>
-                                        <option value="27">
-                                            Women
-                                        </option>
-                                        <option value="30">
-                                            Dresses
-                                        </option>
+                                        <option value="0">Semua</option>
+                                        <?php $categories = $this->categories->get_all();
+                                            foreach($categories as $category): ?>
+                                                <option value="<?php echo $category['id'] ?>">
+                                                <?php echo $category['name'] ?>
+                                                </option>
+                                            <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="header__search-input header__search-input--mobile">
-                                    <input type="search" placeholder="Enter your search">
+                                    <input type="search" placeholder="Masukkan kata pencarian">
                                     <button class="btn btn--submit btn--blue btn--uppercase btn--weight" type="submit"><i class="fal fa-search"></i></button>
                                 </div>
                             </form>
