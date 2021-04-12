@@ -51,9 +51,13 @@ class profile extends CI_Controller {
         $data['invoices'] = $this->invoices->get_all_invoices($this->session->userdata('username'));
         $data['active'] = 'order';
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
         $this->load->view('profile/order',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
         $this->load->view('profile/script',$data);
         // print_r($data);
     }
