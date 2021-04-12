@@ -16,11 +16,16 @@ class profile extends CI_Controller {
 
     public function index(){
         $data['user'] = $this->users->get_username($this->session->userdata('username'));
+        $data['invoices'] = $this->invoices->get_all_invoices($this->session->userdata('username'));
         $data['active'] = 'index';
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
         $this->load->view('profile/index',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
         if ($this->session->userdata('role')==1) {
             $data['warung'] = $this->users->get_user_warung($this->session->userdata('username'));
             $this->load->view('profile/scriptMap',$data);            
@@ -76,9 +81,13 @@ class profile extends CI_Controller {
     public function edit($username){
         $data['user'] = $this->users->get_username($username);
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
         $this->load->view('profile/edit',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
 
     public function change_photo($username){

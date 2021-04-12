@@ -70,7 +70,7 @@ class invoices extends CI_Model {
 
     public function get_all_invoices($username){
         $this->db->select('
-        invoices.id invoice_id, invoices.status invoice_status, invoices.total total,
+        invoices.id invoice_id, invoices.status invoice_status, invoices.total total, invoices.billing billing,
         users.name warung_name, users.username warung_username, invoices.method, invoices.proof_of_payment,invoices.date          
         ');
         $this->db->from('invoices');

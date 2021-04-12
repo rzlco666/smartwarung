@@ -39,7 +39,17 @@
                                 <tr>
                                     <td class="product-name"><span class="text-info"><?php echo $invoice['invoice_id'] ?></span></td>
                                     <td class="product-name"><a href="#"><?= date("d M Y H:i",strtotime($invoice['date'])); ?></a></td>
-                                    <td class="product-price-cart"><span class="amount"><?php echo "Rp " . number_format($invoice['total'], 0, ".", ".") ?></span></td>
+                                    <td class="product-price-cart">
+                                        <span class="amount">
+                                            <?php $ttl = $invoice['total']; 
+                                                if($ttl == 0){
+                                                echo "Rp " . number_format($invoice['billing'], 0, ".", ".");
+                                            }else{
+                                                echo "Rp " . number_format($invoice['total'], 0, ".", ".");
+                                        }
+                                            ?>
+                                        </span>
+                                    </td>
                                     <td class="product-name">
                                         <a href="" class="py-auto"><?php echo $invoice['warung_name'] ?></a>
                                         <p><?= $invoice['method'] ?></p>
@@ -98,15 +108,19 @@
                                                     <?php if ($invoice['method'] != "COD" && $invoice['proof_of_payment'] == "") { ?>
                                                         <?php if ($invoice['invoice_status'] != "Dibatalkan") { ?>
                                                             <?= form_open_multipart('profile/upload_bukti/' . $invoice['invoice_id']) ?>
-                                                            <div class="row">
-                                                                <span class="col-sm-3 text-small">Silahkan upload Bukti Transfer:</span>
-                                                                <input type="file" name="file" class="form-control col-sm-7" required>
-                                                                <button class="btn btn-primary btn-sm" type="submit">Upload</button>
-                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="col-sm-3 text-small">Silahkan upload Bukti Transfer:</span></td>
+                                                <td colspan="4"><input type="file" name="file" class="form-control col-sm-7" required></td>
+                                                <td><button class="btn btn-primary btn-sm" type="submit">Upload</button></td>
+                                            </tr>
                                                             <?= form_close() ?>
                                                         <?php } ?>
                                                     <?php } elseif ($invoice['method'] != "COD" && $invoice['proof_of_payment'] != "") { ?>
-                                                        <a target="_blank" href="<?= base_url('assets/bukti_trf/' . $invoice['proof_of_payment']) ?>" class="btn btn-primary">Lihat Bukti Bayar</a>
+                                                        <!-- <a target="_blank" href="<?= base_url('assets/bukti_trf/' . $invoice['proof_of_payment']) ?>" class="btn btn-sm btn-primary">Lihat Bukti Bayar</a> -->
                                                     <?php } ?>
                                                 <?php } ?>
                                             </div>
