@@ -106,10 +106,14 @@ class item extends CI_Controller {
         // echo "<pre>";
         // print_r($data);
         // echo "</pre>";
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
         $this->load->view('item/show',$data);
-        $this->load->view('template/footer');
-        $this->load->view('item/script');
+        //$this->load->view('include/add_chart');
+        $this->load->view('include/footer');
     }
 
     public function edit($id){

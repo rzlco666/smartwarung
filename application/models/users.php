@@ -68,6 +68,8 @@ class users extends CI_Model {
     }
     
     public function get_username($username){
+        //$this->db->join('warungs','users.username = warungs.username');
+        //$this->db->where('users.username', $username);
         $this->db->where('username', $username);
         return $this->db->get('users')->row_array();
     }

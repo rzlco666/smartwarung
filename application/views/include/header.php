@@ -22,7 +22,7 @@
                                     <form class="header__search-form" action="#">
                                         <div class="header__search-category">
                                             <select class="bootstrap-select" name="poscats">
-                                                <option value="0">Semua kategori</option>
+                                                <option value="0">Semua Kategori</option>
                                                 <?php $categories = $this->categories->get_all();
                                                 foreach($categories as $category): ?>
                                                 <option value="<?php echo $category['id'] ?>">
