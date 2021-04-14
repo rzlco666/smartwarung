@@ -25,9 +25,13 @@ class category extends CI_Controller{
         $data['id'] = $id;
         $data['items'] = $this->categories->get_by_categories($id);
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
         $this->load->view('category/show',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
 }
 ?>
