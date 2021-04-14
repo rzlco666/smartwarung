@@ -178,7 +178,7 @@
 
                                 <!--Start Single Nav link-->
                                 <li class="header__nav-item pos-relative">
-                                     <a href="contact.html" class="header__nav-link">Contact Us</a>
+                                     <a href="<?php echo base_url('hubungi/') ?>" class="header__nav-link">Hubungi Kami</a>
                                 </li> <!-- End Single Nav link-->
                             </ul>
                         </nav>

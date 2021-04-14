@@ -45,13 +45,15 @@ class comment extends CI_Controller
             $check_id = $this->templates->insert_id('comments',$data);
             if ($check_id == null) {
                 echo json_encode(['status'=>'success']);
+                redirect('hubungi');
             }else{
                 echo json_encode(['status'=>'error']);
+                redirect('hubungi');
             }
         }else{
             // $this->session->set_flashdata('errors','Foto profile gagal diperbarui');
                 echo json_encode(['status'=>'error']);
-                // redirect('profile');
+                redirect('hubungi');
         }
     }
 }
