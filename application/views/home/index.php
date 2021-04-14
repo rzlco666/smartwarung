@@ -5,8 +5,9 @@
                 <div class="col-lg-3 col-xl-3">
                     <!-- menu content -->
                     <div class="header-menu-vertical d-lg-block d-none">
-                        <h4 class="menu-title link--icon-left"><i class="far fa-align-left"></i> Semua Kategori</h4>
+                        <h4 class="menu-title link--icon-left"><i class="far fa-align-left"></i> Kategori</h4>
                         <ul class="menu-content">
+                            <li class="menu-item"><a href="<?php echo site_url('category')?>">Semua Kategori</a></li>
                             <?php $categories = $this->categories->get_all();
                                 foreach($categories as $category): ?>
                                 <li class="menu-item"><a href="<?php echo site_url('category/show/').$category['id'] ?>"><?php echo $category['name'] ?></a></li>

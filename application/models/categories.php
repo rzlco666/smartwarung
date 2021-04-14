@@ -7,7 +7,7 @@ class categories extends CI_Model {
     }
 
     public function get_all_items(){
-        $this->db->select('items.name, items.price, items.photo, items.id,items.discount');
+        $this->db->select('items.name, items.price, items.photo, items.description, items.stock, items.id,items.discount');
         $this->db->from('items');
         $this->db->join('categories', 'items.category = categories.id');
         $this->db->where('hide',0);
