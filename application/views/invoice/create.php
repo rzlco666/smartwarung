@@ -1,195 +1,167 @@
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-12 ftco-animate">
-                <h2 class="text-center mb-6 billing-heading">Detail Belanja</h2>
-                <div class="cart-list">
-                    <table class="table table-sm">
-                        <thead class="thead-primary" style="line-height: 0.5;">
-                            <tr class="text-center">
-                                <th></th>
-                                <th></th>
-                                <th>Nama Barang</th>
-                                <th>Harga</th>
-                                <th>Jumlah</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form action="<?php echo site_url('invoice/store') ?>" method="POST">
-                                <input type="text" name="cart_id" value="<?php echo $carts[0]['id'] ?>" hidden>
-                                <?php $total = 0;$discount=0;
-foreach ($carts as $item): ?>
-                                    <tr class="text-center">
-                                        <td class="product-remove " style="width:0.1%;"><a onclick="return confirm('Apakah Anda yakin akan menghapus?');" href="<?php echo site_url('cart/delete/') . $item['item'] ?>"><span class="ion-ios-close"></span></a></td>
-
-                                        <td class="image-prod " style="width:0.1%;">
-                                            <div class="img" style="background-image:url(<?php $photos = explode(',', $item['photo']);
-echo base_url('assets/uploads/') . $photos[0]?>);"></div>
-                                        </td>
-
-                                        <td class="product-name " style="width:0.1%;">
-                                            <h3><?php echo $item['name'] ?></h3>
-                                            <input type="number" name="item[]" hidden value="<?php echo $item['item_id'] ?>">
-                                        </td>
-
-                                        <td class="price " style="width:0.1%;"><?php echo "Rp " . number_format($item['price'], 0, ".", ".") ?></td>
-                                        <input type="number" name="price[]" hidden value="<?php 
-                                        if($item['discount']>0){
-                                            echo $item['price']-(($item['discount']/100)*$item['price']);
-                                        }else{
-                                            echo $item['price'];
-                                        }
-                                        ?>">
-
-                                        <td class="price" style="width:0.1%;">
-                                            <?php echo $item['quantity'] ?>
-                                            <input type="number" name="quantity[]" hidden value="<?php echo $item['quantity'] ?>">
-                                        </td>
-
-                                        <td class="total " style="width:0.1%;">
-                                        <?php 
-                                        if($item['discount']>0){
-                                            echo "<del>Rp " . number_format($item['price'], 0, ".", ".")."</del> "."Rp " . number_format($item['price']-(($item['discount']/100)*$item['price']), 0, ".", ".") ;
-                                            $total += ($item['price']-(($item['discount']/100)*$item['price']))*$item['quantity'];
-                                            $discount += (($item['discount']/100)*$item['price'])*$item['quantity'];
-                                        }else{
-                                            echo "Rp " . number_format($item['price'], 0, ".", ".") ;
-                                            $total += $item['price']*$item['quantity']; 
-                                            $discount+=0;
-                                        }
-                                        ?>
-                                            </td>
-                                    </tr><!-- END TR-->
-                                <?php endforeach;?>
-                        </tbody>
-                    </table>
+   <!-- ::::::  Start  Breadcrumb Section  ::::::  -->
+    <div class="page-breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="page-breadcrumb__menu">
+                        <li class="page-breadcrumb__nav"><a href="#">Home</a></li>
+                        <li class="page-breadcrumb__nav active">Checkout</li>
+                    </ul>
                 </div>
-                <!-- END -->
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-xl-12 ftco-animate">
-                <div class="row mt-5 pt-3">
-                    <div class="col-xl-6 mb-5">
-                        <h5 class="text-center">Alamat Pengiriman</h5>
-                        <div id="map" style="width: 100%;height: 400px;"></div>
-                        <!-- <input id="origin-input" class="controls" type="text" placeholder="Asal">
-                        <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location"> -->
-                        <!-- <div id="mode-selector" class="controls">
-                            <input type="radio" name="type" id="changemode-walking" checked="checked">
-                            <label for="changemode-walking">Walking</label>
+    </div> <!-- ::::::  End  Breadcrumb Section  ::::::  -->
 
-                            <input type="radio" name="type" id="changemode-transit">
-                            <label for="changemode-transit">Transit</label>
-
-                            <input type="radio" name="type" id="changemode-driving">
-                            <label for="changemode-driving">Driving</label>
-                        </div> -->
-                        <div class="row align-items-end mt-3">
-                            <div class="col-sm-12">
-                                <div class="form-group input-sm">
-                                    <div class="w-100"></div>
-                                    <div class="row">
-                                        <input type="text" name="warung" hidden id="warung" value="<?php echo $warungs['username'] ?>">
-                                        <div class="col-sm-6 pb-3">
-                                            <label for="asal" class="mt-3">Asal</label>
-                                            <input id="origin-input" type="text" class="form-control" name="origin" value="<?php echo $warungs['address'] ?>" readonly>
-                                            <input id="origin-place_id" type="text" class="form-control" name="origin-place_id" placeholder="Asal" value="<?php echo $warungs['place_id'] ?>" hidden>
-                                        </div>
-                                        <div class="col-sm-6 pb-3">
-                                            <label for="tujuan" class="mt-3">Tujuan</label>
-                                            <input id="destination-input" type="text" class="form-control" name="destination" placeholder="Tujuan">
-                                            <input id="destination-place_id" type="text" class="form-control" name="destination-place_id" placeholder="Tujuan" hidden>
-                                        </div>
-                                        <div class="col-sm-12 pb-3">
-                                            <label for="jarak">Jarak (dalam kilometer)</label>
-                                            <input id="distance" type="text" class="form-control" name="distance" placeholder="Jarak" readonly>
-                                        </div>
-                                        <div class="col-sm-12 pb-3">
-                                            <label for="method" class="mt-3">Pembayaran</label>
-                                            <select class="form-control" name="method" id="method">
-                                                <option value="COD">COD</option>
-                                                <option value="Transfer">Transfer</option>
-                                            </select>
-                                        </div>
-                                    </div>
+    <!-- ::::::  Start  Main Container Section  ::::::  -->
+    <main id="main-container" class="main-container">
+        <form action="<?php echo site_url('invoice/store') ?>" method="POST">
+        <input type="text" name="cart_id" value="<?php echo $carts[0]['id'] ?>" hidden>
+        <div class="container">
+            <div class="row">
+                <!-- Start Client Shipping Address -->
+                <div class="col-lg-7">
+                    <div class="section-content">
+                        <h5 class="section-content__title">Alamat Pengiriman</h5>
+                    </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-box__single-group">
+                                    <div id="map" style="width: 100%;height: 400px;"></div>
                                 </div>
-                                <div class="w-100"></div>
+                            </div>
+                            <input type="text" name="warung" hidden id="warung" value="<?php echo $warungs['username'] ?>">
+                            <div class="col-md-12">
+                                <div class="form-box__single-group">
+                                    <label for="form-first-name">Asal</label>
+                                    <input id="origin-input" type="text" class="form-control" name="origin" value="<?php echo $warungs['address'] ?>" readonly>
+                                    <input id="origin-place_id" type="text" class="form-control" name="origin-place_id" placeholder="Asal" value="<?php echo $warungs['place_id'] ?>" hidden>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-box__single-group">
+                                    <label for="form-last-name">Tujuan</label>
+                                    <input id="destination-input" type="text" class="form-control" name="destination" placeholder="Tujuan">
+                                    <input id="destination-place_id" type="text" class="form-control" name="destination-place_id" placeholder="Tujuan" hidden>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-box__single-group">
+                                    <label for="form-company-name">Jarak (Dalam Kilometer)</label>
+                                    <input id="distance" type="text" class="form-control" name="distance" placeholder="Jarak" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-box__single-group">
+                                    <label for="form-country">Pembayaran</label>
+                                    <select class="form-control" name="method" id="method">
+                                        <option value="COD">COD</option>
+                                        <option value="Transfer">Transfer</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="w-100"></div>
-                    </div>
-                    <div class="col-md-6 mb-5">
-                        <div class="cart-detail cart-total p-3 p-md-4" style="height:95%">
-                            <h3 class="billing-heading mb-4">Total Keranjang</h3>
-                            <p class="d-flex">
-                                <span>Total Belanja</span>
-                                <span><?php echo "Rp " . number_format($total, 0, ".", ".") ?></span>
-                                <input type="number" name="billing" value="<?php echo $total ?>" hidden id="billing">
-                            </p>
-                            <p class="d-flex">
-                                <span>Diskon</span>
-                                <span><?php echo "<del>Rp ".number_format($discount, 0, ".", ".")."</del>" ?></span>
-                            </p>
-                            <p class="d-flex">
-                                <span>Ongkos Kirim</span>
-                                <span id="ongkir">Rp 0</span>
-                                <input type="number" name="delivery_fee" hidden id="delivery_fee">
-                            </p>
-                            <!-- <p class="d-flex">
-                            <span>Discount</span>
-                            <span>$3.00</span>
-                        </p> -->
-                            <hr>
-                            <p class="d-flex total-price">
-                                <span>Total</span>
-                                <span id="total"><?php echo "Rp " . number_format($total, 0, ".", ".") ?></span>
-                                <input type="number" name="total" hidden id="total_price">
-                            </p>
+                </div> <!-- End Client Shipping Address -->
+                
+                <!-- Start Order Wrapper -->
+                <div class="col-lg-5">
+                    <div class="your-order-section">
+                        <div class="section-content">
+                            <h5 class="section-content__title">Total Keranjang</h5>
+                        </div>
+                        <div class="your-order-box gray-bg m-t-40 m-b-30">
+                            <div class="your-order-product-info">
+                                <div class="your-order-top d-flex justify-content-between">
+                                    <h6 class="your-order-top-left">Produk</h6>
+                                    <h6 class="your-order-top-right">Total</h6>
+                                </div>
+                                <ul class="your-order-middle">
+                                    <li class="d-flex justify-content-between">
+                                        <?php $total = 0;$discount=0;
+                                        foreach ($carts as $item): ?>
+                                            <span class="your-order-middle-left"><?php echo $item['name'] ?> X <?php echo $item['quantity'] ?></span>
+                                            <input type="number" name="item[]" hidden value="<?php echo $item['item_id'] ?>">
+                                            <input type="number" name="price[]" hidden value="<?php 
+                                                if($item['discount']>0){
+                                                    echo $item['price']-(($item['discount']/100)*$item['price']);
+                                                }else{
+                                                    echo $item['price'];
+                                                }
+                                                ?>">
+                                            <input type="number" name="quantity[]" hidden value="<?php echo $item['quantity'] ?>">
+                                            <span class="your-order-middle-right"><?php echo "Rp " . number_format($item['price']*$item['quantity'], 0, ".", ".") ?></span>
+                                            <?php 
+                                            if($item['discount']>0){
+                                                $total += ($item['price']-(($item['discount']/100)*$item['price']))*$item['quantity'];
+                                                $discount += (($item['discount']/100)*$item['price'])*$item['quantity'];
+                                            }else{
+                                                $total += $item['price']*$item['quantity']; 
+                                                $discount+=0;
+                                            }
+                                            ?>
+                                        <?php endforeach;?>
+                                    </li>
+                                </ul>
+                                <div class="your-order-total d-flex justify-content-between">
+                                    <h6 class="your-order-bottom-left">Diskon</h6>
+                                    <span class="your-order-bottom-right"><?php echo "Rp ".number_format($discount, 0, ".", ".") ?></span>
+                                </div>
+                                <div class="your-order-bottom d-flex justify-content-between">
+                                    <h6 class="your-order-bottom-left">Ongkos Kirim</h6>
+                                    <input type="number" name="delivery_fee" hidden id="delivery_fee">
+                                    <span class="your-order-bottom-right" id="ongkir">Rp 0</span>
+                                </div>
+                                <div class="your-order-total d-flex justify-content-between">
+                                    <h5 class="your-order-total-left">Total</h5>
+                                    <input type="number" name="billing" value="<?php echo $total ?>" hidden id="billing">
+                                    <h5 class="your-order-total-right"><?php echo "Rp " . number_format($total, 0, ".", ".") ?></h5>
+                                    <input type="number" name="total" hidden id="total_price">
+                                </div>
+                            </div>
                             <div class="row" id="transfer_method_show">
                                 <div class="col-md-12">
                                     <p class="text-danger">*isi dibawah ini jika metode pembayaran yang anda pilih transfer</p>
-                                    <div class="form-group">
-                                        <label for="firstname">Nama Bank Anda</label>
-                                                    <select class="form-control" id="select_bank_type" name="bank_type" placeholder="Nama Bank">
-                                                        <option value="" disabled selected></option>
-                                                        <option value="BCA">BCA</option>
-                                                        <option value="BRI">BRI</option>
-                                                        <option value="BNI">BNI</option>
-                                                        <option value="MANDIRI">MANDIRI</option>
-                                                        <option value="BTPN">BTPN</option>
-                                                        <option value="BPD JABAR">BPD JABAR</option>
-                                                    </select>
-                                                    <?php echo form_error('name', '<small class="text-danger error">', '</small>'); ?>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 pb-3">
-                                                <label for="method" class="mt-3">Nama Rekening Anda</label>
-                                                <input type="text" class="form-control" name="account_name" id="input_account_name" placeholder="Nama Rekening">
-                                            </div>
-                                            <div class="col-sm-12 pb-3">
-                                                <label for="method" class="mt-3">Nomor Rekening Anda</label>
-                                                <input type="text" class="form-control" name="account_number" id="input_account_number" placeholder="Nomor Rekening">
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="firstname">Nama Bank Tujuan</label>
-                                                    <select class="form-control" name="bank_tujuan" id="bank_to_select" placeholder="Nama Bank">
-                                                        <option value="" disabled selected></option>
-                                                        <?php foreach ($bank as $key) {?>
-                                                        <option value="<?=$key->bank?>"><?=$key->bank?></option>
-                                                        <?php }?>
-                                                        <!-- <option value="BRI">BRI</option>
-                                                        <option value="BNI">BNI</option>
-                                                        <option value="MANDIRI">MANDIRI</option>
-                                                        <option value="BTPN">BTPN</option>
-                                                        <option value="BPD JABAR">BPD JABAR</option> -->
-                                                    </select>
-                                                </div>
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="firstname">Nama Bank Anda</label>
+                                                <select class="form-control" id="select_bank_type" name="bank_type" placeholder="Nama Bank">
+                                                    <option value="" disabled selected></option>
+                                                    <option value="BCA">BCA</option>
+                                                    <option value="BRI">BRI</option>
+                                                    <option value="BNI">BNI</option>
+                                                    <option value="MANDIRI">MANDIRI</option>
+                                                    <option value="BTPN">BTPN</option>
+                                                    <option value="BPD JABAR">BPD JABAR</option>
+                                                </select>
+                                                <?php echo form_error('name', '<small class="text-danger error">', '</small>'); ?>
                                         </div>
-                            <h3 class="billing-heading mb-4 p-2 p-md-4"  id="pilih_bank_show">Pilih salah satu bank transfer tujuan</h3>
+                                </div>
+                                <div class="col-sm-12 pb-3">
+                                    <label for="method" class="mt-3">Nama Rekening Anda</label>
+                                        <input type="text" class="form-control" name="account_name" id="input_account_name" placeholder="Nama Rekening">
+                                </div>
+                                <div class="col-sm-12 pb-3">
+                                    <label for="method" class="mt-3">Nomor Rekening Anda</label>
+                                        <input type="text" class="form-control" name="account_number" id="input_account_number" placeholder="Nomor Rekening">
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="firstname">Nama Bank Tujuan</label>
+                                            <select class="form-control" name="bank_tujuan" id="bank_to_select" placeholder="Nama Bank">
+                                                <option value="" disabled selected></option>
+                                                <?php foreach ($bank as $key) {?>
+                                                <option value="<?=$key->bank?>"><?=$key->bank?></option>
+                                                <?php }?>
+                                                <!-- <option value="BRI">BRI</option>
+                                                <option value="BNI">BNI</option>
+                                                <option value="MANDIRI">MANDIRI</option>
+                                                <option value="BTPN">BTPN</option>
+                                                <option value="BPD JABAR">BPD JABAR</option> -->
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h6 id="pilih_bank_show">Pilih salah satu bank transfer tujuan</h6>
                             <div class="row" id="transfer_bank_show">
                             <!-- <?php foreach ($bank as $key) {?>
                                 <div class="col-sm-6" id="<?=$key->bank?>_type_bank">
@@ -201,20 +173,16 @@ echo base_url('assets/uploads/') . $photos[0]?>);"></div>
                                         </div>
                                     </div>
                                 </div>
-                            <?php }?> -->
+                            <?php } ?> -->
                             </div>
                             <br>
-                            <br>
-                            <input type="submit" value="Pesan sekarang" class="btn btn-primary py-3 px-2">
-                        </div>
-                        </form>
+                        <button class="btn btn--block btn--small btn--blue btn--uppercase btn--weight" type="submit">Pesan Sekarang</button>
                     </div>
-                </div>
-            </div> <!-- .col-md-8 -->
+                </div> <!-- End Order Wrapper -->
+            </div>
         </div>
-    </div>
-    </div>
-</section> <!-- .section -->
+        </form>
+    </main> <!-- ::::::  End  Main Container Section  ::::::  -->
 <script>
     $(document).ready(function() {
         $('#transfer_method_show').hide();

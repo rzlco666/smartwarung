@@ -13,6 +13,7 @@
     <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
 
     <!-- Vendor CSS Files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/vendor/jquery-ui.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/vendor/fontawesome.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/vendor/plaza-icon.css">

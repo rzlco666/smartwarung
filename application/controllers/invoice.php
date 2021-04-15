@@ -25,9 +25,13 @@ class invoice extends CI_Controller{
         $data['warungs'] = $this->warungs->get_users_warung($data['carts'][0]['username_warung']);
         // print_r($data['warungs']);
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
         $this->load->view('invoice/create',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
         $this->load->view('invoice/script');
     }
 
