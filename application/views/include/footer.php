@@ -14,9 +14,11 @@
                                 <p>Solusi mudah belanja di warung tanpa harus datang ke warung. Anda hanya perlu menunggu di rumah. Pesanan akan diantarkan.</p>
                             </div>
                             <ul class="footer__address">
+                                <!--
                                 <li class="footer__address-item"><span>Address:</span> The Barn, Ullenhall, Henley in Arden B578 5C, England.</li>
                                 <li class="footer__address-item"><span>Call us: </span> <a href="tel:+(012)-800-456-789-987">+(012) 800 456 789 - 987</a> </li>
                                 <li class="footer__address-item"><span>Call us: </span> <a href="mailto:yourname@mail.com">yourname@mail.com</a></li>
+                                -->
                             </ul>
                         </div>
                     </div>
@@ -24,12 +26,12 @@
                         <div class="footer__menu">
                             <h4 class="footer__nav-title">Products</h4>
                             <ul class="footer__nav">
-                                <li class="footer__list"><a href="" class="footer__link">Prices drop</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">New products</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">Best sales</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">Contact us</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">Sitemap</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">Login</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Prices drop</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">New products</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Best sales</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Contact us</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Sitemap</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -37,12 +39,12 @@
                         <div class="footer__menu">
                             <h4 class="footer__nav-title">Our Company</h4>
                             <ul class="footer__nav">
-                                <li class="footer__list"><a href="" class="footer__link">Delivery</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">Legal Notice</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">About us</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">Secure payment</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">Sitemap</a></li>
-                                <li class="footer__list"><a href="" class="footer__link">Stores</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Delivery</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Legal Notice</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">About us</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Secure payment</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Sitemap</a></li>
+                                <li class="footer__list"><a href="#" class="footer__link">Stores</a></li>
                             </ul>
                         </div>
                     </div>
@@ -108,8 +110,8 @@
                     </div>
                     <div class="col-lg-4 col-12">
                         <div class="footer__payment">
-                            <a href="https://hasthemes.com/" class="footer__payment-link">
-                                <img src="<?php echo base_url('assets_user/') ?>img/company-logo/payment.png" alt="" class="footer__payment-img">
+                            <a href="#" class="footer__payment-link">
+                                <!-- <img src="<?php echo base_url('assets_user/') ?>img/company-logo/payment.png" alt="" class="footer__payment-img"> -->
                             </a>
                         </div>
                     </div>
