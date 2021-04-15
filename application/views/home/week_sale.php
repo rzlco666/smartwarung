@@ -81,32 +81,38 @@
                             </div>
                             <div class="tab-pane shop-list" id="sort-list">
                                 <!-- Start Single List Product -->
+                                <?php for($i=0;$i<count($week_sale);$i++): ?>
                                 <div class="product__box product__box--list">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="product__img-box">
-                                                <a href="single-1.html" class="product__img--link">
-                                                    <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-1.jpg" alt="">
+                                                <a href="<?php echo site_url('item/show/').$week_sale[$i]['id'] ?>" class="product__img--link">
+                                                    <img class="product__img" src="<?php $photos = explode(',',$week_sale[$i]['photo']); echo base_url('assets/uploads/').$photos[0]?>" alt="">
                                                 </a>
-                                                <span class="product__tag product__tag--discount">-12%</span>
+                                                <div class="product__counter-box">
+                                                    <div class="product__counter-item" data-countdown="<?php echo date('Y/m/d',strtotime('+7 days',strtotime($week_sale[0]['date_week_sale']))); ?>"></div>
+                                                </div>
                                                 
                                             </div>
                                         </div>
                                         <div class="col-md-8 pos-relative">
                                             <div class="border-right pos-absolute"></div>
                                             <div class="product__price">
-                                                <span class="product__price-del">$11.90</span>
-                                                <span class="product__price-reg">$10.71</span>
+                                                <?php 
+                                                    if($week_sale[$i]['discount']>0){
+                                                        echo "<span class='product__price-del'>Rp " . number_format($week_sale[$i]['price'], 0, ".", ".")."</span> "."<span class='product__price-reg'>Rp " . number_format($week_sale[$i]['price']-(($week_sale[$i]['discount']/100)*$week_sale[$i]['price']), 0, ".</span>", ".") ;
+                                                        }else{
+                                                            echo "Rp " . number_format($week_sale[$i]['price'], 0, ".", ".") ;
+                                                        }
+                                                ?>
                                             </div>
-                                            <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                SonicFuel Wireless Over-Ear Headphones
+                                            <a href="<?php echo site_url('item/show/').$week_sale[$i]['id'] ?>" class="product__link product__link--underline product__link--weight-light m-t-15">
+                                                <?php echo $week_sale[$i]['name'] ?>
                                             </a>
-                                            <div class="product__desc m-t-25 m-b-30">
-                                                <p>The ATH-S700BT offers clear, full-bodied audio reproduction with Bluetooth® wireless operation. The headphones are equipped with a mic, and music and volume controls, allowing you to ...</p>
-                                            </div>
                                         </div>
                                     </div>
-                                </div> <!-- Start Single List Product -->                                
+                                </div> <!-- Start Single List Product -->
+                                <?php endfor; ?>                                
                             </div>
                         </div>
                     </div>
