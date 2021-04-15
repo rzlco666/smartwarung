@@ -8,44 +8,57 @@ if ($this->session->userdata('login', TRUE)) {
     }
 }
 ?>
-<section class="ftco-section">
-    <div class="container heading-section">
-        <h2 class="text-center mb-4">Kritik Saran/Hubungi Warung <?php echo $user['name']; ?></h2>
-        <!-- <div class="row">
-        <?php foreach ($comment as $key => $value) { ?>
-            <div class="col-sm-12">
-                <b><?= $value['sender_name']; ?><b> (<?= $value['username']; ?>)<br>
-                <p><?= $value['message'] ?></p>
-                <span class="text-small text-muted"><?= $value['date'] ?></span>
+<!-- ::::::  Start  Main Container Section  ::::::  -->
+        <div class="container">
+            <div class="row">
+                <!--
+                <div class="col-12">
+                    <div id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2136.986005919501!2d-73.9685579655238!3d40.75862446708152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258e4a1c884e5%3A0x24fe1071086b36d5!2sThe%20Atrium!5e0!3m2!1sen!2sbd!4v1585132512970!5m2!1sen!2sbd" allowfullscreen></iframe>
+                    </div>
+                </div>
+            -->
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-9">
+                    <div class="contact-form gray-bg m-t-40">
+                        <div class="section-content">
+                            <h5 class="section-content__title">Kritik Saran/Hubungi Warung <?php echo $user['name']; ?></h5>
+                        </div>
+                        <form action="<?php echo base_url(); ?>/comment/send" class="contact-form-style" method="post" id="form-comment" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-box__single-group">
+                                        <label for="comment-name">Nama Lengkap</label>
+                                        <input class="form-control" id="comment-to=whom" type="hidden" name="to_whom" value="admin" required>
+                                        <input class="form-control" id="comment-name" type="text" name="name" value="<?= $name ?>" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                   <div class="form-box__single-group">
+                                        <label for="comment-usname">Username / Email</label>
+                                        <input class="form-control" id="comment-usname" type="text" name="usname" value="<?= $email ?>" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                   <div class="form-box__single-group">
+                                        <label for="comment-file">Upload Bukti</label>
+                                        <input id="comment-file" type="file" name="file" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box__single-group">
+                                        <label for="inp_comment">Pesan Anda</label>
+                                        <textarea class="form-control" name="comment" id="inp_comment" rows="10" required></textarea>
+                                    </div>
+                                    <button id="tombol_tambah" type="submit" class="btn btn--box btn--small btn--blue btn--uppercase btn--weight m-t-30">Kirim</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <?php if ($value['type'] == 1) { ?>
-            <?php } ?>
-        <?php } ?>
-    </div> -->
-        <form method="post" id="form-comment" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="comment-name">Nama Lengkap</label>
-                <input class="form-control" id="comment-to=whom" type="hidden" name="to_whom" value="<?= $uswarung ?>" required>
-                <input class="form-control" id="comment-name" type="text" name="name" value="<?= $name ?>" required>
-            </div>
-            <div class="form-group">
-                <label for="comment-usname">Username / Email</label>
-                <input class="form-control" id="comment-usname" type="text" name="usname" value="<?= $email ?>" required>
-            </div>
-            <div class="form-group">
-                <label for="comment-file">Upload Bukti</label>
-                <input class="form-control" id="comment-file" type="file" name="file" required>
-            </div>
-            <div class="form-group">
-                <label for="inp_comment">Pesan Anda</label>
-                <textarea class="form-control" name="comment" id="inp_comment" rows="3" required></textarea>
-            </div>
-            <div class="form-group">
-                <button id="tombol_tambah" type="button" class="btn btn-primary btn-block">Kirim</button>
-            </div>
-        </form>
-    </div>
-</section>
+        </div><!-- ::::::  End  Main Container Section  ::::::  -->
 <!-- <script type="text/javascript" src="https://cdn.rawgit.com/lamhotsimamora/Filter-Kata-Kotor/master/filter-bad-word.js"></script> -->
 <script type="text/javascript">
     $(document).ready(function() {

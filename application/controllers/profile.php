@@ -49,18 +49,29 @@ class profile extends CI_Controller {
             redirect('profile/');
         }
         
+        $data['items'] = $this->items->get_all_username($username);
         $data['user'] = $this->users->get_username($username);
         $data['active'] = 'index';
         $data['uswarung']=$username;
         
-        $this->load->view('template/header');
+        //$this->load->view('template/header');
+        //$this->load->view('profile/index2',$data);
+        //$this->load->view('template/footer');
+
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
         $this->load->view('profile/index2',$data);
-        $this->load->view('template/footer');
+
         if ($data['user']['role']==1) {
             $data['warung'] = $this->users->get_user_warung($data['user']['username']);
             $this->load->view('profile/scriptMap',$data);            
             $this->load->view('profile/comment',$data);            
         }
+
+        $this->load->view('include/footer');
     }
 
     public function order(){
