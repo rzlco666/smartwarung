@@ -13,9 +13,13 @@ class rating extends CI_Controller {
     public function create($item){
         $data['item'] = $this->items->get_one_id($item);
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
         $this->load->view('rating/create',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
 
     public function store($item){
