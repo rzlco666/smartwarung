@@ -85,6 +85,7 @@
                 
             </div>
             <div class="row">
+                <!--
                 <div class="col-lg-4 col-md-6">
                     <div class="sidebar__widget gray-bg m-t-40">
                         <div class="sidebar__box">
@@ -122,6 +123,8 @@
                         </form>
                     </div>
                 </div>
+                -->
+                <!--
                 <div class="col-lg-4 col-md-6">
                     <div class="sidebar__widget gray-bg m-t-40">
                         <div class="sidebar__box">
@@ -138,6 +141,13 @@
                             </div>
                         </form>
                     </div>
+                </div>
+                -->
+                <div class="col-lg-4 col-md-6">
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="sidebar__widget gray-bg m-t-40">

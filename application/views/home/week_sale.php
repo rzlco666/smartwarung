@@ -1,61 +1,130 @@
-<section class="ftco-section">
-    	<div class="container">
-			<h3 class="text-center">Obral Minggu ini</h3>
-			<h5 class="text-center alert alert-info"><?php echo date("d M Y",strtotime($week_sale[0]['date_week_sale']))." s/d ".date("d M Y",strtotime("+7 days",strtotime($week_sale[0]['date_week_sale']))); ?></h5>
-    		<!-- <div class="row justify-content-center">
-    			<div class="col-md-10 mb-5 text-center">
-    				<ul class="product-category">
-    					<li><a href=""  class="active">All</a></li>
-                    <?php foreach ($categories as $category): ?>
-    					<li><a href="<?php echo site_url('category/show/').$category['id'] ?>"><?php echo $category['name'] ?></a></li>
-                    <?php endforeach; ?>
-    				</ul>
-    			</div>
-    		</div> -->
-    		<div class="row">
-            <?php for($i=0;$i<count($week_sale);$i++): ?>
-    			<div class="col-md-6 col-lg-4 ftco-animate">
-    				<div class="product">
-    					<a href="<?php echo site_url('item/show/').$week_sale[$i]['id'] ?>" class="img-prod"><img class="img-fluid" src="<?php $photos = explode(',',$week_sale[$i]['photo']); echo base_url('assets/uploads/').$photos[0]?>" alt="">
-    						<!-- <span class="status">30%</span> -->
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#"><?php echo $week_sale[$i]['name'] ?></a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span class="mr-2">
-									<?php 
-                                            if($week_sale[$i]['discount']>0){
-                                                echo "<del>Rp " . number_format($week_sale[$i]['price'], 0, ".", ".")."</del> "."Rp " . number_format($week_sale[$i]['price']-(($week_sale[$i]['discount']/100)*$week_sale[$i]['price']), 0, ".", ".") ;
-                                            }else{
-                                                echo "Rp " . number_format($week_sale[$i]['price'], 0, ".", ".") ;
-                                            }
-                                            ?>
-									</span></p>
-		    					</div>
-	    					</div>
-	    					<div class="bottom-area d-flex px-3">
-    						</div>
-    					</div>
-    				</div>
-				</div>
-			<?php endfor; ?>
-    		</div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
+   <!-- ::::::  Start  Breadcrumb Section  ::::::  -->
+    <div class="page-breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="page-breadcrumb__menu">
+                        <li class="page-breadcrumb__nav"><a href="#">Home</a></li>
+                        <li class="page-breadcrumb__nav active">Obral Mingguan</li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
-    	</div>
-    </section>
+    </div> <!-- ::::::  End  Breadcrumb Section  ::::::  -->
+
+    <!-- ::::::  Start  Main Container Section  ::::::  -->
+    <main id="main-container" class="main-container">
+        <div class="container">
+            <div class="row">
+                 <!-- Start Rightside - Content -->
+                <div class="col-12">
+                    <h1 class="sidebar__title">Obral Minggu Ini (<?php echo date("d M Y",strtotime($week_sale[0]['date_week_sale']))." s/d ".date("d M Y",strtotime("+7 days",strtotime($week_sale[0]['date_week_sale']))); ?>)</h1>
+
+                    <!-- ::::::  Start Sort Box Section  ::::::  -->
+                    <div class="sort-box m-tb-30">
+                        <!-- Start Sort Left Side -->
+                        <div class="sort-box__left">
+                            <div class="sort-box__tab">
+                                <ul class="sort-box__tab-list nav">
+                                    <li><a class="sort-nav-link active" data-toggle="tab" href="#sort-grid"><i class="icon-grid"></i>  </a></li>
+                                    <li><a class="sort-nav-link" data-toggle="tab" href="#sort-list"><i class="icon-list"></i></a></li>
+                                </ul>
+                            </div>
+                            <span>There Are 13 Products.</span>
+                        </div> <!-- Start Sort Left Side -->
+
+                        <div class="sort-box__right">
+                            <span>Sort By:</span>
+                            <div class="sort-box__option">
+                                <label class="select-sort__arrow">
+                                    <select name="select-sort" class="select-sort">
+                                        <option value="1">Relevance</option>
+                                        <option value="2">Name, A to Z</option>
+                                        <option value="3"> Name, Z to A </option>
+                                        <option value="4"> Price, low to high</option>
+                                        <option value="5">Price, high to low</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
+
+                    <div class="product-tab-area">
+                        <div class="tab-content ">
+                            <div class="tab-pane show active clearfix" id="sort-grid">
+                                <!-- Start Single Default Product -->
+                                <?php for($i=0;$i<count($week_sale);$i++): ?>
+                                <div class="product__box product__box--default product__box--border-hover text-center float-left float-4">
+                                    <div class="product__img-box">
+                                        <a href="<?php echo site_url('item/show/').$week_sale[$i]['id'] ?>" class="product__img--link">
+                                            <img class="product__img" src="<?php $photos = explode(',',$week_sale[$i]['photo']); echo base_url('assets/uploads/').$photos[0]?>" alt="">
+                                        </a>
+
+                                        <div class="product__counter-box">
+                                            <div class="product__counter-item" data-countdown="<?php echo date('Y/m/d',strtotime('+7 days',strtotime($week_sale[0]['date_week_sale']))); ?>"></div>
+                                        </div>
+                                    </div>
+                                    <div class="product__price m-t-10">
+                                        <?php 
+                                            if($week_sale[$i]['discount']>0){
+                                                echo "<span class='product__price-del'>Rp " . number_format($week_sale[$i]['price'], 0, ".", ".")."</span> "."<span class='product__price-reg'>Rp " . number_format($week_sale[$i]['price']-(($week_sale[$i]['discount']/100)*$week_sale[$i]['price']), 0, ".</span>", ".") ;
+                                                }else{
+                                                    echo "Rp " . number_format($week_sale[$i]['price'], 0, ".", ".") ;
+                                                }
+                                        ?>
+                                    </div>
+                                    <a href="<?php echo site_url('item/show/').$week_sale[$i]['id'] ?>" class="product__link product__link--underline product__link--weight-light m-t-15">
+                                        <?php echo $week_sale[$i]['name'] ?>
+                                    </a>
+                                </div> <!-- End Single Default Product -->
+                                <?php endfor; ?>
+                            </div>
+                            <div class="tab-pane shop-list" id="sort-list">
+                                <!-- Start Single List Product -->
+                                <div class="product__box product__box--list">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="product__img-box">
+                                                <a href="single-1.html" class="product__img--link">
+                                                    <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-1.jpg" alt="">
+                                                </a>
+                                                <span class="product__tag product__tag--discount">-12%</span>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 pos-relative">
+                                            <div class="border-right pos-absolute"></div>
+                                            <div class="product__price">
+                                                <span class="product__price-del">$11.90</span>
+                                                <span class="product__price-reg">$10.71</span>
+                                            </div>
+                                            <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
+                                                SonicFuel Wireless Over-Ear Headphones
+                                            </a>
+                                            <div class="product__desc m-t-25 m-b-30">
+                                                <p>The ATH-S700BT offers clear, full-bodied audio reproduction with Bluetooth® wireless operation. The headphones are equipped with a mic, and music and volume controls, allowing you to ...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- Start Single List Product -->                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-pagination">
+                        <span>Showing 1-12 of 13 item(s)</span>
+                        <ul class="page-pagination__list">
+                            <li class="page-pagination__item">
+                              <a class="page-pagination__link btn btn--gray"  href="#"><i class="icon-chevron-left"></i> Previous</a>
+                            </li>
+                            <li class="page-pagination__item"><a class="page-pagination__link active btn btn--gray"  href="#">1</a></li>
+                            <li class="page-pagination__item"><a class="page-pagination__link btn btn--gray"  href="#">2</a></li>
+                            <li class="page-pagination__item">
+                              <a class="page-pagination__link btn btn--gray"  href="#">Next<i class="icon-chevron-right"></i></a>
+                            </li>
+                          </ul>
+                    </div>
+                </div>  <!-- Start Rightside - Content -->
+            </div>
+        </div>
+    </main> <!-- ::::::  End  Main Container Section  ::::::  -->

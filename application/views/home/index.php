@@ -15,54 +15,6 @@
                         </ul>
                         
                     </div>
-                    <!-- ::::::  Start Product-Style - Counter Section  ::::::  -->
-                    <div class="product product--1 swiper-outside-arrow-hover">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="section-content section-content--border">
-                                        <h5 class="section-content__title ">Hot Deals Products</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="swiper-outside-arrow-fix pos-relative">
-                                        <div class="product-counter-slider-1grid overflow-hidden m-t-50">
-                                            <div class="swiper-wrapper">
-                                                <!-- Start Single Counter Product -->
-                                                <div class="product__box product__box--counter product__box--border-hover swiper-slide text-center">
-                                                    <div class="product__img-box">
-                                                        <a href="single-1.html" class="product__img--link">
-                                                            <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-1.jpg" alt="">
-                                                        </a>
-
-                                                        <div class="product__counter-box">
-                                                            <div class="product__counter-item" data-countdown="2021/05/01"></div>
-                                                        </div>
-                                                        <span class="product__tag product__tag--new">New</span>
-                                                        <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                    </div>
-                                                    <div class="product__price m-t-10">
-                                                        <span class="product__price-del">$11.90</span>
-                                                        <span class="product__price-reg">$10.71</span>
-                                                    </div>
-                                                    <a href="single-1.html" class="product__link product__link--underline product__link--weight-regular m-t-15">
-                                                        SonicFuel Wireless Over-Ear Headphones
-                                                    </a>
-                                                </div> <!-- End Single Counter Product -->
-                                            </div>
-                                            <div class="swiper-buttons">
-                                                <!-- Add Arrows -->
-                                                <div class="swiper-button-next default__nav default__nav--next"><i class="fal fa-chevron-right"></i></div>
-                                                <div class="swiper-button-prev default__nav default__nav--prev"><i class="fal fa-chevron-left"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- ::::::  End Product-Style - Counter Section  ::::::  -->
 
                     <!-- ::::::  Start  Product Style - Segment Section  ::::::  -->
                     <div class="product product--1">
@@ -121,50 +73,6 @@
                             </div> <!-- End Single Segment Area -->
                         </div>
                     </div> <!-- ::::::  Start  Product Style - Segment Section  ::::::  -->
-
-                    <!-- ::::::  Start  Blog News  ::::::  -->
-                    <div class="blog blog--2 swiper-outside-arrow-hover">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="section-content section-content--border d-flex align-items-center justify-content-between">
-                                    <h5 class="section-content__title">Latest Blog</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="swiper-outside-arrow-fix pos-relative">
-                                    <div class="blog-news blog-news-1grid overflow-hidden  m-t-50">
-                                        <div class="swiper-wrapper">
-                                            <!-- Single Blog News Item -->
-                                            <div class="blog-news__box swiper-slide text-center">
-                                                <div class="blog-news__img-box">
-                                                    <a href="blog-single-left-sidebar.html" class="blog-news__img--link">
-                                                        <img src="<?php echo base_url('assets_user/') ?>img/blog/news/blog-news-home-1-img-1.jpg" alt="" class="blog-news__img">
-                                                    </a>
-                                                </div>
-
-                                                <div class="blog-news__archive m-t-25">
-                                                    <a href="#" class="blog-news__postdate"><i class="far fa-calendar"></i> Oct 29, 2018</a>
-                                                    <a href="#" class="blog-news__author"><i class="far fa-user"></i> Jhon Doe</a>
-                                                </div>
-
-                                                <a href="blog-single-left-sidebar.html" class="blog-news__link">
-                                                    <h5>Vehicula Diam Potenti Imperdiet Placerat Placeat</h5>
-                                                </a>
-                                            </div> <!-- End Blog News Item -->
-                                        </div>
-                                        <div class="swiper-buttons">
-                                            <!-- Add Arrows -->
-                                            <div class="swiper-button-next default__nav default__nav--next"><i class="fal fa-chevron-right"></i></div>
-                                            <div class="swiper-button-prev default__nav default__nav--prev"><i class="fal fa-chevron-left"></i></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- ::::::  End  Blog News   ::::::  -->
                 </div>
 
                 <div class="col-lg-9 col-xl-9">
@@ -213,8 +121,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="section-content section-content--border d-md-flex align-items-center justify-content-between">
-                                    <h5 class="section-content__title">Electronics Show </h5>
-                                    <a href="single-1.html">Show All Products <i class="icon-chevron-right"></i></a>
+                                    <h5 class="section-content__title">Obral Minggu ini (<?php echo date("d M Y",strtotime($week_sale[0]['date_week_sale']))." s/d ".date("d M Y",strtotime("+7 days",strtotime($week_sale[0]['date_week_sale']))); ?>)</h5>
+                                    <a href="<?php echo base_url('home/week_sale') ?>">Lihat semua <i class="icon-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -224,339 +132,32 @@
                                     <div class="product-default-slider-4grid-2row overflow-hidden  m-t-50">
                                         <div class="swiper-wrapper">
                                             <!-- Start Single Default Product -->
+                                            <?php for($i=0;$i<4;$i++): ?>
                                             <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
                                                 <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-1.jpg" alt="">
+                                                    <a href="<?php echo site_url('item/show/').$week_sale[$i]['id'] ?>" class="product__img--link">
+                                                        <img class="product__img" src="<?php $photos = explode(',',$week_sale[$i]['photo']); echo base_url('assets/uploads/').$photos[0]?>" alt="">
                                                     </a>
 
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
+                                                    <div class="product__counter-box">
+                                                        <div class="product__counter-item" data-countdown="<?php echo date("Y/m/d",strtotime("+7 days",strtotime($week_sale[0]['date_week_sale']))); ?>"></div>
+                                                    </div>
+                                                    <span class="product__tag product__tag--new">Disc</span>
                                                 </div>
                                                 <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
+                                                    <?php 
+                                                        if($week_sale[$i]['discount']>0){
+                                                            echo "<span class='product__price-del'>Rp " . number_format($week_sale[$i]['price'], 0, ".", ".")."</span> "."<span class='product__price-reg'>Rp " . number_format($week_sale[$i]['price']-(($week_sale[$i]['discount']/100)*$week_sale[$i]['price']), 0, ".</span>", ".") ;
+                                                        }else{
+                                                            echo "Rp " . number_format($week_sale[$i]['price'], 0, ".", ".") ;
+                                                        }
+                                                    ?>
                                                 </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
+                                                <a href="<?php echo site_url('item/show/').$week_sale[$i]['id'] ?>" class="product__link product__link--underline product__link--weight-light m-t-15">
+                                                    <?php echo $week_sale[$i]['name'] ?>
                                                 </a>
                                             </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-2.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--new">New</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-3.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-4.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--new">New</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-5.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-6.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--new">New</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-7.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-8.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--new">New</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-9.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-1.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-2.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--new">New</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-3.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-4.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--new">New</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-5.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-6.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--new">New</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-7.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-8.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--new">New</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
-                                            <!-- Start Single Default Product -->
-                                            <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-                                                <div class="product__img-box">
-                                                    <a href="single-1.html" class="product__img--link">
-                                                        <img class="product__img" src="<?php echo base_url('assets_user/') ?>img/product/size-normal/product-home-1-img-9.jpg" alt="">
-                                                    </a>
-
-                                                    <a href="#modalAddCart" data-toggle="modal" class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add to cart</a>
-                                                    <span class="product__tag product__tag--discount">-12%</span>
-                                                    <a href="wishlist.html" class="product__wishlist-icon"><i class="icon-heart"></i></a>
-                                                </div>
-                                                <div class="product__price m-t-10">
-                                                    <span class="product__price-del">$11.90</span>
-                                                    <span class="product__price-reg">$10.71</span>
-                                                </div>
-                                                <a href="single-1.html" class="product__link product__link--underline product__link--weight-light m-t-15">
-                                                    SonicFuel Wireless Over-Ear Headphones
-                                                </a>
-                                            </div> <!-- End Single Default Product -->
+                                            <?php endfor; ?>
                                         </div>
                                         <div class="swiper-buttons">
                                             <!-- Add Arrows -->
@@ -576,7 +177,7 @@
                             <div class="col-12">
                                 <div class="banner__box">
                                     <a href="single-1.html" class="banner__link">
-                                        <img src="<?php echo base_url('assets_user/') ?>img/banner/banner-home-4-img-1.jpg" alt="" class="banner__img">
+                                        <img src="<?php echo base_url('assets/images/') ?>/warungbg2.jpg" alt="" class="banner__img">
                                     </a>
                                 </div>
                             </div>
@@ -589,7 +190,7 @@
                             <div class="col-12">
                                 <div class="section-content section-content--border d-flex  align-items-center justify-content-between">
                                     <h5 class="section-content__title">Warung Terdekat </h5>
-                                    <a href="single-1.html">Lihat semua <i class="icon-chevron-right"></i></a>
+                                    <!--<a href="single-1.html">Lihat semua <i class="icon-chevron-right"></i></a>-->
                                 </div>
 
                                 <div class="swiper-outside-arrow-fix pos-relative">

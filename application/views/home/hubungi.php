@@ -26,38 +26,21 @@
     <main id="main-container" class="main-container">
         <div class="container">
             <div class="row">
+                <!--
                 <div class="col-12">
                     <div id="map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2136.986005919501!2d-73.9685579655238!3d40.75862446708152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258e4a1c884e5%3A0x24fe1071086b36d5!2sThe%20Atrium!5e0!3m2!1sen!2sbd!4v1585132512970!5m2!1sen!2sbd" allowfullscreen></iframe>
                     </div>
                 </div>
+            -->
                 <div class="col-lg-4 col-md-5">
                     <div class="contact-info-wrap gray-bg m-t-40">
                         <div class="single-contact-info">
                             <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
+                                <i class="fab fa-whatsapp"></i>
                             </div>
                             <div class="contact-info-dec">
-                                <a href="tel://+012-345-678-102">+012 345 678 102</a>
-                                <a href="tel://+012-345-678-102">+012 345 678 102</a>
-                            </div>
-                        </div>
-                        <div class="single-contact-info">
-                            <div class="contact-icon">
-                                <i class="fas fa-globe-asia"></i>
-                            </div>
-                            <div class="contact-info-dec">
-                                <a href="mailto://urname@email.com">urname@email.com</a>
-                                <a href="mailto://urwebsitenaem.com">urwebsitenaem.com</a>
-                            </div>
-                        </div>
-                        <div class="single-contact-info">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-info-dec">
-                                <span>Address goes here,</span>
-                                <span>street, Crossroad 123.</span>
+                                <a target="_blank" href="https://wa.me/">+62 345 678 102</a>
                             </div>
                         </div>
                         <div class="contact-social m-t-40">
