@@ -76,4 +76,41 @@ class home extends CI_Controller {
         $this->load->view('include/add_chart');
 		$this->load->view('include/footer');
     }
+
+    public function rekomendasi(){
+        
+        $data['categories'] = $this->categories->get_all();
+        $data['items'] = $this->categories->get_all_items();
+
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar');
+        $this->load->view('include/responsive');
+        $this->load->view('include/detail_chart');
+        $this->load->view('home/rekomendasi',$data);
+        $this->load->view('include/footer');
+    }
+
+    public function hasil(){
+        
+        $kategori = $this->input->get('kategori');
+        $budmin = $this->input->get('budmin');
+        $budmax = $this->input->get('budmax');
+
+        $data['categories'] = $this->categories->get_all();
+        if ($kategori == 0) {
+        	$data['hasil'] = $this->pencarians->rekom_c($budmin,$budmax);
+        }else{
+        	$data['hasil'] = $this->pencarians->rekom_d($kategori,$budmin,$budmax);
+        }
+
+        $this->load->view('include/meta');
+		$this->load->view('include/header');
+		$this->load->view('include/topbar');
+		$this->load->view('include/responsive');
+		$this->load->view('include/detail_chart');
+        $this->load->view('home/hasil',$data);
+        $this->load->view('include/add_chart');
+		$this->load->view('include/footer');
+    }
 }

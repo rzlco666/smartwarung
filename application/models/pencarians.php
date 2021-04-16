@@ -18,5 +18,22 @@ class pencarians extends CI_Model {
         return $this->db->get()->result_array();
     }
 
+    public function rekom_d($kategori,$budmin,$budmax){
+        $this->db->select('*');
+        $this->db->from('items');
+        $this->db->where('price >=', $budmin);
+        $this->db->where('price <=', $budmax);
+        $this->db->where("category",$kategori);
+        return $this->db->get()->result_array();
+    }
+
+    public function rekom_c($budmin,$budmax){
+        $this->db->select('*');
+        $this->db->from('items');
+        $this->db->where('price >=', $budmin);
+        $this->db->where('price <=', $budmax);
+        return $this->db->get()->result_array();
+    }
+
 }
 ?>

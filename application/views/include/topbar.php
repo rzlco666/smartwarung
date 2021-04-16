@@ -18,6 +18,10 @@
                                 </li> <!-- End Single Nav link-->
                                 <!--Start Single Nav link-->
                                 <li class="header__nav-item pos-relative">
+                                    <a href="<?php echo base_url('home/rekomendasi') ?>" class="header__nav-link">Rekomendasi</i></a>
+                                </li> <!-- End Single Nav link-->
+                                <!--Start Single Nav link-->
+                                <li class="header__nav-item pos-relative">
                                     <a href="<?php echo base_url('cart/') ?>" class="header__nav-link">Keranjang</i></a>
                                 </li> <!-- End Single Nav link-->
                                 <!--Start Single Nav link-->
