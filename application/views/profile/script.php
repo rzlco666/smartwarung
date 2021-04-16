@@ -81,7 +81,7 @@
 
                     +
                     '<dt class="col-sm-5 text-primary" >Total</dt>' +
-                    '<dt class="col-sm-7 text-primary">' + formatNumber(response[0]['billing']) + '</dt>' +
+                    '<dt class="col-sm-7 text-primary">' + formatNumber(response[0]['total']) + '</dt>' +
                     '</dl>' +
                     '</div>' +
                     '</div>';

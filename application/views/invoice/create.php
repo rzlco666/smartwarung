@@ -103,7 +103,7 @@
                                 </ul>
                                 <div class="your-order-total d-flex justify-content-between">
                                     <h6 class="your-order-bottom-left">Diskon</h6>
-                                    <span class="your-order-bottom-right"><?php echo "Rp ".number_format($discount, 0, ".", ".") ?></span>
+                                    <span class="your-order-bottom-right"><?php echo "<del>Rp ".number_format($discount, 0, ".", ".")."</del>" ?></span>
                                 </div>
                                 <div class="your-order-bottom d-flex justify-content-between">
                                     <h6 class="your-order-bottom-left">Ongkos Kirim</h6>
@@ -113,7 +113,7 @@
                                 <div class="your-order-total d-flex justify-content-between">
                                     <h5 class="your-order-total-left">Total</h5>
                                     <input type="number" name="billing" value="<?php echo $total ?>" hidden id="billing">
-                                    <h5 class="your-order-total-right"><?php echo "Rp " . number_format($total, 0, ".", ".") ?></h5>
+                                    <h5 class="your-order-total-right"><span id="total"><?php echo "Rp " . number_format($total, 0, ".", ".") ?></span></h5>
                                     <input type="number" name="total" hidden id="total_price">
                                 </div>
                             </div>
