@@ -56,4 +56,24 @@ class home extends CI_Controller {
         $this->load->view('include/add_chart');
 		$this->load->view('include/footer');
     }
+    public function pencarian(){
+        
+        $kategori = $this->input->get('kategori');
+        $nama = $this->input->get('nama');
+
+        if ($kategori == 0) {
+        	$data['hasil'] = $this->pencarians->pencarian_c($nama);
+        }else{
+        	$data['hasil'] = $this->pencarians->pencarian_d($kategori,$nama);
+        }
+
+        $this->load->view('include/meta');
+		$this->load->view('include/header');
+		$this->load->view('include/topbar');
+		$this->load->view('include/responsive');
+		$this->load->view('include/detail_chart');
+        $this->load->view('home/pencarian',$data);
+        $this->load->view('include/add_chart');
+		$this->load->view('include/footer');
+    }
 }

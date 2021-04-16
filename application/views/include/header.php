@@ -19,9 +19,9 @@
                         <div class="col-lg-9">
                             <div class="row align-items-center">
                                 <div class="col-lg-10">
-                                    <form class="header__search-form" action="#">
+                                    <form class="header__search-form" action="<?php echo base_url("home/pencarian/")?>">
                                         <div class="header__search-category">
-                                            <select class="bootstrap-select" name="poscats">
+                                            <select class="bootstrap-select" name="kategori">
                                                 <option value="0">Semua Kategori</option>
                                                 <?php $categories = $this->categories->get_all();
                                                 foreach($categories as $category): ?>
@@ -32,7 +32,7 @@
                                             </select>
                                         </div>
                                         <div class="header__search-input">
-                                            <input type="search" placeholder="Masukkan kata pencarian">
+                                            <input type="search" name="nama" placeholder="Masukkan kata pencarian">
                                             <button class="btn btn--submit btn--blue btn--uppercase btn--weight " type="submit">Telusuri</button>
                                         </div>
                                     </form>
