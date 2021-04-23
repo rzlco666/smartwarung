@@ -22,7 +22,9 @@ class admin extends CI_Controller{
         $data['users'] = $this->users->get_users();
         $data['pembeli_tersering'] = $this->templates->query("SELECT count(*) as total, invoices.user FROM `invoices` group by invoices.user ORDER BY `total` DESC LIMIT 3")->result();
         $data['warung_terlaku'] = $this->templates->query("SELECT count(*) as total, invoices.warung FROM `invoices` group by invoices.warung ORDER BY `total` DESC LIMIT 3")->result();
+        $data['item_terlaku'] = $this->templates->query("SELECT SUM(quantity) total,items.name FROM `invoice_details` JOIN items ON items.id=invoice_details.item JOIN invoices ON invoices.id=invoice_details.id WHERE invoices.status = 'Sudah diterima' GROUP BY items.name ORDER BY total DESC LIMIT 5")->result();
         $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
+        $data['graph_invoice_warung']=  $this->users->get_billing_warung()->result();
         $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
         $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
         $data['active'] = 'index';
@@ -38,7 +40,7 @@ class admin extends CI_Controller{
     }
     public function orders(){
         $data['warungs'] = $this->users->get_warungs();
-        $data['orders'] = $this->templates->view_where('invoices',['status'=>'Menunggu verif pembayaran'])->result();
+        $data['orders'] = $this->templates->view_where('invoices',['method'=>'Transfer'])->result();
         $data['users'] = $this->users->get_users();
         $data['active'] = 'orders';
         $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
@@ -52,7 +54,7 @@ class admin extends CI_Controller{
     }
 
     public function warung(){
-        $data['warungs'] = $this->users->get_warungs();
+        $data['warungs'] = $this->users->get_warungs_all();
         $data['active'] = 'warung';
         $data['users'] = $this->users->get_users();
         $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
@@ -64,9 +66,10 @@ class admin extends CI_Controller{
         $this->load->view('admin/js',$data);
         $this->load->view('template/footer');
     }
-    public function billing(){
+    public function billing($date=null,$type= null){
         $data['warungs'] = $this->users->get_warungs();
         $data['billings'] = $this->users->get_billing()->result_array();
+        $data['billings_cash'] = $this->users->get_billing_cash()->result_array();
         $data['active'] = 'billing';
         $data['users'] = $this->users->get_users();
         $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
@@ -110,6 +113,7 @@ class admin extends CI_Controller{
     public function approve($username){
         $data = array(
             'status' => 'Sudah diverifikasi',
+            'is_aktif' => 1,
             'updated_at' => date("Y-m-d")
         );
 
@@ -126,6 +130,7 @@ class admin extends CI_Controller{
     public function unapprove($username){
         $data = array(
             'status' => 'Verifikasi tidak disetujui',
+            'alasan' => $this->input->post('alasan'),
             'updated_at' => date("Y-m-d")
         );
         
@@ -273,6 +278,17 @@ class admin extends CI_Controller{
     {
        $this->templates->update('items',['id'=>$id],['discount'=>$this->input->post('discount')]);
        redirect('admin/week_sale');
+    }
+    public function aktifasi_warung($id,$status)
+    {
+        if ($status == 0) {
+            $alasan = $this->input->post('alasan');
+        }else{
+            $alasan = '';
+        }
+        echo $alasan;
+        $this->templates->update('warungs',['id'=>$id],['is_aktif'=>$status,'alasan'=>$alasan]);
+        redirect('admin/warung');
     }
 }
 ?>

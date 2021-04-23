@@ -30,26 +30,30 @@
                             <table class="table" id="dataTable">
                                 <thead class="thead-primary">
                                     <tr class="text-center">
+                                        <th>No</th>
                                         <th>&nbsp;</th>
-                                        <th>&nbsp;</th>
+                                        <th>&nbsp</th>
+                                        <th>ID</th>
                                         <th>Nama Barang</th>
                                         <th>Harga</th>
-                                        <th>Discount</th>
+                                        <th>Discount(%)</th>
                                         <th>Total Discount</th>
                                         <th>Periode</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($items as $item) : ?>
+                                    <?php $no=1; foreach ($items as $item) : ?>
                                         <tr class="text-center">
+                                            <td><?=$no?></td>
                                             <td class=""><a class="btn btn-sm btn-danger px-2" onclick="return confirm('Apakah Anda yakin akan menghapus?');" href="<?php echo site_url('admin/delete_week_sale/') . $item['id'] ?>"><span class="ion-ios-close"></span></a></td>
-
+                                            
                                             <td class="image-prod">
                                                 <div class="img" style="background-image:url(<?php $photos = explode(',', $item['photo']);
                                                                                                 echo base_url('assets/uploads/') . $photos[0] ?>);"></div>
                                             </td>
-
+                                            <td><?=$item['id']?></td>
+                                            
                                             <td class="product-name">
                                                 <a href="<?php echo site_url('item/show/') . $item['id'] ?>" class="h4"><?php echo $item['name'] ?></a>
                                                 <p><?php echo $item['description'] ?></p>
@@ -65,7 +69,7 @@
                                                 }
                                                 ?></td>
 
-                                            <td class="price"><?php echo $item['discount']; ?></td>
+                                            <td class="price"><?php echo $item['discount']."%"; ?></td>
                                             <td class="price"><?php echo "Rp " . number_format(($item['discount'] / 100) * $item['price'], 0, ".", "."); ?></td>
                                             <td class="price"><?php echo date("d M Y",strtotime($item['date_week_sale']))." s/d ".date("d M Y",strtotime("+7 days",strtotime($item['date_week_sale']))); ?></td>
                         </div>
@@ -74,7 +78,7 @@
                             <a href="<?php echo site_url('admin/edit_week_sale/') . $item['id'] ?>" class="btn btn-sm btn-warning px-3"> Edit </a>
                         </td>
                         </tr><!-- END TR-->
-                    <?php endforeach; ?>
+                    <?php $no++; endforeach; ?>
                     </tbody>
                     </table>
                     </div>

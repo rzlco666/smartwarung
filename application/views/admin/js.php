@@ -1,6 +1,6 @@
 <?php 
 // echo $this->uri->segment(1);
-if ($this->uri->segment(1) == "admin") {
+if ($this->uri->segment(1) == "admin" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "admin" && $this->uri->segment(2) == "index") {
     # code...
     $_labels = [];
     $_totals = [];
@@ -8,26 +8,24 @@ if ($this->uri->segment(1) == "admin") {
     $_totals_buyer = [];
     $_labels_status = [];
     $_totals_status = [];
-    for ($i=0; $i < count($warungs) ; $i++) { 
-        array_push($_labels,$warungs[$i]['username']);
+    for ($i=0; $i < count($warungs) ; $i++) {
+        array_push($_labels, $warungs[$i]['username']);
         foreach ($graph_invoice as $kuy) {
-            if($warungs[$i]['username'] == $kuy->warung){
-                array_push($_totals,$kuy->total);
-            }else{
-                array_push($_totals,0);
+            if ($warungs[$i]['username'] == $kuy->warung) {
+                array_push($_totals, $kuy->total);
+            } else {
+                array_push($_totals, 0);
             }
         }
     }
     foreach ($graph_invoice_buyer as $key) {
-        array_push($_labels_buyer,$key->name);
-        array_push($_totals_buyer,$kuy->total);
+        array_push($_labels_buyer, $key->name);
+        array_push($_totals_buyer, $key->total);
     }
-    foreach ($graph_invoice_status as $key) {
-        array_push($_labels_status,$key->status);
-        array_push($_totals_status,$kuy->total);
-    }
-}
-?>
+    foreach ($graph_invoice_warung as $key) {
+        array_push($_labels_status, $key->warung);
+        array_push($_totals_status, $key->total);
+    } ?>
 <!-- <?=json_encode($_labels)?> -->
 <script src="<?=base_url()?>assets/node_modules/chart.js/dist/Chart.js"></script>
 <script>
@@ -35,11 +33,11 @@ var ctx = document.getElementById('invoiceChart');
 var cty = document.getElementById('invoiceBuyerChart');
 var ctz = document.getElementById('invoiceStatusChart');
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: <?=json_encode($_labels)?>,
         datasets: [{
-            label: 'total of invoices per warung',
+            label: 'Total pesanan per warung',
             data: <?=json_encode($_totals)?>,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -75,7 +73,7 @@ var buyerChart = new Chart(cty, {
     data: {
         labels: <?=json_encode($_labels_buyer)?>,
         datasets: [{
-            label: 'total of invoices per buyer',
+            // label: <?=json_encode($_labels_buyer)?>,
             data: <?=json_encode($_totals_buyer)?>,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -106,11 +104,11 @@ var buyerChart = new Chart(cty, {
     }
 });
 var statusChart = new Chart(ctz, {
-    type: 'pie',
+    type: 'bar',
     data: {
         labels: <?=json_encode($_labels_status)?>,
         datasets: [{
-            label: 'total of status invoices',
+            // label: 'total of status invoices',
             data: <?=json_encode($_totals_status)?>,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -141,3 +139,5 @@ var statusChart = new Chart(ctz, {
     }
 });
 </script>
+<?php
+} ?>

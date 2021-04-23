@@ -21,22 +21,30 @@ class users extends CI_Model {
     }
     public function invoice_warung_graph()
     {
-        return $this->db->query('SELECT COUNT(*) as total, warung FROM `invoices` JOIN warungs ON warungs.username = invoices.warung WHERE invoices.status LIKE "Sudah%" GROUP BY invoices.warung');
+        return $this->db->query('SELECT COUNT(*) as total, warung FROM `invoices` JOIN warungs ON warungs.username = invoices.warung WHERE invoices.status LIKE "Sudah%" AND invoices.date LIKE "'.date('Y-m').'%" GROUP BY invoices.warung');
     }
     public function invoice_buyer_graph()
     {
-        return $this->db->query('SELECT COUNT(*) AS total, users.name FROM `invoices` JOIN users ON users.username=invoices.user WHERE users.role = 0 AND invoices.status LIKE "Sudah%" GROUP BY users.name LIMIT 10');
+        return $this->db->query('SELECT COUNT(*) AS total, users.name FROM `invoices` JOIN users ON users.username=invoices.user WHERE users.role = 0 AND invoices.status LIKE "Sudah%" AND invoices.date LIKE "'.date('Y-m').'%" GROUP BY users.name LIMIT 10');
     }
     public function invoice_status_graph()
     {
-        return $this->db->query('SELECT COUNT(*) AS total, invoices.status FROM `invoices` GROUP BY invoices.status');
+        return $this->db->query('SELECT COUNT(*) AS total, invoices.status FROM `invoices` WHERE invoices.date LIKE "'.date('Y-m').'%" GROUP BY invoices.status');
+    }
+    public function get_billing_warung()
+    {
+        return $this->db->query('SELECT SUM(invoices.billing) AS total,warungs.username as warung FROM warungs LEFT JOIN invoices ON invoices.warung=warungs.username WHERE invoices.date LIKE "'.date('Y-m').'%" GROUP BY warungs.username');
     }
     public function get_billing()
     {
-        return $this->db->query('SELECT SUM(invoices.billing) AS total,warungs.username FROM warungs LEFT JOIN invoices ON invoices.warung=warungs.username GROUP BY warungs.username');
+        return $this->db->query('SELECT SUM(invoices.billing) AS total,warungs.username FROM warungs LEFT JOIN invoices ON invoices.warung=warungs.username WHERE invoices.method="Transfer" AND invoices.status ="Sudah diterima" GROUP BY warungs.username');
+    }
+    public function get_billing_cash()
+    {
+        return $this->db->query('SELECT SUM(invoices.billing) AS total,warungs.username FROM warungs LEFT JOIN invoices ON invoices.warung=warungs.username WHERE invoices.method="COD" AND invoices.status ="Sudah diterima" GROUP BY warungs.username');
     }
 
-    public function store_warung($username,$photo){
+    public function store_warung($username,$photo,$ktp=null){
 
         if($this->get_username($username) == null){
             
@@ -58,7 +66,8 @@ class users extends CI_Model {
                 'lat' => $this->input->post('lat'),
                 'lng' => $this->input->post('lng'),
                 'username' => $this->input->post('username'),
-                'status' => 'Belum diverifikasi'
+                'status' => 'Belum diverifikasi',
+                'ktp' => $ktp
             );
 
             $this->db->insert('users',$data);
@@ -81,6 +90,14 @@ class users extends CI_Model {
     }
 
     public function get_warungs(){
+        $this->db->from('users');
+        $this->db->join('warungs','users.username = warungs.username');
+        $this->db->where(["warungs.is_aktif" => 1,"warungs.status"=>"Sudah diverifikasi"]);
+        $this->db->order_by('updated_at','DESC');
+        return $this->db->get()->result_array();
+    }
+
+    public function get_warungs_all(){
         $this->db->from('users');
         $this->db->join('warungs','users.username = warungs.username');
         $this->db->order_by('updated_at','DESC');

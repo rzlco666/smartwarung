@@ -24,7 +24,7 @@ class items extends CI_Model {
 
 
     public function get_all(){
-        return $this->db->get('items')->result_array();
+        return $this->db->query('SELECT * FROM `items` JOIN warungs ON warungs.username=items.username WHERE warungs.is_aktif = 1 AND warungs.status="Sudah diverifikasi"')->result_array();
     }
     public function get_all_(){
         $this->db->where('hide',0);

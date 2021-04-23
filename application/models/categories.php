@@ -22,4 +22,22 @@ class categories extends CI_Model {
         $this->db->where('hide',0);
         return $this->db->get()->result_array();
     }
+    
+    // batas baru
+
+    public function get_by_categories_warung($id){
+        $this->db->select('*');
+        $this->db->from('items');
+        // $this->db->join('categories', 'items.category = categories.id');
+        $this->db->where(['category'=>$id,'username'=>$this->session->username]);
+        $this->db->where('hide',0);
+        return $this->db->get()->result_array();
+    }
+    public function get_all_item_warung(){
+        $this->db->select('*');
+        $this->db->from('items');
+        // $this->db->join('categories', 'items.category = categories.id');
+        $this->db->where('items.username',$this->session->username);
+        return $this->db->get()->result_array();        
+    }
 }?>
