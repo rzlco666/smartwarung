@@ -53,6 +53,15 @@ class admin extends CI_Controller{
         $this->load->view('template/footer');
     }
 
+    public function test(){
+
+        $this->load->view('include_admin/meta');
+        $this->load->view('include_admin/header');
+        $this->load->view('include_admin/sidebar');
+        $this->load->view('admin/test');
+        $this->load->view('include_admin/footer');
+    }
+
     public function warung(){
         $data['warungs'] = $this->users->get_warungs_all();
         $data['active'] = 'warung';
