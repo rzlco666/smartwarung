@@ -8,21 +8,21 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="<?php echo base_url() ?>" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="<?php echo base_url('assets_admin/') ?>images/logo-sm-dark.png" alt="" height="22">
+                                    <img src="<?php echo base_url('assets_admin/') ?>images/logo-sm-dark2.png" alt="" height="25">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url('assets_admin/') ?>images/logo-dark.png" alt="" height="20">
+                                    <img src="<?php echo base_url('assets_admin/') ?>images/logo-dark2.png" alt="" height="40">
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="<?php echo base_url() ?>" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="<?php echo base_url('assets_admin/') ?>images/logo-sm-light.png" alt="" height="22">
+                                    <img src="<?php echo base_url('assets_admin/') ?>images/logo-sm-light2.png" alt="" height="25">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url('assets_admin/') ?>images/logo-light.png" alt="" height="20">
+                                    <img src="<?php echo base_url('assets_admin/') ?>images/logo-light2.png" alt="" height="40">
                                 </span>
                             </a>
                         </div>
@@ -63,22 +63,19 @@
                             </div>
                         </div>
 
+                        <?php if($this->session->userdata('role')==99): ?>
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url('assets_admin/') ?>images/users/avatar-1.jpg" alt="Header Avatar">
-                                <span class="d-none d-sm-inline-block ml-1">Smith</span>
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url('assets_admin/') ?>images/widget-img.png" alt="Header Avatar">
+                                <span class="d-none d-sm-inline-block ml-1"><?php echo ucwords($this->session->userdata('name')) ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <!-- item-->
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Profile</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Billing</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Settings</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Lock screen</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
+                                <a class="dropdown-item" href="<?php echo site_url('auth/logout') ?>"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
                             </div>
                         </div>
+                        <?php endif; ?>
             
                     </div>
                 </div>

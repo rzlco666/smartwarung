@@ -33,10 +33,11 @@ class admin extends CI_Controller{
         $data['total_transaction']=$this->templates->view('invoices')->num_rows();
         $data['total_item']=$this->templates->view('items')->num_rows();
 
-        $this->load->view('template/header');
+        $this->load->view('include_admin/meta');
+        $this->load->view('include_admin/header');
+        $this->load->view('include_admin/sidebar');
         $this->load->view('admin/index',$data);
-        $this->load->view('admin/js',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include_admin/footer');
     }
     public function orders(){
         $data['warungs'] = $this->users->get_warungs();
@@ -47,19 +48,34 @@ class admin extends CI_Controller{
         $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
         $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
 
-        $this->load->view('template/header');
+        $this->load->view('include_admin/meta');
+        $this->load->view('include_admin/header');
+        $this->load->view('include_admin/sidebar');
         $this->load->view('admin/orders',$data);
-        $this->load->view('admin/js',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include_admin/footer');
     }
 
     public function test(){
 
-        $this->load->view('include_admin/meta');
-        $this->load->view('include_admin/header');
-        $this->load->view('include_admin/sidebar');
-        $this->load->view('admin/test');
-        $this->load->view('include_admin/footer');
+        $data['warungs'] = $this->users->get_warungs();
+        $data['users'] = $this->users->get_users();
+        $data['pembeli_tersering'] = $this->templates->query("SELECT count(*) as total, invoices.user FROM `invoices` group by invoices.user ORDER BY `total` DESC LIMIT 3")->result();
+        $data['warung_terlaku'] = $this->templates->query("SELECT count(*) as total, invoices.warung FROM `invoices` group by invoices.warung ORDER BY `total` DESC LIMIT 3")->result();
+        $data['item_terlaku'] = $this->templates->query("SELECT SUM(quantity) total,items.name FROM `invoice_details` JOIN items ON items.id=invoice_details.item JOIN invoices ON invoices.id=invoice_details.id WHERE invoices.status = 'Sudah diterima' GROUP BY items.name ORDER BY total DESC LIMIT 5")->result();
+        $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
+        $data['graph_invoice_warung']=  $this->users->get_billing_warung()->result();
+        $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
+        $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
+        $data['active'] = 'index';
+        $data['total_user']=$this->templates->view_where('users',['role'=>0])->num_rows();
+        $data['total_warung']=$this->templates->view_where('users',['role'=>1])->num_rows();
+        $data['total_transaction']=$this->templates->view('invoices')->num_rows();
+        $data['total_item']=$this->templates->view('items')->num_rows();
+
+        $this->load->view('template/header');
+        $this->load->view('admin/test',$data);
+        $this->load->view('admin/js',$data);
+        $this->load->view('template/footer');
     }
 
     public function warung(){
@@ -198,10 +214,11 @@ class admin extends CI_Controller{
         $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
         $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
 
-        $this->load->view('template/header');
+        $this->load->view('include_admin/meta');
+        $this->load->view('include_admin/header');
+        $this->load->view('include_admin/sidebar');
         $this->load->view('admin/week_sale',$data);
-        $this->load->view('admin/js',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include_admin/footer');
     }
     public function generate_week_sale()
     {
@@ -214,17 +231,18 @@ class admin extends CI_Controller{
         foreach ($item_data as $key) {
             $item_week_sale[]=[
                 'id'=>$key->id,
-                'discount'=> (rand(1,50)),
+                'discount'=> (rand(1,30)),
                 'date_week_sale'=> date("Y-m-d")
             ];
         }
         foreach ($item_week_sale as $key) {
             // echo $key['id'];
-            $this->templates->update('items',['id'=>$key['id']],['discount'=>$key['discount'],'is_week_sale'=>1]);
+            $this->templates->update('items',['id'=>$key['id']],['discount'=>$key['discount'],'date_week_sale'=> date("Y-m-d"),'is_week_sale'=>1]);
         }
         // echo "<pre>";
         // print_r($item_week_sale);
         // echo "</pre>";
+        $this->session->set_flashdata('success_ubah', 'Sukses Generate Obral Mingguan');
         redirect('admin/week_sale');
 
     }
@@ -237,14 +255,17 @@ class admin extends CI_Controller{
     {
        $data_item=$this->templates->view_where('items',['is_week_sale'=>0,'discount'=>0])->result();
        $data['item']=$data_item;
-        $data['users'] = $this->users->get_users();
-        $data['warungs'] = $this->users->get_warungs();
-        $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
-        $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
-        $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
-       $this->load->view('template/header');
+       $data['users'] = $this->users->get_users();
+       $data['warungs'] = $this->users->get_warungs();
+       $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
+       $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
+       $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
+
+       $this->load->view('include_admin/meta');
+       $this->load->view('include_admin/header');
+       $this->load->view('include_admin/sidebar');
        $this->load->view('admin/add_week_sale',$data);
-       $this->load->view('template/footer');
+       $this->load->view('include_admin/footer');
     }
     public function save_week_sale()
     {
@@ -267,6 +288,7 @@ class admin extends CI_Controller{
                 'date_week_sale'=> date("Y-m-d"),
                 'is_week_sale'=>1]);
             // print_r($this->input->post());
+            $this->session->set_flashdata('success_ubah', 'Sukses Tambah Obral Mingguan');
             redirect('admin/week_sale');
         }
     }
@@ -279,13 +301,17 @@ class admin extends CI_Controller{
        $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
        $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
        $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
-       $this->load->view('template/header');
+
+       $this->load->view('include_admin/meta');
+       $this->load->view('include_admin/header');
+       $this->load->view('include_admin/sidebar');
        $this->load->view('admin/edit_week_sale',$data);
-       $this->load->view('template/footer');
+       $this->load->view('include_admin/footer');
     }
     public function update_week_sale($id)
     {
        $this->templates->update('items',['id'=>$id],['discount'=>$this->input->post('discount')]);
+       $this->session->set_flashdata('success_ubah', 'Sukses Ubah Obral Mingguan');
        redirect('admin/week_sale');
     }
     public function aktifasi_warung($id,$status)
