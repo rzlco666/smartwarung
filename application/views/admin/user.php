@@ -1,98 +1,134 @@
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 mb-5 text-center">
-                <ul class="product-category">
-                    <?php include APPPATH . 'views/admin/menu.php'; ?>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <!-- content -->
-            <div class="container">
-                <?php if ($this->session->flashdata('errors') != '') : ?>
-                    <div class="alert alert-danger text-center" role="alert">
-                        <?php echo $this->session->flashdata('errors'); ?>
-                    </div>
-                <?php endif; ?>
-                <?php if ($this->session->flashdata('success') != '') : ?>
-                    <div class="alert alert-success text-center" role="alert">
-                        <?php echo $this->session->flashdata('success') ?>
-                    </div>
-                <?php endif; ?>
-                <div class="row">
-                    <div class="col-md-12 ftco-animate">
-                        <div class="cart-list">
-                            <h3 class="text-center">Daftar Pembeli</h3>
-                            <table class="table myTablesss">
-                                <thead class="thead-primary">
-                                    <tr class="text-center">
-                                        <th>No</th>
-                                        <th>&nbsp;</th>
-                                        <th>Username</th>
-                                        <th>Nama</th>
-                                        <th>Phone</th>
-                                        <th>Status</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 1;
-                                    foreach ($users as $user) : ?>
-                                        <tr class="text-center">
-                                            <td><?= $no ?></td>
-                                            <!-- <td><?= $user["username"] ?></td> -->
-                                            <td class="image-prod">
-                                                <div class="img" style="width:100px;background-image:url(<?php $photos = explode(',', $user['photo']);
-                                                                                                            echo base_url('assets/uploads/');
-                                                                                                            if ($user['photo'] != null) {
-                                                                                                                echo $photos[0];
-                                                                                                            } else {
-                                                                                                                echo 'no-photo.png';
-                                                                                                            }; ?>);"></div>
-                                            </td>
-                                            <td><?= $user['username'] ?></td>
-                                            <td class="">
-                                                <a href="<?php echo site_url('profile/show/') . $user['username'] ?>" class=""><?php echo $user['name'] ?></a>
-                                                <p><?php ?></p>
-                                            </td>
-                                            <td class="">
-                                                <p><?php echo $user['phone']; ?></p>
-                                            </td>
-                                            <td>
-                                                <p class="p-2 text-small <?php echo ($user['is_aktif_cust'] == 1 ? 'bg-info text-white' : ($user['is_aktif_cust'] == 0 ? 'bg-warning text-dark' : 'bg-danger text-light')) ?>">
-                                                <?php 
-                                                    if($user['is_aktif_cust'] == 1){
-                                                        echo "Aktif";
-                                                    }else {
-                                                        echo "Nonaktif";
-                                                    }
-                                                ?>
-                                            </td>
-                                            <td class="">
-                                            <?php if ($user['is_aktif_cust'] == 0) { ?>
-                                                    <a href="<?php echo site_url('admin/aktifasi_cust/') . $user['username'] ?>/1" class="btn btn-sm btn-info px-3 mb-2" onclick="return confirm('Apkah Anda yakin ingin mengaktifkan warung?')"> Aktifkan </a>
-                                                <?php } else { ?>
-                                                    <!-- <a href="<?php echo site_url('admin/aktifasi_cust/') . $user['username'] ?>/0" class="btn btn-sm btn-danger px-3 mb-2" onclick="return confirm('Apkah Anda yakin ingin menonaktifkan warung?')"> Nonaktifkan </a> -->
-                                                    <button class="btn btn-sm btn-danger px-3 mb-2" id="btn_nonaktif" data-id="<?= $user['username'] ?>" data-toggle="modal"> Nonaktifkan </button>
-                                                <?php } ?>
-                                                <!-- <a href="<?php echo site_url('profile/edit/') . $user['username'] ?>" class="btn btn-sm btn-warning px-3 mb-2"> Edit </a> -->
-                                                <a href="<?php echo site_url('admin/delete/') . $user['username'] ?>" class="btn btn-sm btn-danger px-3 mb-2" onclick="return confirm('Apkah Anda yakin ingin menghapus?')"> Hapus </a>
-                                            </td>
-                                        </tr><!-- END TR-->
-                                    <?php $no++;
-                                    endforeach; ?>
-                                </tbody>
-                            </table>
+<!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+
+                    <!-- Page-Title -->
+                    <div class="page-title-box">
+                        <div class="container-fluid">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h4 class="page-title mb-1">Daftar Pembeli</h4>
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('admin')?>">Admin</a></li>
+                                    <li class="breadcrumb-item active">Daftar Pembeli</li>
+                                    </ol>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- endcontent -->
-        </div>
-    </div>
-</section>
+                    <!-- end page title end breadcrumb -->
 
+                    <div class="page-content-wrapper">
+                        <div class="container-fluid">
+            
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                            <?php if ($this->session->flashdata('errors') != '') : ?>
+                                                <div class="alert alert-danger text-center" role="alert">
+                                                    <?php echo $this->session->flashdata('errors'); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($this->session->flashdata('success') != '') : ?>
+                                                <div class="alert alert-success text-center" role="alert">
+                                                    <?php echo $this->session->flashdata('success') ?>
+                                                </div>
+                                            <?php endif; ?>
+            
+                                            <table id="datatable-buttons" class="table myTablesss table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>Username</th>
+                                                    <th>Nama</th>
+                                                    <th>Phone</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                                </thead>
+            
+            
+                                                <tbody>
+                                                    <?php $no = 1;
+                                                    foreach ($users as $user) : ?>
+                                                <tr>
+                                                    <td><?= $no; ?></td>
+                                                    <td>
+                                                        <img style="width:100px;" class="img-thumbnail img-fluid" src="<?php $photos = explode(',', $user['photo']); echo base_url('assets/uploads/'); if ($user['photo'] != null) { echo $photos[0]; } else { echo 'no-photo.png'; }; ?>">
+                                                    </td>
+                                                    <td><?= $user["username"] ?></td>
+                                                    <td><a href="<?php echo site_url('profile/show/') . $user['username'] ?>" class=""><?php echo $user['name'] ?></a></td>
+                                                    <td><p><?php echo $user['phone']; ?></td>
+                                                    <td>
+                                                        <?php if ($user['is_aktif_cust'] == 1) { 
+                                                                echo '<span class="badge text-white bg-success">Aktif</span>';
+                                                              } else {
+                                                                echo '<span class="badge text-white  bg-danger">Nonaktif</span>';
+                                                        } ?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group" role="group">
+                                                            <?php if ($user['is_aktif_cust'] == 0) { ?>
+                                                                <a class="btn btn-outline-secondary btn-sm" href="<?php echo site_url('admin/aktifasi_cust/') . $user['username'] ?>/1" data-toggle="tooltip" data-placement="top" title="Aktifkan" onclick="return confirm('Apkah Anda yakin ingin mengaktifkan warung?')">
+                                                                    <span class="mdi mdi-pencil"></span>
+                                                                </a>
+                                                            <?php } else { ?>
+                                                                <button class="btn btn-outline-secondary btn-sm" id="btn_nonaktif" data-id="<?= $user['username'] ?>" data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Nonaktifkan"><span class="mdi mdi-pencil"></span></button>
+                                                            <?php } ?>
+                                                            <a class="btn btn-outline-secondary btn-sm" onclick="return confirm('Apakah Anda yakin akan menghapus?');" href="<?php echo site_url('admin/delete/') . $user['username'] ?>" data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                                <span class="mdi mdi-trash-can"></span>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                    <?php $no++;
+                                                    endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+
+                        </div>
+                        <!-- end container-fluid -->
+                    </div> 
+                    <!-- end page-content-wrapper -->
+                </div>
+                <!-- End Page-content -->
+
+                <!-- sample modal content 
+                    <div id="exampleModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title mt-0" id="exampleModalLabel">Alasan tidak valid</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="POST" enctype="multipart/form-data" id="form_unapprove">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Alasan</label>
+                                        <textarea class="form-control" name="alasan" id="exampleInputPassword1" placeholder="Alasan tidak Valid"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-primary waves-effect waves-light" type="submit">Unapprove</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div> /.modal -->
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

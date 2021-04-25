@@ -101,7 +101,7 @@
                                                             <a class="btn btn-outline-secondary btn-sm" href="<?php echo site_url('admin/edit_week_sale/') . $item['id'] ?>" data-toggle="tooltip" data-placement="top" title="Ubah">
                                                                 <span class="mdi mdi-pencil"></span>
                                                             </a>
-                                                            <a class="btn btn-outline-secondary btn-sm" onclick="return confirm('Apakah Anda yakin akan menghapus?');" href="<?php echo site_url('admin/delete_week_sale/') . $item['id'] ?>" data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                            <a class="btn btn-outline-secondary btn-sm" onclick="return confirm('Apakah Anda yakin akan menghapus?');" href="<?php echo site_url('admin/delete_week_sale/') . $item['id'] ?>" data-toggle="tooltip" data-placement="top" title="Hapus">
                                                                 <span class="mdi mdi-trash-can"></span>
                                                             </a>
                                                         </div>      

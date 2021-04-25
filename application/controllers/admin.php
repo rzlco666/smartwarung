@@ -130,10 +130,11 @@ class admin extends CI_Controller{
         $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
         $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
 
-        $this->load->view('template/header');
+        $this->load->view('include_admin/meta');
+        $this->load->view('include_admin/header');
+        $this->load->view('include_admin/sidebar');
         $this->load->view('admin/user',$data);
-        $this->load->view('admin/js',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include_admin/footer');
     }
 
     public function approve($username){
