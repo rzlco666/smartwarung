@@ -1,128 +1,128 @@
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 mb-5 text-center">
-                <ul class="product-category">
-                    <?php include APPPATH . 'views/admin/menu.php'; ?>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <!-- content -->
-            <div class="container">
-                <?php if ($this->session->flashdata('errors') != '') : ?>
-                    <div class="alert alert-danger text-center" role="alert">
-                        <?php echo $this->session->flashdata('errors'); ?>
-                    </div>
-                <?php endif; ?>
-                <?php if ($this->session->flashdata('success') != '') : ?>
-                    <div class="alert alert-success text-center" role="alert">
-                        <?php echo $this->session->flashdata('success') ?>
-                    </div>
-                <?php endif; ?>
-                <div class="row">
-                    <div class="col-md-12 ftco-animate">
-                        <div class="cart-list">
-                            <div class="text-center">
-                                <a href="<?= base_url('admin/billing/') ?>" class="btn btn-primary"> Semua</a>
-                                <a href="<?= base_url('admin/billing/' . date('Y-m-d') . '/Hari') ?>" class="btn btn-primary"> Hari ini</a>
-                                <a href="<?= base_url('admin/billing/Minggu') ?>" class="btn btn-primary"> Minggu ini</a>
-                                <a href="<?= base_url('admin/billing/' . date('Y-m') . '/Bulan') ?>" class="btn btn-primary"> Bulan ini</a>
-                                <a href="<?= base_url('admin/billing/' . date('Y') . '/Tahun') ?>" class="btn btn-primary"> Tahun ini</a>
-                            </div>
-                            <div class="text-center m-3">
-                                <!-- <h3>Pembukuan Periode <?= $type ?></h3> -->
-                            </div>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Cash</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Transer</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <br>
-                                    <table class="table myTablesss">
-                                    <thead class="thead-primary">
-                                            <tr class="text-center">
-                                                <th>No</th>
-                                                <th>Nama Warung</th>
-                                                <th>Total Pendapatan</th>
-                                                <!-- <th>Aksi</th> -->
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 1;
-                                            foreach ($billings_cash as $warung) : ?>
-                                                <tr class="text-center">
-                                                    <!-- <td class="image-prod"><div class="img" style="width:100px;background-image:url(<?php $photos = explode(',', $warung['photo']);
-                                                                                                                                            echo base_url('assets/uploads/') . $photos[0] ?>);"></div></td> -->
-                                                    <td style="width: 5%;"><?= $no ?></td>
-                                                    <td class="" style="width: 25%">
-                                                        <a href="<?php echo site_url('profile/show/') . $warung['username'] ?>" class=""><?php echo $warung['username'] ?></a>
-                                                        <p><?php ?></p>
-                                                    </td>
+<!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
 
-                                                    <td class="" style="width: 25%">
-                                                        <p>
-                                                            <?php echo "Rp " . number_format($warung['total'], 0, ".", ".") ?>
-                                                        </p>
-                                                    </td>
-                                                </tr><!-- END TR-->
-                                            <?php $no++;
-                                            endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <br>
-                                    <table class="table myTablesss">
-                                        <thead class="thead-primary">
-                                            <tr class="text-center">
-                                                <th>No</th>
-                                                <th>Nama Warung</th>
-                                                <th>Total Pendapatan</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 1;
-                                            foreach ($billings as $warung) : ?>
-                                                <tr class="text-center">
-                                                    <!-- <td class="image-prod"><div class="img" style="width:100px;background-image:url(<?php $photos = explode(',', $warung['photo']);
-                                                                                                                                            echo base_url('assets/uploads/') . $photos[0] ?>);"></div></td> -->
-                                                    <td style="width: 5%;"><?= $no ?></td>
-                                                    <td class="" style="width: 25%">
-                                                        <a href="<?php echo site_url('profile/show/') . $warung['username'] ?>" class=""><?php echo $warung['username'] ?></a>
-                                                        <p><?php ?></p>
-                                                    </td>
+                <div class="page-content">
 
-                                                    <td class="" style="width: 25%">
-                                                        <p>
-                                                            <?php echo "Rp " . number_format($warung['total'], 0, ".", ".") ?>
-                                                        </p>
-                                                    </td>
-
-                                                    <td class="" style="width: 10%">
-                                                        <a data-warung="<?= $warung['username'] ?>" id="btn-modal" target="#exampleModal" data-toggle="modal" class="btn btn-sm btn-info px-3 mb-2"> Transfer</a>
-                                                    </td>
-                                                </tr><!-- END TR-->
-                                            <?php $no++;
-                                            endforeach; ?>
-                                        </tbody>
-                                    </table>
+                    <!-- Page-Title -->
+                    <div class="page-title-box">
+                        <div class="container-fluid">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h4 class="page-title mb-1">Obral Mingguan</h4>
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('admin')?>">Admin</a></li>
+                                    <li class="breadcrumb-item active">Obral Mingguan</li>
+                                    </ol>
                                 </div>
                             </div>
+
                         </div>
                     </div>
+                    <!-- end page title end breadcrumb -->
+
+                    <div class="page-content-wrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                            <div class="card-title-desc">
+                                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#transfer" role="tab" aria-controls="home" aria-selected="true">
+                                                            <i class="mdi mdi-credit-card-outline font-size-18 mr-1 align-middle"></i> <span class="d-none d-md-inline-block">Transfer</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#cash" role="tab" aria-controls="profile" aria-selected="false">
+                                                            <i class="mdi mdi-cash-usd-outline font-size-18 mr-1 align-middle"></i> <span class="d-none d-md-inline-block">Cash</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <?php
+                                            if ($this->session->flashdata('error') != '') {
+                                                echo '<div class="alert alert-primary" role="alert">';
+                                                echo $this->session->flashdata('error');
+                                                echo '</div>';
+                                            }
+                                            ?>
+
+                                            <?php
+                                            if ($this->session->flashdata('success_ubah') != '') {
+                                                echo '<div class="alert alert-success" role="alert">';
+                                                echo $this->session->flashdata('success_ubah');
+                                                echo '</div>';
+                                            }
+                                            ?>
+
+                                            <div class="tab-content" id="myTabContent">
+                                                <div class="tab-pane fade show active" id="transfer" role="tabpanel" aria-labelledby="home-tab">
+                                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No</th>
+                                                                <th>Nama Warung</th>
+                                                                <th>Total Pendapatan</th>
+                                                                <th>Aksi</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php $no = 1;
+                                                            foreach ($billings as $warung) : ?>
+                                                            <tr>
+                                                                <td><?= $no ?></td>
+                                                                <td><a href="<?php echo site_url('profile/show/') . $warung['username'] ?>" class=""><?php echo $warung['username'] ?></a></td>
+                                                                <td><?php echo "Rp " . number_format($warung['total'], 0, ".", ".") ?></td>
+                                                                <td>
+                                                                    <a data-warung="<?= $warung['username'] ?>" id="btn-modal" data-toggle="modal" class="btn btn-outline-secondary btn-sm" data-target="#exampleModal"><i class="mdi mdi-bank-transfer-out"></i> Transfer</a>
+                                                                </td>
+                                                            </tr>
+                                                            <?php $no++;
+                                                            endforeach; ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="cash" role="tabpanel" aria-labelledby="profile-tab">
+                                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No</th>
+                                                                <th>Nama Warung</th>
+                                                                <th>Total Pendapatan</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php $no = 1;
+                                                            foreach ($billings_cash as $warung) : ?>
+                                                            <tr>
+                                                                <td><?= $no ?></td>
+                                                                <td><a href="<?php echo site_url('profile/show/') . $warung['username'] ?>" class=""><?php echo $warung['username'] ?></a></td>
+                                                                <td><?php echo "Rp " . number_format($warung['total'], 0, ".", ".") ?></td>
+                                                            </tr>
+                                                            <?php $no++;
+                                                            endforeach; ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+            
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+
+                        </div>
+                        <!-- end container-fluid -->
+                    </div> 
+                    <!-- end page-content-wrapper -->
                 </div>
-            </div>
-            <!-- endcontent -->
-        </div>
-    </div>
-</section>
+                <!-- End Page-content -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -149,17 +149,3 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function() {
-        $(document).on('click', '#btn-modal', function() {
-            event.preventDefault();
-            // $(this).
-        });
-        $('.myTablesss').DataTable({
-		dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-	});
-    });
-</script>

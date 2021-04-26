@@ -40,7 +40,7 @@
                             </li>
 
                             <li>
-                                <a href="<?php echo site_url('admin/warung') ?>" class="waves-effect">
+                                <a href="<?php echo site_url('admin/billing') ?>" class="waves-effect">
                                     <div class="d-inline-block icons-sm mr-1"><i class="uim uim-graph-bar"></i></div>
                                     <span>Pendapatan Warung</span>
                                 </a>
