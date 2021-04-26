@@ -86,10 +86,11 @@ class admin extends CI_Controller{
         $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
         $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
 
-        $this->load->view('template/header');
+         $this->load->view('include_admin/meta');
+        $this->load->view('include_admin/header');
+        $this->load->view('include_admin/sidebar');
         $this->load->view('admin/warung',$data);
-        $this->load->view('admin/js',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include_admin/footer');
     }
     public function billing($date=null,$type= null){
         $data['warungs'] = $this->users->get_warungs();
@@ -147,10 +148,10 @@ class admin extends CI_Controller{
         $this->db->where('username',$username);
         if($this->db->update('warungs',$data)){
             $this->session->set_flashdata('success','Warung berhasil diverifikasi!');
-            redirect('admin');
+            redirect('admin/warung');
         }else {
             $this->session->set_flashdata('errors','Warung gagal diverifikasi');
-            redirect('admin');
+            redirect('admin/warung');
         }
     }
     
@@ -164,10 +165,10 @@ class admin extends CI_Controller{
         $this->db->where('username',$username);
         if($this->db->update('warungs',$data)){
             $this->session->set_flashdata('success','Status warung berhasil diperbarui!');
-            redirect('admin');
+            redirect('admin/warung');
         }else {
             $this->session->set_flashdata('errors','Status warung gagal diperbarui');
-            redirect('admin');
+            redirect('admin/warung');
         }
     }
     
@@ -176,10 +177,10 @@ class admin extends CI_Controller{
         
         if($this->db->delete('users')){
             $this->session->set_flashdata('success','Warung berhasil dihapus!');
-            redirect('admin');
+            redirect('admin/warung');
         }else {
             $this->session->set_flashdata('errors','Warung gagal dihapus!');
-            redirect('admin');
+            redirect('admin/warung');
         }
     }
     public function verif_payment($invoices,$status){
@@ -325,6 +326,7 @@ class admin extends CI_Controller{
         }
         echo $alasan;
         $this->templates->update('warungs',['id'=>$id],['is_aktif'=>$status,'alasan'=>$alasan]);
+        $this->session->set_flashdata('success','Warung berhasil diaktifkan!');
         redirect('admin/warung');
     }
 }
