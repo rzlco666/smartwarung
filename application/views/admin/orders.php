@@ -65,7 +65,11 @@
                                                     <td><?= $key->id; ?></td>
                                                     <td><?= $key->user ?></td>
                                                     <td><?= $key->warung ?></td>
-                                                    <td><?= $key->total ?></td>
+                                                    <td>
+                                                        <?php
+                                                        echo "Rp " . number_format($key->total, 0, ".", ".");
+                                                        ?>        
+                                                    </td>
                                                     <td>
                                                         <?php if ($key->proof_of_payment != "") { ?>
                                                             <a href="<?= base_url() ?>assets/bukti_trf/<?= $key->proof_of_payment ?>" target="_blank">Bukti Bayar</a>

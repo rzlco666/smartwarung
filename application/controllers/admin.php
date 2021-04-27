@@ -22,7 +22,10 @@ class admin extends CI_Controller{
         $data['users'] = $this->users->get_users();
         $data['pembeli_tersering'] = $this->templates->query("SELECT count(*) as total, invoices.user FROM `invoices` group by invoices.user ORDER BY `total` DESC LIMIT 3")->result();
         $data['warung_terlaku'] = $this->templates->query("SELECT count(*) as total, invoices.warung FROM `invoices` group by invoices.warung ORDER BY `total` DESC LIMIT 3")->result();
+        $data['total_transaksi'] = $this->templates->query("SELECT sum(total) as total FROM `invoices`")->result();
         $data['item_terlaku'] = $this->templates->query("SELECT SUM(quantity) total,items.name FROM `invoice_details` JOIN items ON items.id=invoice_details.item JOIN invoices ON invoices.id=invoice_details.id WHERE invoices.status = 'Sudah diterima' GROUP BY items.name ORDER BY total DESC LIMIT 5")->result();
+        $data['orders'] = $this->templates->query("SELECT * FROM `invoices` where status != 'Dibatalkan' ORDER BY `date` DESC LIMIT 5")->result();
+
         $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
         $data['graph_invoice_warung']=  $this->users->get_billing_warung()->result();
         $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();

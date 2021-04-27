@@ -44,27 +44,28 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="header-title mb-4">Monthy sale Report</h5>
+                                            <h5 class="header-title mb-4">Total Transaksi</h5>
                                             <div class="media">
                                                 <div class="media-body">
-                                                    <p class="text-muted mb-2">This month Sale</p>
-                                                    <h4>$ 13,425</h4>
+                                                    <p class="text-muted mb-2">Jumlah uang transaksi</p>
+                                                    <?php foreach ($total_transaksi as $key) {
+                                                        echo "<h4>Rp " . number_format($key->total, 0, ".</h4>", ".");
+                                                    }?>
                                                 </div>
                                                 <div dir="ltr" class="ml-2">
                                                     <input data-plugin="knob" data-width="56" data-height="56" data-linecap=round data-displayInput=false
-                                                    data-fgColor="#3051d3" value="56" data-skin="tron" data-angleOffset="56"
+                                                    data-fgColor="#3051d3" value="100" data-skin="tron" data-angleOffset="56"
                                                     data-readOnly=true data-thickness=".17" />
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="media">
                                                 <div class="media-body">
-                                                    <p class="text-muted">Sale status</p>
-                                                    <h5 class="mb-0"> + 12 % <span class="font-size-14 text-muted ml-1">From previous period</span></h5>
+                                                    <h5 class="mb-0"> *<span class="font-size-14 text-muted ml-1">Jumlah termasuk ongkir</span></h5>
                                                 </div>
 
                                                 <div class="align-self-end ml-2">
-                                                    <a href="#" class="btn btn-primary btn-sm">View more</a>
+                                                    <a href="<?php echo site_url('admin/orders/') ?>" class="btn btn-primary btn-sm">Selengkapnya</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,15 +96,15 @@
                                 <div class="col-lg-4">
                                     <div class="card">
                                         <div class="card-header bg-transparent p-3">
-                                            <h5 class="header-title mb-0">Sales Status</h5>
+                                            <h5 class="header-title mb-0">Statistik Penjualan</h5>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <div class="media my-2">
                                                     
                                                     <div class="media-body">
-                                                        <p class="text-muted mb-2">Number of Sales</p>
-                                                        <h5 class="mb-0">1,625</h5>
+                                                        <p class="text-muted mb-2">Jumlah Warung</p>
+                                                        <h5 class="mb-0"><?=$total_warung?></h5>
                                                     </div>
                                                     <div class="icons-lg ml-2 align-self-center">
                                                         <i class="uim uim-layer-group"></i>
@@ -113,8 +114,8 @@
                                             <li class="list-group-item">
                                                 <div class="media my-2">
                                                     <div class="media-body">
-                                                        <p class="text-muted mb-2">Sales Revenue </p>
-                                                        <h5 class="mb-0">$ 42,235</h5>
+                                                        <p class="text-muted mb-2">Total Invoice</p>
+                                                        <h5 class="mb-0"><?=$total_transaction?></h5>
                                                     </div>
                                                     <div class="icons-lg ml-2 align-self-center">
                                                         <i class="uim uim-analytics"></i>
@@ -124,8 +125,8 @@
                                             <li class="list-group-item">
                                                 <div class="media my-2">
                                                     <div class="media-body">
-                                                        <p class="text-muted mb-2">Average Price</p>
-                                                        <h5 class="mb-0">$ 14.56</h5>
+                                                        <p class="text-muted mb-2">Jumlah Produk</p>
+                                                        <h5 class="mb-0"><?=$total_item?></h5>
                                                     </div>
                                                     <div class="icons-lg ml-2 align-self-center">
                                                         <i class="uim uim-ruler"></i>
@@ -135,8 +136,8 @@
                                             <li class="list-group-item">
                                                 <div class="media my-2">
                                                     <div class="media-body">
-                                                        <p class="text-muted mb-2">Product Sold</p>
-                                                        <h5 class="mb-0">8,235</h5>
+                                                        <p class="text-muted mb-2">Jumlah Pembeli</p>
+                                                        <h5 class="mb-0"><?=$total_user?></h5>
                                                     </div>
                                                     <div class="icons-lg ml-2 align-self-center">
                                                         <i class="uim uim-box"></i>
@@ -149,24 +150,24 @@
                                 <div class="col-lg-4">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="header-title mb-4">Social Source</h5>
-                                            <div id="radial-chart" class="apex-charts"></div>
-
-                                            <div class="text-center mt-3">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div>
-                                                            <p class="text-muted"><i class="mdi mdi-circle text-primary mr-1"></i> Facebook</p>
-                                                            <h5>$ 1,625</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div>
-                                                            <p class="text-muted"><i class="mdi mdi-circle text-warning mr-1"></i> Twitter</p>
-                                                            <h5>$ 1,504</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <h5 class="header-title mb-4">Pembeli Tersering</h5>
+                                            <div class="table-responsive">
+                                                <table class="table table-centered table-hover mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Nama Pembeli</th>
+                                                            <th scope="col">Total Transaksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                         <?php foreach ($pembeli_tersering as $key) {?>
+                                                        <tr>
+                                                            <td><?=$key->user?></td>
+                                                            <td><?=$key->total?></td>
+                                                        </tr>
+                                                        <?php }?>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -174,9 +175,25 @@
                                 <div class="col-lg-4">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="header-title">Recent Activity</h5>
-
-                                            <div id="activity-chart" class="apex-charts"></div>
+                                            <h5 class="header-title mb-4">Warung Terlaku</h5>
+                                            <div class="table-responsive">
+                                                <table class="table table-centered table-hover mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Nama Warung</th>
+                                                            <th scope="col">Total Transaksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach ($warung_terlaku as $key) {?>
+                                                        <tr>
+                                                            <td><?=$key->warung?></td>
+                                                            <td><?=$key->total?></td>
+                                                        </tr>
+                                                        <?php }?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -188,165 +205,51 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="float-right ml-2">
-                                                <a href="#">View all</a>
+                                                <a href="<?php echo site_url('admin/orders/') ?>">Selengkapnya</a>
                                             </div>
-                                            <h5 class="header-title mb-4">Latest Transaction</h5>
+                                            <h5 class="header-title mb-4">Transaksi Terbaru</h5>
 
                                             <div class="table-responsive">
                                                 <table class="table table-centered table-hover mb-0">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Transaction ID</th>
-                                                            <th scope="col">Name</th>
-                                                            <th scope="col">Date</th>
-                                                            <th scope="col">status</th>
-                                                            <th scope="col">Amount</th>
-                                                            <th scope="col">Action</th>
+                                                            <th scope="col">No</th>
+                                                            <th scope="col">Pembeli</th>
+                                                            <th scope="col">Warung</th>
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col">Total</th>
+                                                            <th scope="col">Tanggal</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php $no = 1;
+                                                        foreach ($orders as $key) : ?>
                                                         <tr>
                                                             <th scope="row">
-                                                                <a href="#"># XO1345</a>
+                                                                <a href="#"><?= $no; ?></a>
                                                             </th>
-                                                            <td>Danny Johnson</td>
-                                                            <td>26 Jan</td>
+                                                            <td><?= $key->user ?></td>
+                                                            <td><?= $key->warung ?></td>
                                                             <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
+                                                                <div class="badge badge-soft-primary"><?= $key->status ?></div>
                                                             </td>
-                                                            <td>$124</td>
                                                             <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
+                                                                <?php
+                                                                    echo "Rp " . number_format($key->total, 0, ".", ".");
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php 
+                                                                    echo date("d M Y",strtotime($key->date))
+                                                                ?>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1346</a>
-                                                            </th>
-                                                            <td>Alvin Newton</td>
-                                                            <td>21 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-warning">Pending</div>
-                                                            </td>
-                                                            <td>$112</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1347</a>
-                                                            </th>
-                                                            <td>Bennie Perez</td>
-                                                            <td>15 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
-                                                            </td>
-                                                            <td>$106</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1348</a>
-                                                            </th>
-                                                            <td>Steven Kwon</td>
-                                                            <td>11 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
-                                                            </td>
-                                                            <td>$115</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1349</a>
-                                                            </th>
-                                                            <td>Bryan Roark</td>
-                                                            <td>08 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-danger">Cancel</div>
-                                                            </td>
-                                                            <td>$105</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                        <?php $no++;
+                                                        endforeach; ?>
                                                     </tbody>
                                                 </table>
                                             </div>
 
-                                            <div class="mt-4">
-                                                <ul class="pagination pagination-rounded justify-content-center mb-0">
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link" href="#" aria-label="Previous">
-                                                            <i class="mdi mdi-chevron-left"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Next">
-                                                            <i class="mdi mdi-chevron-right"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
