@@ -128,6 +128,37 @@ class admin extends CI_Controller{
         $this->load->view('include_admin/footer');
     }
 
+    public function keterangan_non_pembeli($username)
+    {
+       $data_item=$this->templates->view_where('users',['username'=>$username])->row_array();
+       $data['item']=$data_item;
+       $data['warungs'] = $this->users->get_warungs_all();
+       $data['active'] = 'warung';
+       $data['users'] = $this->users->get_users();
+       $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
+       $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
+       $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
+
+       $this->load->view('include_admin/meta');
+       $this->load->view('include_admin/header');
+       $this->load->view('include_admin/sidebar');
+       $this->load->view('admin/keterangan_non_pembeli',$data);
+       $this->load->view('include_admin/footer');
+    }
+
+    public function aktifasi_pembeli($username,$status)
+    {
+        if ($status == 0) {
+            $alasan = $this->input->post('alasan');
+        }else{
+            $alasan = '';
+        }
+        echo $alasan;
+        $this->templates->update('users',['username'=>$username],['is_aktif_cust'=>$status,'alasan'=>$alasan]);
+        $this->session->set_flashdata('success','Status pembeli berhasil diubah!');
+        redirect('admin/user');
+    }
+
     public function user(){
         $data['warungs'] = $this->users->get_warungs();
         $data['users'] = $this->users->get_users();

@@ -129,23 +129,28 @@ class auth extends CI_Controller {
 		$data['user'] = $this->users->get_username($this->input->post('username'));
 
 		if(md5($this->input->post('password')) == $data['user']['password']){
-			
-			$this->session->set_userdata('login',TRUE);
-			$this->session->set_userdata('email',$data['user']['email']);
-			$this->session->set_userdata('name',$data['user']['name']);
-			$this->session->set_userdata('username', $data['user']['username']);
-			$this->session->set_userdata('role', $data['user']['role']);
 
-			if($this->session->userdata('role') == 99){
-				$this->session->set_userdata('isAdmin',TRUE);
-				redirect('admin');
-			}elseif ($this->session->userdata('role') == 1) {
-				$this->session->set_userdata('isWarung',TRUE);
-				redirect('profile');
-			}
-			elseif ($this->session->userdata('role') == 0) {
-				$this->session->set_userdata('isBuyer',TRUE);
-				redirect('home', 'refresh');
+			if ($data['user']['is_aktif_cust'] == 1) {
+				$this->session->set_userdata('login',TRUE);
+				$this->session->set_userdata('email',$data['user']['email']);
+				$this->session->set_userdata('name',$data['user']['name']);
+				$this->session->set_userdata('username', $data['user']['username']);
+				$this->session->set_userdata('role', $data['user']['role']);
+
+				if($this->session->userdata('role') == 99){
+					$this->session->set_userdata('isAdmin',TRUE);
+					redirect('admin');
+				}elseif ($this->session->userdata('role') == 1) {
+					$this->session->set_userdata('isWarung',TRUE);
+					redirect('profile');
+				}
+				elseif ($this->session->userdata('role') == 0) {
+					$this->session->set_userdata('isBuyer',TRUE);
+					redirect('home', 'refresh');
+				}
+			}else{
+				$this->session->set_flashdata('errors','Akun sedang ditangguhkan');
+				redirect('auth/login', 'refresh');
 			}
 		}else{
 			$this->session->set_flashdata('errors','Invalid username or password');

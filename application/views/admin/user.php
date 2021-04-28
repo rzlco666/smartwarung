@@ -50,6 +50,7 @@
                                                     <th>Nama</th>
                                                     <th>Phone</th>
                                                     <th>Status</th>
+                                                    <th>Alasan</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                                 </thead>
@@ -73,14 +74,17 @@
                                                                 echo '<span class="badge text-white  bg-danger">Nonaktif</span>';
                                                         } ?>
                                                     </td>
+                                                    <td><p><?php echo $user['alasan']; ?></td>
                                                     <td>
                                                         <div class="btn-group" role="group">
                                                             <?php if ($user['is_aktif_cust'] == 0) { ?>
-                                                                <a class="btn btn-outline-secondary btn-sm" href="<?php echo site_url('admin/aktifasi_cust/') . $user['username'] ?>/1" data-toggle="tooltip" data-placement="top" title="Aktifkan" onclick="return confirm('Apkah Anda yakin ingin mengaktifkan warung?')">
+                                                                <a class="btn btn-outline-secondary btn-sm" href="<?php echo site_url('admin/aktifasi_pembeli/') . $user['username'] ?>/1" data-toggle="tooltip" data-placement="top" title="Aktifkan" onclick="return confirm('Apkah Anda yakin ingin mengaktifkan pembeli?')">
                                                                     <span class="mdi mdi-pencil"></span>
                                                                 </a>
                                                             <?php } else { ?>
-                                                                <button class="btn btn-outline-secondary btn-sm" id="btn_nonaktif" data-id="<?= $user['username'] ?>" data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Nonaktifkan"><span class="mdi mdi-account-off"></span></button>
+                                                                <a class="btn btn-outline-secondary btn-sm" onclick="return confirm('Apakah Anda yakin akan nonaktifkan?');" href="<?php echo site_url('admin/keterangan_non_pembeli/') . $user['username'] ?>" data-toggle="tooltip" data-placement="top" title="Nonaktifkan Akun">
+                                                                    <span class="mdi mdi-account-off"></span>
+                                                                </a>
                                                             <?php } ?>
                                                             <a class="btn btn-outline-secondary btn-sm" onclick="return confirm('Apakah Anda yakin akan menghapus?');" href="<?php echo site_url('admin/delete/') . $user['username'] ?>" data-toggle="tooltip" data-placement="top" title="Hapus Akun">
                                                                 <span class="mdi mdi-trash-can"></span>
