@@ -106,14 +106,16 @@
                                                                 <a target="_blank" href="<?= base_url('assets/uploads/') . $warung['ktp'] ?>" class="btn dropdown-item"> Lihat KTP </a>
                                                                 <!-- <a href="<?php  ?>" class="btn btn-sm btn-warning px-3 mb-2"> Edit </a> -->
                                                                 <?php if ($warung['is_aktif'] == 0) { ?>
-                                                                    <a href="<?php echo site_url('admin/aktifasi_warung/') . $warung['id'] ?>/1" class="btn dropdown-item" onclick="return confirm('Apakah Anda yakin ingin mengaktifkan warung?')"> Aktifkan </a>
+                                                                    <?php if ($warung['status'] == 'Sudah diverifikasi') { ?>
+                                                                        <a href="<?php echo site_url('admin/aktifasi_warung/') . $warung['id'] ?>/1" class="btn dropdown-item" onclick="return confirm('Apakah Anda yakin ingin mengaktifkan warung?')"> Aktifkan </a>
+                                                                    <?php } ?>
                                                                 <?php } else { ?>
                                                                     <!-- <a href="<?php echo site_url('admin/aktifasi_warung/') . $warung['id'] ?>/0" class="btn btn-sm btn-danger px-3 mb-2" onclick="return confirm('Apkah Anda yakin ingin menonaktifkan warung?')"> Nonaktifkan </a> -->
-                                                                    <button class="btn btn-sm btn-danger px-3 mb-2" id="btn_nonaktif" data-id="<?= $warung['id'] ?>" data-toggle="modal" data-target="#nonaktifModal"> Nonaktifkan </button>
+                                                                    <a href="<?php echo site_url('admin/keterangan_non_warung/') . $warung['id'] ?>" class="btn btn-sm btn-danger px-3 mb-2 btn-block text-left" onclick="return confirm('Apakah Anda yakin nonaktifkan?')"> Nonaktifkan </a>
                                                                 <?php } ?>
                                                                 <?php if ($warung['status'] != 'Sudah diverifikasi') { ?>
                                                                     <a href="<?php echo site_url('admin/approve/') . $warung['username'] ?>" class="btn dropdown-item "> Approve </a>
-                                                                    <button class="btn dropdown-item" id="btn_unapprove" data-username="<?= $warung['username'] ?>" data-toggle="modal" data-target="#exampleModal"> Unapprove </button>
+                                                                    <a href="<?php echo site_url('admin/keterangan_un_warung/') . $warung['username'] ?>" class="btn dropdown-item" onclick="return confirm('Apakah Anda yakin tidak menyetujui?')"> Unapprove </a>
                                                                 <?php } ?>
                                                                 <a href="<?php echo site_url('admin/delete/') . $warung['username'] ?>" class="btn dropdown-item " onclick="return confirm('Apakah Anda yakin ingin menghapus?')"> Hapus </a>
                                                             </div>

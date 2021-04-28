@@ -80,9 +80,9 @@
                                                                     <span class="mdi mdi-pencil"></span>
                                                                 </a>
                                                             <?php } else { ?>
-                                                                <button class="btn btn-outline-secondary btn-sm" id="btn_nonaktif" data-id="<?= $user['username'] ?>" data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Nonaktifkan"><span class="mdi mdi-pencil"></span></button>
+                                                                <button class="btn btn-outline-secondary btn-sm" id="btn_nonaktif" data-id="<?= $user['username'] ?>" data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Nonaktifkan"><span class="mdi mdi-account-off"></span></button>
                                                             <?php } ?>
-                                                            <a class="btn btn-outline-secondary btn-sm" onclick="return confirm('Apakah Anda yakin akan menghapus?');" href="<?php echo site_url('admin/delete/') . $user['username'] ?>" data-toggle="tooltip" data-placement="top" title="Ubah">
+                                                            <a class="btn btn-outline-secondary btn-sm" onclick="return confirm('Apakah Anda yakin akan menghapus?');" href="<?php echo site_url('admin/delete/') . $user['username'] ?>" data-toggle="tooltip" data-placement="top" title="Hapus Akun">
                                                                 <span class="mdi mdi-trash-can"></span>
                                                             </a>
                                                         </div>

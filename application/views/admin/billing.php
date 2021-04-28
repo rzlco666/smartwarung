@@ -62,7 +62,7 @@
 
                                             <div class="tab-content" id="myTabContent">
                                                 <div class="tab-pane fade show active" id="transfer" role="tabpanel" aria-labelledby="home-tab">
-                                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                    <table id="datatable-buttons" class="table myTablesss table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                         <thead>
                                                             <tr>
                                                                 <th>No</th>

@@ -159,6 +159,24 @@ class admin extends CI_Controller{
             redirect('admin/warung');
         }
     }
+
+    public function keterangan_un_warung($username)
+    {
+       $data_item=$this->templates->view_where('warungs',['username'=>$username])->row_array();
+       $data['item']=$data_item;
+       $data['warungs'] = $this->users->get_warungs_all();
+       $data['active'] = 'warung';
+       $data['users'] = $this->users->get_users();
+       $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
+       $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
+       $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
+
+       $this->load->view('include_admin/meta');
+       $this->load->view('include_admin/header');
+       $this->load->view('include_admin/sidebar');
+       $this->load->view('admin/keterangan_un_warung',$data);
+       $this->load->view('include_admin/footer');
+    }
     
     public function unapprove($username){
         $data = array(
@@ -175,6 +193,37 @@ class admin extends CI_Controller{
             $this->session->set_flashdata('errors','Status warung gagal diperbarui');
             redirect('admin/warung');
         }
+    }
+
+    public function keterangan_non_warung($id)
+    {
+       $data_item=$this->templates->view_where('warungs',['id'=>$id])->row_array();
+       $data['item']=$data_item;
+       $data['warungs'] = $this->users->get_warungs_all();
+       $data['active'] = 'warung';
+       $data['users'] = $this->users->get_users();
+       $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
+       $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
+       $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
+
+       $this->load->view('include_admin/meta');
+       $this->load->view('include_admin/header');
+       $this->load->view('include_admin/sidebar');
+       $this->load->view('admin/keterangan_non_warung',$data);
+       $this->load->view('include_admin/footer');
+    }
+
+    public function aktifasi_warung($id,$status)
+    {
+        if ($status == 0) {
+            $alasan = $this->input->post('alasan');
+        }else{
+            $alasan = '';
+        }
+        echo $alasan;
+        $this->templates->update('warungs',['id'=>$id],['is_aktif'=>$status,'alasan'=>$alasan]);
+        $this->session->set_flashdata('success','Warung berhasil dinonaktifkan!');
+        redirect('admin/warung');
     }
     
     public function delete($username){
@@ -322,17 +371,6 @@ class admin extends CI_Controller{
        $this->session->set_flashdata('success_ubah', 'Sukses Ubah Obral Mingguan');
        redirect('admin/week_sale');
     }
-    public function aktifasi_warung($id,$status)
-    {
-        if ($status == 0) {
-            $alasan = $this->input->post('alasan');
-        }else{
-            $alasan = '';
-        }
-        echo $alasan;
-        $this->templates->update('warungs',['id'=>$id],['is_aktif'=>$status,'alasan'=>$alasan]);
-        $this->session->set_flashdata('success','Warung berhasil diaktifkan!');
-        redirect('admin/warung');
-    }
+
 }
 ?>
