@@ -53,6 +53,7 @@
                                                     <th>Status</th>
                                                     <th>Alasan</th>
                                                     <th>Aksi</th>
+                                                    <th>Update</th>
                                                 </tr>
                                                 </thead>
             
@@ -80,7 +81,10 @@
                                                             Menunggu Verifikasi
                                                             <?php } elseif ($key->status == "Dibatalkan") {
                                                                 echo '<span class="badge text-white  bg-danger">' . $key->status . '</span>';
-                                                            } else {
+                                                            }elseif ($key->status == "Tidak valid") {
+                                                                echo '<span class="badge text-white  bg-danger">' . $key->status . '</span>';
+                                                            } 
+                                                            else {
                                                             echo '<span class="badge text-white bg-success">Valid</span>';
                                                         } ?>
                                                     </td>
@@ -91,8 +95,24 @@
                                                                 <i class="mdi mdi-pencil"></i>
                                                             </button>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="btn dropdown-item" href="<?= base_url() ?>admin/verif_payment/<?= $key->id ?>/1">Valid</a>
-                                                                <button id="btn_unapprove" data-toggle="modal" data-target="#exampleModal" data-id="<?= $key->id ?>" class="btn dropdown-item">Tidak Valid</button>
+                                                                <?php if ($key->status != "Dibatalkan") { ?>
+                                                                   <a class="btn dropdown-item" href="<?= base_url() ?>admin/verif_payment/<?= $key->id ?>/1" onclick="return confirm('Apakah Anda yakin valid?')">Valid</a>
+
+                                                                    <?php } 
+                                                                    
+                                                                    else {
+                                                                    echo '';
+                                                                } ?>
+
+                                                                <?php if ($key->status != "Sudah diterima") { ?>
+                                                                    <a href="<?= base_url() ?>admin/order_tdkvalid/<?= $key->id ?>/0" class="btn dropdown-item" onclick="return confirm('Apakah Anda yakin tidak valid?')">Tidak Valid</a>
+
+                                                                    <?php } 
+                                                                    
+                                                                    else {
+                                                                    echo '';
+                                                                } ?>
+
                                                             </div>
                                                         </div>
                                                         <!-- <?php if ($key->status == "Menunggu verif pembayaran") { ?>
@@ -101,6 +121,7 @@
                                                         <?php } ?> -->
 
                                                     </td>
+                                                    <td><?= $key->status ?></td>
                                                 </tr>
                                                     <?php $no++;
                                                     endforeach; ?>

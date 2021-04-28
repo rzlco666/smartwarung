@@ -66,6 +66,8 @@
                                                     <span class="text-success"><?php echo $invoice['invoice_status'] ?></span>
                                                 <?php elseif ($invoice['invoice_status'] == "Dibatalkan") : ?>
                                                     <span class="text-danger"><?php echo $invoice['invoice_status'] ?></span>
+                                                <?php elseif ($invoice['invoice_status'] == "Tidak valid") : ?>
+                                                    <span class="text-danger"><?php echo $invoice['invoice_status'] ?></span>
                                                 <?php endif; ?>
                                             <?php } elseif ($this->session->role == 1) { ?>
                                                 <?php if ($invoice['invoice_status'] == "Menunggu proses penjual") : ?>
@@ -77,6 +79,8 @@
                                                 <?php elseif ($invoice['invoice_status'] == "Sudah diterima") : ?>
                                                     <span class="text-success"><?php echo $invoice['invoice_status'] ?></span>
                                                 <?php elseif ($invoice['invoice_status'] == "Dibatalkan") : ?>
+                                                    <span class="text-danger"><?php echo $invoice['invoice_status'] ?></span>
+                                                <?php elseif ($invoice['invoice_status'] == "Tidak valid") : ?>
                                                     <span class="text-danger"><?php echo $invoice['invoice_status'] ?></span>
                                                 <?php endif; ?>
                                             <?php } ?>  

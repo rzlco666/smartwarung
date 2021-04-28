@@ -253,7 +253,7 @@ class admin extends CI_Controller{
         }
         echo $alasan;
         $this->templates->update('warungs',['id'=>$id],['is_aktif'=>$status,'alasan'=>$alasan]);
-        $this->session->set_flashdata('success','Warung berhasil dinonaktifkan!');
+        $this->session->set_flashdata('success','Status warung berhasil diubah!');
         redirect('admin/warung');
     }
     
@@ -268,14 +268,39 @@ class admin extends CI_Controller{
             redirect('admin/warung');
         }
     }
+
+    public function order_tdkvalid($id)
+    {
+       $data_item=$this->templates->view_where('invoices',['id'=>$id])->row_array();
+       $data['item']=$data_item;
+       $data['warungs'] = $this->users->get_warungs_all();
+       $data['active'] = 'warung';
+       $data['users'] = $this->users->get_users();
+       $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
+       $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
+       $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
+
+       $this->load->view('include_admin/meta');
+       $this->load->view('include_admin/header');
+       $this->load->view('include_admin/sidebar');
+       $this->load->view('admin/order_tdkvalid',$data);
+       $this->load->view('include_admin/footer');
+    }
+
     public function verif_payment($invoices,$status){
         if($status == 1){
             $data = array(
                 'status' => 'Menunggu proses penjual',
+                'not_valid' => '',
             );
         }elseif ($status == 2) {
             $data = array(
                 'proof_of_payment' => '',
+            );
+        }elseif ($status == 0) {
+            $data = array(
+                'status' => 'Tidak valid',
+                'not_valid' => $this->input->post('alasan'),
             );
         }
         
@@ -292,6 +317,7 @@ class admin extends CI_Controller{
             redirect('admin/orders');
         }
     }
+
     public function week_sale()
     {
         $data['items'] = $this->templates->view_where('items',['is_week_sale'=>1])->result_array();
