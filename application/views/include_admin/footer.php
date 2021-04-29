@@ -27,6 +27,9 @@
 
         <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
 
+        <!-- dropzone js -->
+        <script src="<?php echo base_url('assets_admin/') ?>libs/dropzone/min/dropzone.min.js"></script>
+
         <!--tinymce js-->
         <script src="<?php echo base_url('assets_admin/') ?>libs/tinymce/tinymce.min.js"></script>
 

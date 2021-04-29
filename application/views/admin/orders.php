@@ -54,6 +54,7 @@
                                                     <th>Alasan</th>
                                                     <th>Aksi</th>
                                                     <th>Update</th>
+                                                    <th>Tanggal</th>
                                                 </tr>
                                                 </thead>
             
@@ -122,6 +123,7 @@
 
                                                     </td>
                                                     <td><?= $key->status ?></td>
+                                                    <td><?= $key->date ?></td>
                                                 </tr>
                                                     <?php $no++;
                                                     endforeach; ?>

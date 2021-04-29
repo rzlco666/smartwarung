@@ -28,6 +28,17 @@ class templates extends CI_Model
         $this->db->where($where);
         return $this->db->get($tabel);
     }
+    public function view_where_desc($tabel, $where, $order)
+    {
+        $this->db->where($where);
+        $this->db->order_by($order, "desc");
+        return $this->db->get($tabel);
+    }
+    public function view_desc($tabel, $order)
+    {
+        $this->db->order_by($order, "desc");
+        return $this->db->get($tabel);
+    }
     public function view($tabel)
     {
         return $this->db->get($tabel);

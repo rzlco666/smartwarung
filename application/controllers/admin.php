@@ -44,7 +44,7 @@ class admin extends CI_Controller{
     }
     public function orders(){
         $data['warungs'] = $this->users->get_warungs();
-        $data['orders'] = $this->templates->view_where('invoices',['method'=>'Transfer'])->result();
+        $data['orders'] = $this->templates->view_where_desc('invoices',['method'=>'Transfer'],'date')->result();
         $data['users'] = $this->users->get_users();
         $data['active'] = 'orders';
         $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
@@ -96,9 +96,58 @@ class admin extends CI_Controller{
         $this->load->view('admin/warung',$data);
         $this->load->view('include_admin/footer');
     }
+
+    public function transfer_warung($id,$username)
+    {
+       $data_item=$this->templates->view_where('transfer',['id'=>$id])->row_array();
+       $data['item']=$data_item;
+       $data['bank'] = $this->templates->view_where('bank_accounts',['warung_username'=>$username])->result();
+       $data['users'] = $this->users->get_users();
+       $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
+       $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
+       $data['graph_invoice_status']= $this->users->invoice_status_graph()->result();
+
+       $this->load->view('include_admin/meta');
+       $this->load->view('include_admin/header');
+       $this->load->view('include_admin/sidebar');
+       $this->load->view('admin/transfer_warung',$data);
+       $this->load->view('include_admin/footer');
+    }
+
+    public function proses_transfer($id){
+        $_FILES['photo']['name']    = $_FILES['file']['name'];
+        $_FILES['photo']['type']    = $_FILES['file']['type'];
+        $_FILES['photo']['tmp_name']= $_FILES['file']['tmp_name'];
+        $_FILES['photo']['error']   = $_FILES['file']['error'];
+        $_FILES['photo']['size']    = $_FILES['file']['size'];
+
+        $config['upload_path']      = 'assets/bukti_trf_admin/';
+        $config['allowed_types']    = 'jpg|jpeg|png|pdf';
+        $config['max_size']         = '5000';
+        $config['encrypt_name']     = true;
+
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('file')){
+            $upload_data = $this->upload->data();
+            $data = array(
+                'bukti' => $upload_data['file_name'],
+                'status' => 'Sudah ditransfer',
+            );
+            $this->db->where('id',$id);
+            $this->db->update('transfer',$data);
+
+            $this->session->set_flashdata('success','Bukti Transfer berhasil diupload');
+            redirect('admin/billing');
+        }else{
+            $this->session->set_flashdata('errors','Bukti Transfer gagal diupload');
+            redirect('admin/billing');
+        }
+    }
+
     public function billing($date=null,$type= null){
         $data['warungs'] = $this->users->get_warungs();
-        $data['billings'] = $this->users->get_billing()->result_array();
+        $data['billings'] = $this->templates->view_desc('transfer','date')->result_array();
         $data['billings_cash'] = $this->users->get_billing_cash()->result_array();
         $data['active'] = 'billing';
         $data['users'] = $this->users->get_users();

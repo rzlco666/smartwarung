@@ -10,10 +10,10 @@
                         <div class="container-fluid">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title mb-1">Obral Mingguan</h4>
+                                    <h4 class="page-title mb-1">Pendapatan Warung</h4>
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('admin')?>">Admin</a></li>
-                                    <li class="breadcrumb-item active">Obral Mingguan</li>
+                                    <li class="breadcrumb-item active">Pendapatan Warung</li>
                                     </ol>
                                 </div>
                             </div>
@@ -53,9 +53,9 @@
                                             ?>
 
                                             <?php
-                                            if ($this->session->flashdata('success_ubah') != '') {
+                                            if ($this->session->flashdata('success') != '') {
                                                 echo '<div class="alert alert-success" role="alert">';
-                                                echo $this->session->flashdata('success_ubah');
+                                                echo $this->session->flashdata('success');
                                                 echo '</div>';
                                             }
                                             ?>
@@ -68,6 +68,9 @@
                                                                 <th>No</th>
                                                                 <th>Nama Warung</th>
                                                                 <th>Total Pendapatan</th>
+                                                                <th>Status</th>
+                                                                <th>Bukti</th>
+                                                                <th>Tanggal</th>
                                                                 <th>Aksi</th>
                                                             </tr>
                                                         </thead>
@@ -79,7 +82,36 @@
                                                                 <td><a href="<?php echo site_url('profile/show/') . $warung['username'] ?>" class=""><?php echo $warung['username'] ?></a></td>
                                                                 <td><?php echo "Rp " . number_format($warung['total'], 0, ".", ".") ?></td>
                                                                 <td>
-                                                                    <a data-warung="<?= $warung['username'] ?>" id="btn-modal" data-toggle="modal" class="btn btn-outline-secondary btn-sm" data-target="#exampleModal"><i class="mdi mdi-bank-transfer-out"></i> Transfer</a>
+                                                                    <?php if ($warung['status'] == 'Sudah ditransfer') {
+                                                                            echo '<span class="badge text-white  bg-success">' . $warung['status'] . '</span>';
+                                                                        } elseif ($warung['status'] == '') {
+                                                                            echo '<span class="badge text-white  bg-danger">' . 'Belum ditransfer' . '</span>';
+                                                                        } else{
+                                                                            echo '<span class="badge text-white  bg-danger">' . $warung['status'] . '</span>';
+                                                                        }
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php if ($warung['bukti'] != "") { ?>
+                                                                        <a href="<?= base_url() ?>assets/bukti_trf_admin/<?= $warung['bukti'] ?>" target="_blank">Bukti Bayar</a>
+                                                                    <?php } ?>
+                                                                </td>
+                                                                <td>
+                                                                    <p>
+                                                                        <?php 
+                                                                        echo date("d M Y",strtotime($warung['date']))
+                                                                        ?>
+                                                                    </p>
+                                                                    <p>
+                                                                        <?php 
+                                                                        echo 'Jam : '.date("H:i",strtotime($warung['date']))
+                                                                        ?>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <?php if ($warung['status'] != "Sudah ditransfer") { ?>
+                                                                        <a href="<?php echo site_url('admin/transfer_warung/') . $warung['id'] .'/'.$warung['username']?>" class="btn btn-outline-secondary btn-sm" onclick="return confirm('Apakah Anda yakin ingin transfer ke warung?')"><i class="mdi mdi-bank-transfer-out"></i> Transfer</a>
+                                                                    <?php } ?>
                                                                 </td>
                                                             </tr>
                                                             <?php $no++;

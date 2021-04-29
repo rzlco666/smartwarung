@@ -8,6 +8,9 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="<?php echo base_url('assets_user/') ?>img/icon.png">
 
+        <!-- Plugins css -->
+        <link href="<?php echo base_url('assets_admin/') ?>libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+
         <!-- spectrum colorpicker -->
         <link href="<?php echo base_url('assets_admin/') ?>libs/spectrum-colorpicker/spectrum.css" rel="stylesheet" type="text/css" />
 
