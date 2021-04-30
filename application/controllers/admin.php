@@ -26,6 +26,13 @@ class admin extends CI_Controller{
         $data['item_terlaku'] = $this->templates->query("SELECT SUM(quantity) total,items.name FROM `invoice_details` JOIN items ON items.id=invoice_details.item JOIN invoices ON invoices.id=invoice_details.id WHERE invoices.status = 'Sudah diterima' GROUP BY items.name ORDER BY total DESC LIMIT 5")->result();
         $data['orders'] = $this->templates->query("SELECT * FROM `invoices` where status != 'Dibatalkan' ORDER BY `date` DESC LIMIT 5")->result();
 
+        $data['grafik_penjualan'] = $this->templates->query("SELECT COUNT(id) as total FROM `invoices` GROUP BY month(date)")->result();
+        $data['grafik_warung'] = $this->templates->query("SELECT COUNT(*) as total, warung FROM `invoices` JOIN warungs ON warungs.username = invoices.warung WHERE invoices.status LIKE 'Sudah%' GROUP BY invoices.warung")->result();
+        $data['grafik_pendapatan'] = $this->templates->query("SELECT SUM(invoices.billing) AS total,warungs.username as warung FROM warungs LEFT JOIN invoices ON invoices.warung=warungs.username WHERE invoices.status LIKE 'Sudah%' GROUP BY warungs.username")->result();
+        $data['grafik_pembeli'] = $this->templates->query("SELECT COUNT(*) AS total, users.name FROM `invoices` JOIN users ON users.username=invoices.user WHERE users.role = 0 AND invoices.status LIKE 'Sudah%' GROUP BY users.name LIMIT 10")->result();
+        $data['grafik_status'] = $this->templates->query("SELECT COUNT(*) AS total, invoices.status FROM `invoices` GROUP BY invoices.status")->result();
+
+
         $data['graph_invoice']= $this->users->invoice_warung_graph()->result();
         $data['graph_invoice_warung']=  $this->users->get_billing_warung()->result();
         $data['graph_invoice_buyer']= $this->users->invoice_buyer_graph()->result();
@@ -41,6 +48,7 @@ class admin extends CI_Controller{
         $this->load->view('include_admin/sidebar');
         $this->load->view('admin/index',$data);
         $this->load->view('include_admin/footer');
+        $this->load->view('admin/kode',$data);
     }
     public function orders(){
         $data['warungs'] = $this->users->get_warungs();

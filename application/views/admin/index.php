@@ -75,16 +75,8 @@
                                 <div class="col-xl-8">
                                     <div class="card">
                                         <div class="card-body">
-                                            <form class="form-inline float-right">
-                                                <div class="input-group mb-3">
-                                                    <input type="text" class="form-control form-control-sm datepicker-here" data-range="true"  data-multiple-dates-separator=" - " data-language="en" placeholder="Select Date" />
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text"><i class="far fa-calendar font-size-12"></i></span>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <h5 class="header-title mb-4">Sales Report</h5>
-                                            <div id="yearly-sale-chart" class="apex-charts"></div>
+                                            <h5 class="header-title mb-4">Grafik Penjualan</h5>
+                                            <div id="tahunan-sale-chart" class="apex-charts" dir="ltr"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +193,7 @@
                             <!-- end row -->
 
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="float-right ml-2">
@@ -253,46 +245,44 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="col-lg-4">
+
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row">
+                                <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="header-title mb-4">Revenue by Location</h5>
+                                            <h5 class="header-title mb-4">Total Pendapatan Warung (Pesanan Selesai)</h5>
+                                            <div id="column_chartt" class="apex-charts" dir="ltr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="header-title mb-4">Status Transaksi</h5>
+                                            <div id="pie_chartt" class="apex-charts" dir="ltr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
 
-                                            <div id="usa-map"  style="height: 150px" class="mb-5"></div>
-
-                                            <div class="table-responsive">
-                                                <table class="table table-centered">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">California</th>
-                                                            <td>$ 8,257</td>
-                                                            <td>
-                                                                <div dir="ltr" class="ml-2">
-                                                                    <input data-plugin="knob" data-width="36" data-height="36" data-linecap=round data-displayInput=false
-                                                                    data-fgColor="#3051d3" value="56" data-skin="tron" data-angleOffset="36"
-                                                                    data-readOnly=true data-thickness=".2" />
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">New York</th>
-                                                            <td>$ 7,253</td>
-                                                            <td>
-                                                                <div dir="ltr" class="ml-2">
-                                                                    <input data-plugin="knob" data-width="36" data-height="36" data-linecap=round data-displayInput=false
-                                                                    data-fgColor="#3051d3" value="42" data-skin="tron" data-angleOffset="36"
-                                                                    data-readOnly=true data-thickness=".2" />
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                                <div class="text-center">
-                                                    <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                </div>
-                                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="header-title mb-4">Warung Terlaku (Pesanan Selesai)</h5>
+                                            <div id="column_chart_datalabell" class="apex-charts" dir="ltr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="header-title mb-4">Pembeli Tersering (Pesanan Selesai)</h5>
+                                            <div id="bar_chartt" class="apex-charts" dir="ltr"></div>
                                         </div>
                                     </div>
                                 </div>

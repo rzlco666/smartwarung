@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Apr 2021 pada 19.46
+-- Waktu pembuatan: 29 Apr 2021 pada 19.57
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -290,16 +290,16 @@ CREATE TABLE `items` (
 INSERT INTO `items` (`id`, `username`, `name`, `category`, `stock`, `price`, `description`, `photo`, `hide`, `discount`, `is_week_sale`, `date_week_sale`, `date`) VALUES
 (8, 'gallery', 'Vixalaaaaa', 1, 74, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 10, 0, '2021-04-23', '2021-03-16 13:51:08'),
 (9, 'gallery', 'Sabunadasdasd', 4, 0, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(12, 'rajawali', 'Apaja', 2, 122, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(16, 'gallery', 'Sunlight', 1, 121, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 21, 1, '2021-04-30', '2021-03-16 13:51:08'),
-(17, 'gallery', 'Shampo Rejoice', 4, 77, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(18, 'gallery', 'Shampo Zink', 4, 20, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(19, 'rajawali', 'Shampo Dove', 4, 118, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 16, 1, '2021-04-30', '2021-03-16 13:51:08'),
+(12, 'rajawali', 'Apaja', 2, 122, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 15, 1, '2021-04-28', '2021-03-16 13:51:08'),
+(16, 'gallery', 'Sunlight', 1, 121, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 29, 1, '2021-04-28', '2021-03-16 13:51:08'),
+(17, 'gallery', 'Shampo Rejoice', 4, 77, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 16, 1, '2021-04-28', '2021-03-16 13:51:08'),
+(18, 'gallery', 'Shampo Zink', 4, 20, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 30, 1, '2021-04-28', '2021-03-16 13:51:08'),
+(19, 'rajawali', 'Shampo Dove', 4, 118, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
 (20, 'sukapura', 'Shampo Clear', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
 (21, 'sukapura', 'Sabun Lifeboy', 4, 77, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(22, 'kerabat', 'Sabun Romano', 4, 18, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 24, 1, '2021-04-30', '2021-03-16 13:51:08'),
-(23, 'rajawali', 'Sabun Dove', 4, 123, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 19, 1, '2021-04-30', '2021-03-16 13:51:08'),
-(24, 'kerabat', 'Sabun Lux', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 27, 1, '2021-04-30', '2021-03-16 13:51:08'),
+(22, 'kerabat', 'Sabun Romano', 4, 18, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
+(23, 'rajawali', 'Sabun Dove', 4, 123, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 5, 1, '2021-04-28', '2021-03-16 13:51:08'),
+(24, 'kerabat', 'Sabun Lux', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
 (25, 'gallery', 'Shampo Dove 135 mL', 4, 123, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08');
 
 -- --------------------------------------------------------
@@ -588,7 +588,7 @@ ALTER TABLE `cart_details`
 --
 ALTER TABLE `invoices`
   ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `invoices_ibfk_2` FOREIGN KEY (`warung`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `invoices_ibfk_2` FOREIGN KEY (`warung`) REFERENCES `users` (`username`);
 
 --
 -- Ketidakleluasaan untuk tabel `invoice_details`
@@ -601,22 +601,22 @@ ALTER TABLE `invoice_details`
 -- Ketidakleluasaan untuk tabel `items`
 --
 ALTER TABLE `items`
-  ADD CONSTRAINT `category` FOREIGN KEY (`category`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `category` FOREIGN KEY (`category`) REFERENCES `categories` (`id`),
   ADD CONSTRAINT `users_foods_fk1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `ratings`
 --
 ALTER TABLE `ratings`
-  ADD CONSTRAINT `ratings_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`item`) REFERENCES `items` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ratings_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`item`) REFERENCES `items` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ketidakleluasaan untuk tabel `reviews`
 --
 ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`item`) REFERENCES `items` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`),
+  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`item`) REFERENCES `items` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `warungs`
