@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Apr 2021 pada 19.46
+-- Waktu pembuatan: 01 Bulan Mei 2021 pada 07.48
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -191,7 +191,8 @@ INSERT INTO `invoices` (`id`, `user`, `warung`, `origin`, `origin_id`, `destinat
 ('invoice6083c6555bafb', 'ocha', 'gallery', 'D\' Gallery Futsal, Jalan Sukabirus, Citeureup, Bandung, West Java, Indonesia', 'ChIJ4XzVX6XpaC4RG0c8UhI-qnc', 'Transmart Buah Batu XXI, Cipagalo, Bandung, West Java, Indonesia', 'ChIJPRE4o0zoaC4RFq7LwOBN3q4', 2.2, 5500, 5610, 11110, 'COD', NULL, NULL, NULL, NULL, NULL, NULL, 'Dibatalkan', '2021-04-24 07:18:45'),
 ('invoice6083c6b83d5aa', 'ocha', 'rajawali', 'Pondok Rajawali 12, Jalan Sukabirus, Citeureup, Bandung, West Java, Indonesia', 'ChIJhYoXcKXpaC4RtsIsukYN274', 'TRANS MART BUAHBATU, Jalan Terusan Buah Batu, Kujangsari, Bandung City, West Java, Indonesia', 'ChIJtz8hjp3paC4RKV17FZ1deSE', 2.8, 7000, 11159, 18159, 'Transfer', 'BCA', '123', 'Ocha', 'BCA', '19ce08f5852e1d7a0d4632279aed0856.png', '<p>Karena bla bla bla</p>', 'Tidak valid', '2021-04-24 07:20:24'),
 ('invoice608a738b1d776', 'ocha', 'rajawali', 'Pondok Rajawali 12, Jalan Sukabirus, Citeureup, Bandung, West Java, Indonesia', 'ChIJhYoXcKXpaC4RtsIsukYN274', 'Telkom University, Jalan Telekomunikasi Jl. Terusan Buah Batu, Sukapura, Bandung City, West Java, Indonesia', 'ChIJF6V9W1wo1i0RlY84avKFRIY', 4.2, 10500, 49596, 60096, 'Transfer', 'BRI', '123', 'Ocha', 'BRI', '6ac2003957b0b57e1dac72288fcb7036.png', '', 'Sudah diterima', '2021-04-29 08:51:23'),
-('invoice608ae1872a20c', 'ocha', 'rajawali', 'Pondok Rajawali 12, Jalan Sukabirus, Citeureup, Bandung, West Java, Indonesia', 'ChIJhYoXcKXpaC4RtsIsukYN274', 'IFI Futsal, Jalan Sukabirus, Citeureup, Bandung City, West Java, Indonesia', 'ChIJgRwceq_paC4Rwjqb_J8qFFQ', 0.3, 750, 10539, 11289, 'Transfer', 'BRI', '123', 'Ocha', 'BRI', NULL, NULL, 'Menunggu verif pembayaran', '2021-04-29 16:40:39');
+('invoice608ae1872a20c', 'ocha', 'rajawali', 'Pondok Rajawali 12, Jalan Sukabirus, Citeureup, Bandung, West Java, Indonesia', 'ChIJhYoXcKXpaC4RtsIsukYN274', 'IFI Futsal, Jalan Sukabirus, Citeureup, Bandung City, West Java, Indonesia', 'ChIJgRwceq_paC4Rwjqb_J8qFFQ', 0.3, 750, 10539, 11289, 'Transfer', 'BRI', '123', 'Ocha', 'BRI', '24cb483db7927920879c7df6863c5aea.png', NULL, 'Menunggu verif pembayaran', '2021-04-29 16:40:39'),
+('invoice608ce7bb1c5ad', 'ocha', 'rajawali', 'Pondok Rajawali 12, Jalan Sukabirus, Citeureup, Bandung, West Java, Indonesia', 'ChIJhYoXcKXpaC4RtsIsukYN274', 'IFI Futsal, Jalan Sukabirus, Citeureup, Bandung City, West Java, Indonesia', 'ChIJgRwceq_paC4Rwjqb_J8qFFQ', 0.3, 750, 12399, 13149, 'Transfer', 'BCA', '1234567', 'Ocha', 'BCA', '6e70f69d5c9dafe8d943ac3f763f1dc7.png', '', 'Sudah diterima', '2021-05-01 05:31:39');
 
 --
 -- Trigger `invoices`
@@ -247,7 +248,8 @@ INSERT INTO `invoice_details` (`id`, `item`, `quantity`, `price`) VALUES
 ('invoice6083c6555bafb', 16, 1, 2610),
 ('invoice6083c6b83d5aa', 19, 1, 11159),
 ('invoice608a738b1d776', 19, 4, 12399),
-('invoice608ae1872a20c', 12, 1, 10539);
+('invoice608ae1872a20c', 12, 1, 10539),
+('invoice608ce7bb1c5ad', 23, 1, 12399);
 
 --
 -- Trigger `invoice_details`
@@ -291,16 +293,16 @@ INSERT INTO `items` (`id`, `username`, `name`, `category`, `stock`, `price`, `de
 (8, 'gallery', 'Vixalaaaaa', 1, 74, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 10, 0, '2021-04-23', '2021-03-16 13:51:08'),
 (9, 'gallery', 'Sabunadasdasd', 4, 0, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
 (12, 'rajawali', 'Apaja', 2, 122, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(16, 'gallery', 'Sunlight', 1, 121, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 21, 1, '2021-04-30', '2021-03-16 13:51:08'),
+(16, 'gallery', 'Sunlight', 1, 121, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
 (17, 'gallery', 'Shampo Rejoice', 4, 77, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
 (18, 'gallery', 'Shampo Zink', 4, 20, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(19, 'rajawali', 'Shampo Dove', 4, 118, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 16, 1, '2021-04-30', '2021-03-16 13:51:08'),
+(19, 'rajawali', 'Shampo Dove', 4, 118, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 16, 1, '2021-05-01', '2021-03-16 13:51:08'),
 (20, 'sukapura', 'Shampo Clear', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(21, 'sukapura', 'Sabun Lifeboy', 4, 77, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(22, 'kerabat', 'Sabun Romano', 4, 18, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 24, 1, '2021-04-30', '2021-03-16 13:51:08'),
-(23, 'rajawali', 'Sabun Dove', 4, 123, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 19, 1, '2021-04-30', '2021-03-16 13:51:08'),
-(24, 'kerabat', 'Sabun Lux', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 27, 1, '2021-04-30', '2021-03-16 13:51:08'),
-(25, 'gallery', 'Shampo Dove 135 mL', 4, 123, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08');
+(21, 'sukapura', 'Sabun Lifeboy', 4, 77, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 29, 1, '2021-05-01', '2021-03-16 13:51:08'),
+(22, 'kerabat', 'Sabun Romano', 4, 18, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 4, 1, '2021-05-01', '2021-03-16 13:51:08'),
+(23, 'rajawali', 'Sabun Dove', 4, 122, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
+(24, 'kerabat', 'Sabun Lux', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 11, 1, '2021-05-01', '2021-03-16 13:51:08'),
+(25, 'gallery', 'Shampo Dove 135 mL', 4, 123, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 6, 1, '2021-05-01', '2021-03-16 13:51:08');
 
 -- --------------------------------------------------------
 
@@ -368,7 +370,8 @@ CREATE TABLE `transfer` (
 INSERT INTO `transfer` (`id`, `total`, `username`, `status`, `date`, `bukti`) VALUES
 (10, '165000', 'kerabat', '', '2021-04-29 09:21:27', ''),
 (11, '2070', 'gallery', '', '2021-04-29 09:21:42', ''),
-(12, '49596', 'rajawali', 'Sudah ditransfer', '2021-04-29 17:10:23', '35ad1b932466d1d50f5ebd6491afb9ea.png');
+(12, '49596', 'rajawali', 'Sudah ditransfer', '2021-04-29 17:10:23', '35ad1b932466d1d50f5ebd6491afb9ea.png'),
+(13, '12399', 'rajawali', '', '2021-05-01 05:34:18', '');
 
 -- --------------------------------------------------------
 
@@ -558,7 +561,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT untuk tabel `transfer`
 --
 ALTER TABLE `transfer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `warungs`

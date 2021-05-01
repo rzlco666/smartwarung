@@ -53,6 +53,7 @@
                                                     <th>Status Aktif</th>
                                                     <th>Alasan</th>
                                                     <th>Aksi</th>
+                                                    <th>Hubungi</th>
                                                 </tr>
                                                 </thead>
             
@@ -121,6 +122,9 @@
                                                             </div>
 
                                                         </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="https://api.whatsapp.com/send?phone=<?php echo $warung['phone']; ?>&text=Saya%20mau%20bertanya%20tentang" class="btn btn-outline-secondary btn-sm" target="_blank"><i class="mdi mdi-whatsapp"></i> Chat</a>
                                                     </td>
                                                     
                                                 </tr>
