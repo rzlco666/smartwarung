@@ -49,6 +49,19 @@
                                                 </ul>
                                             </div>
 
+                                            <?php elseif($this->session->userdata('role') == 1): ?>
+                                            <div class="user-info user-set-role">
+                                                <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
+                                                <ul class="expand-dropdown-menu dropdown-menu">
+                                                    <li><a href="#">Hello, <?php echo $this->session->userdata('name') ?></a></li>
+                                                    <li><a href="<?php echo base_url('profile') ?>">Akun</a></li>
+                                                    <li><a href="<?php echo site_url('profile/etalase/').$this->session->userdata('username') ?>">Etalase</a></li>
+                                                    <li><a href="<?php echo site_url('item/create/') ?>">Tambah Barang</a></li>
+                                                    <li><a href="<?php echo site_url('profile/order') ?>">Pesanan Masuk</a></li>
+                                                    <li><a href="<?php echo base_url('auth/logout') ?>">Logout</a></li>
+                                                </ul>
+                                            </div>
+
                                             <?php elseif($this->session->userdata('role') == 0): ?>
                                             <div class="user-info user-set-role">
                                                 <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>

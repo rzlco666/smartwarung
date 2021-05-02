@@ -26,7 +26,7 @@ class profile extends CI_Controller {
 
             $this->load->view('include/meta');
             $this->load->view('include/header');
-            $this->load->view('include/topbar');
+            $this->load->view('include/topbar',$data);
             $this->load->view('include/responsive');
             $this->load->view('include/detail_chart');
             $this->load->view('profile/index',$data);
@@ -60,7 +60,7 @@ class profile extends CI_Controller {
 
         $this->load->view('include/meta');
         $this->load->view('include/header');
-        $this->load->view('include/topbar');
+        $this->load->view('include/topbar',$data);
         $this->load->view('include/responsive');
         $this->load->view('include/detail_chart');
         $this->load->view('profile/index2',$data);
@@ -81,7 +81,7 @@ class profile extends CI_Controller {
 
         $this->load->view('include/meta');
         $this->load->view('include/header');
-        $this->load->view('include/topbar');
+        $this->load->view('include/topbar',$data);
         $this->load->view('include/responsive');
         $this->load->view('include/detail_chart');
         $this->load->view('profile/order',$data);
@@ -91,12 +91,29 @@ class profile extends CI_Controller {
     }
 
     public function etalase($username){
-        $data['items'] = $this->items->get_all_username($username);
+        // $data['items'] = $this->items->get_all_username($username);
         $data['user'] = $this->users->get_username($username);
         $data['active'] = 'etalase';
+        $data['categories'] = $this->categories->get_all();
+        $data['items'] = $this->categories->get_all_item_warung();
+
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        $this->load->view('template/header');
+        $this->load->view('profile/etalase_warung',$data);
+        $this->load->view('template/footer');
+    }
+
+    public function etalase_warung($id){
+        $data['categories'] = $this->categories->get_all();
+        $data['user'] = $this->users->get_username($this->session->username);
+        $data['active'] = 'etalase';
+        $data['id'] = $id;
+        $data['items'] = $this->categories->get_by_categories_warung($id);
 
         $this->load->view('template/header');
-        $this->load->view('profile/etalase',$data);
+        $this->load->view('profile/etalase_category',$data);
         $this->load->view('template/footer');
     }
 
@@ -106,7 +123,7 @@ class profile extends CI_Controller {
 
         $this->load->view('include/meta');
         $this->load->view('include/header');
-        $this->load->view('include/topbar');
+        $this->load->view('include/topbar',$data);
         $this->load->view('include/responsive');
         $this->load->view('include/detail_chart');
         $this->load->view('profile/edit',$data);

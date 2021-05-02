@@ -33,11 +33,12 @@ class home extends CI_Controller {
 	{
 		$data['items'] = $this->items->get_all_();
 		$data['warungs'] = $this->users->get_warungs();
+		$data['user'] = $this->users->get_username($this->session->userdata('username'));
         $data['week_sale'] = $this->templates->view_where('items',['is_week_sale'=>1])->result_array();
 
 		$this->load->view('include/meta');
 		$this->load->view('include/header');
-		$this->load->view('include/topbar');
+		$this->load->view('include/topbar', $data);
 		$this->load->view('include/responsive');
 		$this->load->view('include/detail_chart');
 		$this->load->view('home/index', $data);
@@ -47,9 +48,10 @@ class home extends CI_Controller {
 	public function week_sale(){
         $data['categories'] = $this->categories->get_all();
         $data['week_sale'] = $this->templates->view_where('items',['is_week_sale'=>1])->result_array();
+        $data['user'] = $this->users->get_username($this->session->userdata('username'));
         $this->load->view('include/meta');
 		$this->load->view('include/header');
-		$this->load->view('include/topbar');
+		$this->load->view('include/topbar', $data);
 		$this->load->view('include/responsive');
 		$this->load->view('include/detail_chart');
         $this->load->view('home/week_sale',$data);
@@ -62,14 +64,16 @@ class home extends CI_Controller {
         $nama = $this->input->get('nama');
 
         if ($kategori == 0) {
+        	$data['user'] = $this->users->get_username($this->session->userdata('username'));
         	$data['hasil'] = $this->pencarians->pencarian_c($nama);
         }else{
+        	$data['user'] = $this->users->get_username($this->session->userdata('username'));
         	$data['hasil'] = $this->pencarians->pencarian_d($kategori,$nama);
         }
 
         $this->load->view('include/meta');
 		$this->load->view('include/header');
-		$this->load->view('include/topbar');
+		$this->load->view('include/topbar', $data);
 		$this->load->view('include/responsive');
 		$this->load->view('include/detail_chart');
         $this->load->view('home/pencarian',$data);
@@ -81,10 +85,11 @@ class home extends CI_Controller {
         
         $data['categories'] = $this->categories->get_all();
         $data['items'] = $this->categories->get_all_items();
+        $data['user'] = $this->users->get_username($this->session->userdata('username'));
 
         $this->load->view('include/meta');
         $this->load->view('include/header');
-        $this->load->view('include/topbar');
+        $this->load->view('include/topbar', $data);
         $this->load->view('include/responsive');
         $this->load->view('include/detail_chart');
         $this->load->view('home/rekomendasi',$data);
@@ -99,14 +104,16 @@ class home extends CI_Controller {
 
         $data['categories'] = $this->categories->get_all();
         if ($kategori == 0) {
+        	$data['user'] = $this->users->get_username($this->session->userdata('username'));
         	$data['hasil'] = $this->pencarians->rekom_c($budmin,$budmax);
         }else{
+        	$data['user'] = $this->users->get_username($this->session->userdata('username'));
         	$data['hasil'] = $this->pencarians->rekom_d($kategori,$budmin,$budmax);
         }
 
         $this->load->view('include/meta');
 		$this->load->view('include/header');
-		$this->load->view('include/topbar');
+		$this->load->view('include/topbar', $data);
 		$this->load->view('include/responsive');
 		$this->load->view('include/detail_chart');
         $this->load->view('home/hasil',$data);

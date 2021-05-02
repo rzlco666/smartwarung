@@ -20,7 +20,8 @@ class warung extends CI_Controller
     {
         $data=[
             'pembeli_tersering' => $this->templates->query("SELECT count(*) as total, invoices.user as user FROM `invoices` WHERE invoices.warung='".$this->session->username."' group by invoices.user ORDER BY `total` DESC LIMIT 3")->result(),
-            'item_terlaku' => $this->templates->query("SELECT sum(quantity) as total, items.name FROM `invoice_details` join items on items.id = invoice_details.item WHERE items.username='".$this->session->username."' GROUP BY items.name,items.username ORDER BY `total` DESC LIMIT 3")->result(),
+            'item_terlaku' => $this->templates->query("SELECT sum(quantity) as total, items.name,items.photo FROM `invoice_details` join items on items.id = invoice_details.item JOIN invoices ON invoices.id=invoice_details.id WHERE items.username='".$this->session->username."' AND invoices.status = 'Sudah diterima' GROUP BY items.name,items.username,items.photo ORDER BY `total` DESC LIMIT 5")->result(),
+            'item_terlaku_all' => $this->templates->query("SELECT SUM(quantity) total,items.name,items.photo FROM `invoice_details` JOIN items ON items.id=invoice_details.item JOIN invoices ON invoices.id=invoice_details.id WHERE invoices.status = 'Sudah diterima' GROUP BY items.name,items.photo ORDER BY total DESC LIMIT 5")->result(),
             'total_transaction'=>$this->templates->view_where('invoices',['warung'=>$this->session->username])->num_rows(),
             'total_item'=>$this->templates->view_where('items',['username'=>$this->session->username])->num_rows(),
             'active'=>'mywarung',
@@ -58,25 +59,34 @@ class warung extends CI_Controller
             $this->load->view('profile/scriptMap',$data);            
         }
     }
-    public function laporan()
+   public function laporan($date=null,$type= null)
     {
         if ($this->session->userdata('role')==0) {
             redirect('home');          
         }
         $group = " GROUP BY warung,items.name";
-        if ($this->input->post()) {
-            // if(isset($this->input->post('date_range'))){
-            $_date =explode(" - ",$this->input->post('date_range'));
-            // echo $this->input->post('date_range');
-            $where ="AND DATE_FORMAT(invoicesdate,'%Y-%m-%d') BETWEEN DATE_FORMAT('".$_date[0]."','%Y-%m-%d') AND DATE_FORMAT('".$_date[1]."','%Y-%m-%d')";
-            // }
+        if ($date != null) {
+            if ($date == 'Minggu') {
+                $type = $date.' ini';
+                $from = date('Y-m-d');
+                $to = date( 'Y-m-d', strtotime( '-7 days' ) );
+
+                $where ="AND DATE_FORMAT(invoices.date,'%Y-%m-%d') BETWEEN DATE_FORMAT('".$from."','%Y-%m-%d') AND DATE_FORMAT('".$to."','%Y-%m-%d')";
+            }else{
+                $type = $type." ini";
+                $where ="AND invoices.date LIKE '".$date."%'";
+            }
+
             $_laporan = $this->templates->query("SELECT invoices.id,warung,billing,delivery_fee,total,method,quantity,invoices.date,items.name,items.stock FROM invoices JOIN invoice_details on invoices.id=invoice_details.id JOIN items ON items.id=invoice_details.item WHERE invoices.warung='".$this->session->userdata('username')."' ".$where)->result();
-            $_laporan_item = $this->templates->query("SELECT warung,items.name,sum(quantity) as quantity,sum(billing) as billing,sum(delivery_fee) as delivery_fee,sum(total) as total FROM invoices JOIN invoice_details on invoices.id=invoice_details.id JOIN items ON items.id=invoice_details.item WHERE invoices.warung='".$this->session->userdata('username')."' ".$where.$group)->result();
+            // $_laporan_item = $this->templates->query("SELECT warung,items.name,sum(quantity) as quantity,sum(billing) as billing,sum(delivery_fee) as delivery_fee,sum(total) as total FROM invoices JOIN invoice_details on invoices.id=invoice_details.id JOIN items ON items.id=invoice_details.item WHERE invoices.warung='".$this->session->userdata('username')."' ".$where.$group)->result();
         }else{
-            $_laporan = $this->templates->query("SELECT invoices.id,warung,billing,delivery_fee,total,method,quantity,invoices.date,items.name,items.stock FROM invoices JOIN invoice_details on invoices.id=invoice_details.id JOIN items ON items.id=invoice_details.item WHERE invoices.warung='".$this->session->userdata('username')."' ")->result();
-            $_laporan_item = $this->templates->query("SELECT warung,items.name,sum(quantity) as quantity,sum(billing) as billing,sum(delivery_fee) as delivery_fee,sum(total) as total FROM invoices JOIN invoice_details on invoices.id=invoice_details.id JOIN items ON items.id=invoice_details.item WHERE invoices.warung='".$this->session->userdata('username')."' ".$group)->result();
+            $type = "Semua";
+            $_laporan = $this->templates->query("SELECT invoices.id,warung,billing,delivery_fee,total,method,quantity,invoices.date,items.name,items.stock FROM invoices JOIN invoice_details on invoices.id=invoice_details.id JOIN items ON items.id=invoice_details.item WHERE invoices.warung='".$this->session->userdata('username')."'")->result();
+            // $_laporan_item = $this->templates->query("SELECT warung,items.name,sum(quantity) as quantity,sum(billing) as billing,sum(delivery_fee) as delivery_fee,sum(total) as total FROM invoices JOIN invoice_details on invoices.id=invoice_details.id JOIN items ON items.id=invoice_details.item WHERE invoices.warung='".$this->session->userdata('username')."' ".$group)->result();
         }
+        $_laporan_item = $this->templates->query("SELECT items.id,items.name,categories.name AS category,items.stock FROM items JOIN categories ON categories.id=items.category WHERE items.username='".$this->session->userdata('username')."'")->result();
         $data=[
+            'type'=>$type,
             'laporan'=>$_laporan,
             'laporan_item'=>$_laporan_item,
             'user'=>$this->users->get_username($this->session->userdata('username')),

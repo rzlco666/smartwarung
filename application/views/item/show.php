@@ -90,6 +90,7 @@
                                             </div>
                                         </form>
                                         </div>
+                                        <?php elseif ($this->session->userdata('role') == '1') : ?>
                                         <?php else : ?>
                                         <div class="product-quantity product-var__item">
                                         <form id="target" action="<?php echo site_url('cart/store/') . $item['id'] ?>" method="post">

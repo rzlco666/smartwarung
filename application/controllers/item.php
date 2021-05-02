@@ -103,12 +103,13 @@ class item extends CI_Controller {
             $data['rating']['rating'] = 0;
         }
         $data['reviews'] = $this->reviews->get($id);
+        $data['user'] = $this->users->get_username($this->session->userdata('username'));
         // echo "<pre>";
         // print_r($data);
         // echo "</pre>";
         $this->load->view('include/meta');
         $this->load->view('include/header');
-        $this->load->view('include/topbar');
+        $this->load->view('include/topbar',$data);
         $this->load->view('include/responsive');
         $this->load->view('include/detail_chart');
         $this->load->view('item/show',$data);

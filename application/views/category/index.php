@@ -30,7 +30,7 @@
                                 <!-- Start Single Menu Collapse List -->
                                 <li class="sidebar__menu-collapse-list">
                                     <div class="accordion">
-                                        <a href="#" class="accordion__title">Semua Kategori </a>
+                                        <a href="<?php echo site_url('category/') ?>" class="accordion__title">Semua Kategori </a>
                                     </div>
                                 </li>  <!-- End Single Menu Collapse List -->
 

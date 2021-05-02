@@ -105,7 +105,13 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-12">
                         <div class="footer__copyright-text">
+                            <?php if($this->session->userdata('role') == ""): ?>
+                            <p>Copyright <a target="_blank" href="#">SmartWarung</a>. All Rights Reserved</p>
+                            <?php elseif($this->session->userdata('role') == 1): ?>
+                            <p>Copyright <a target="_blank" href="https://instagram.com/rafidzil">Rafi Dzil</a>. All Rights Reserved</p>
+                            <?php elseif($this->session->userdata('role') == 0): ?>
                             <p>Copyright <a target="_blank" href="https://instagram.com/vitajassinda">Ocha</a>. All Rights Reserved</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12">

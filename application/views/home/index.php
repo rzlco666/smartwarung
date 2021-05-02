@@ -197,7 +197,7 @@
                                     <div class="product-default-slider-4grid overflow-hidden  m-t-50">
                                         <div class="swiper-wrapper">
                                             <!-- Start Single Default Product -->
-                                            <?php $count = count($warungs);for($i=0;$i<2;$i++): ?>
+                                            <?php $count = count($warungs);for($i=0;$i<$count;$i++): ?>
                                             <div class="product__box product__box--default product__box--border-hover swiper-slide text-center">
                                                 <div class="product__img-box">
                                                     <a href="<?php echo site_url('profile/show/').$warungs[$i]['username'] ?>" class="product__img--link">

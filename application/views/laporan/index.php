@@ -21,15 +21,22 @@
 		<div class="row">
 			<div class="col-md-12 ftco-animate">
 				<div class="cart-list">
-				<?= form_open(site_url('warung/laporan/'),['id'=>'form_date_range']); ?>
-				<input type="text" name="date_range" id="inp_date_range" class="form-control">
-					<?= form_close(); ?>
+				<div class="text-center">
+					<a href="<?=base_url('warung/laporan/')?>" class="btn btn-primary"> Semua</a>
+					<a href="<?=base_url('warung/laporan/'.date('Y-m-d').'/Hari')?>" class="btn btn-primary"> Hari ini</a>
+					<a href="<?=base_url('warung/laporan/Minggu')?>" class="btn btn-primary"> Minggu ini</a>
+					<a href="<?=base_url('warung/laporan/'.date('Y-m').'/Bulan')?>" class="btn btn-primary"> Bulan ini</a>
+					<a href="<?=base_url('warung/laporan/'.date('Y').'/Tahun')?>" class="btn btn-primary"> Tahun ini</a>
+				</div>
+				<div class="text-center m-3">
+				<!-- <h3>Pembukuan Periode <?=$type?></h3> -->
+				</div>
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Semua</a>
+						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Laporan Penjualan</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">PerItem</a>
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Stok</a>
 					</li>
 				</ul>
 					<div class="tab-content" id="myTabContent">
@@ -42,9 +49,10 @@
 								<th>Invoice</th>
 								<th>Tanggal</th>
 								<th>Item</th>
-								<th>Qty</th>
-								<th>Billing</th>
-								<th>Delivery Fee</th>
+								<th>Stok</th>
+								<th>Kuantitas</th>
+								<th>Harga</th>
+								<th>Ongkir</th>
 								<th>Total</th>
 							</tr>
 						</thead>
@@ -55,6 +63,7 @@
 								<td><?=$key->id?></td>
 								<td><?=$key->date?></td>
 								<td><?=$key->name?></td>
+								<td><?=$key->stock?></td>
 								<td><?=$key->quantity?></td>
 								<td><?=$key->billing?></td>
 								<td><?=$key->delivery_fee?></td>
@@ -71,10 +80,8 @@
 							<tr class="text-center">
 								<th>No</th>
 								<th>Item</th>
-								<th>Qty</th>
-								<th>Billing</th>
-								<th>Delivery Fee</th>
-								<th>Total</th>
+								<th>Stok</th>
+								<th>Kategori</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -82,10 +89,8 @@
 							<tr class="text-center">
 								<td><?=$o?></td>
 								<td><?=$key->name?></td>
-								<td><?=$key->quantity?></td>
-								<td><?=$key->billing?></td>
-								<td><?=$key->delivery_fee?></td>
-								<td><?=$key->total?></td>
+								<td><?=$key->stock?></td>
+								<td><?=$key->category?></td>
 							</tr>
 						<?php $o++;}?>
 						</tbody>
@@ -99,15 +104,7 @@
 </section>
 <script>
 $(document).ready( function () {
-	$('#inp_date_range').daterangepicker({
-		locale: {
-			format: 'Y-M-DD'
-			}
-	});
-	$('#inp_date_range').on('apply.daterangepicker', function(ev, picker) {
-		// alert ('hello');
-		$("#form_date_range").submit();
-	});
+	$('.myTablesss').append('<caption style="caption-side: top;text-align:center;">Pembukuan Periode <?=$type;?></caption>');
     $('.myTablesss').DataTable({
 		dom: 'Bfrtip',
         buttons: [
