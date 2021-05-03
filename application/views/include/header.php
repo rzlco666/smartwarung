@@ -79,10 +79,18 @@
                                         <!-- Start Header Add Cart Box -->
                                         <div class="header-add-cart pos-relative m-l-40">
                                             <!-- <a href="#offcanvas-add-cart__box" class="offcanvas-toggle"> -->
-                                            <a href="<?php echo base_url('cart') ?>">    
-                                                <i class="icon-shopping-cart"></i>
-                                                <span class="wishlist-item-count pos-absolute"><?php echo count($this->carts->get_all($this->session->userdata('username'))) ?></span>
-                                            </a>
+                                            <?php if($this->session->userdata('role') == ""): ?>
+                                                <a href="<?php echo base_url('cart') ?>">    
+                                                    <i class="icon-shopping-cart"></i>
+                                                    <span class="wishlist-item-count pos-absolute"><?php echo count($this->carts->get_all($this->session->userdata('username'))) ?></span>
+                                                </a>
+                                            <?php elseif($this->session->userdata('role') == 1): ?>
+                                            <?php elseif($this->session->userdata('role') == 0): ?>
+                                                <a href="<?php echo base_url('cart') ?>">    
+                                                    <i class="icon-shopping-cart"></i>
+                                                    <span class="wishlist-item-count pos-absolute"><?php echo count($this->carts->get_all($this->session->userdata('username'))) ?></span>
+                                                </a>
+                                            <?php endif; ?>
                                         </div> <!-- End Header Add Cart Box -->
                                     </div>
                                 </div>

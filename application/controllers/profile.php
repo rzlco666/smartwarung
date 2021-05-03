@@ -260,9 +260,12 @@ class profile extends CI_Controller {
         $data['user'] = $this->users->get_username($this->session->userdata('username'));
         $data['comment'] = $this->templates->view_where('comments',['to_whom'=>$this->session->username])->result_array();
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar', $data);
+        $this->load->view('include/responsive');
         $this->load->view('warung/comment',$data);
         $this->load->view('admin/js',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
 }?>

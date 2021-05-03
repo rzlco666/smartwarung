@@ -38,10 +38,15 @@ class auth extends CI_Controller {
     
     public function register_warung()
 	{
+		$data['user'] = $this->users->get_username($this->session->userdata('username'));
 		
-		$this->load->view('template/header');
+		$this->load->view('include/meta');
+		$this->load->view('include/header');
+		$this->load->view('include/topbar', $data);
+		$this->load->view('include/responsive');
+		$this->load->view('include/detail_chart');
 		$this->load->view('auth/register_warung');
-		$this->load->view('template/footer');
+		$this->load->view('include/footer');
 		$this->load->view('auth/script'); //lokasi
 	}
     

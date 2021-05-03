@@ -16,5 +16,5 @@
     <li><a <?php echo($active == 'index'?'class="active"':'') ?> href="<?php echo site_url('profile/show/').$user['username']?>">Profile</a></li>
     <?php endif ?>
     <li><a <?php echo($active == 'etalase'?'class="active"':'') ?> href="<?php echo site_url('profile/etalase/').$user['username'] ?>">Etalase</a></li>
-    <li><a <?php echo($active == 'laporan'?'class="active"':'') ?> href="<?php echo site_url('warung/laporan/').$user['username'] ?>">Laporan</a></li>
+    <li><a <?php echo($active == 'laporan'?'class="active"':'') ?> href="<?php echo site_url('warung/laporan/') ?>">Pembukuan</a></li>
 <?php endif; ?>

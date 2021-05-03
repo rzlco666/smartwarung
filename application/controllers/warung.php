@@ -95,9 +95,12 @@ class warung extends CI_Controller
         // echo "<pre>";
         // print_r($data);
         // echo "</pre>";
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar', $data);
+        $this->load->view('include/responsive');
         $this->load->view('laporan/index',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
     public function create_bank(){
         // nama,deskripsi,harga,stok,foto
@@ -117,11 +120,7 @@ class warung extends CI_Controller
         $this->form_validation->set_rules('nomor', 'Nomor Rekening', 'required');
 
         if($this->form_validation->run() == false){
-            $data['categories'] = $this->categories->get_all();
-
-            $this->load->view('template/header');
-            $this->load->view('bank/create',$data);
-            $this->load->view('template/footer');
+            redirect('warung/bank');
         }else{
             $data=[
                 'bank'=>$this->input->post('name'),

@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/price_range_style.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/in-number.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/venobox.min.css">
+    
+    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
     <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
