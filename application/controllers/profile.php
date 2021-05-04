@@ -37,9 +37,12 @@ class profile extends CI_Controller {
             $data['invoices'] = $this->invoices->get_all_invoices($this->session->userdata('username'));
             $data['active'] = 'index';
 
-            $this->load->view('template/header');
+            $this->load->view('include/meta');
+            $this->load->view('include/header');
+            $this->load->view('include/topbar',$data);
+            $this->load->view('include/responsive');
             $this->load->view('profile/index2',$data);
-            $this->load->view('template/footer');
+            $this->load->view('include/footer');
             $this->load->view('profile/scriptMap',$data); 
         }
     }

@@ -1,75 +1,112 @@
-<div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
-    <div class="container">
-    <div class="row no-gutters slider-text align-items-center justify-content-center">
-        <div class="col-md-9 ftco-animate text-center">
-        <p class="breadcrumbs" style="color: black;"><span class="mr-2" ><a href="<?php echo base_url(); ?>" style="color: black;">Home</a></span> <span style="color: black;">Profile</span></p>
-        <h1 class="mb-0 bread" style="color: black;"><?php echo $user['name']; ?></h1>
-        </div>
-    </div>
-    </div>
-</div>
-
-    <section class="ftco-section">
-    <div class="container">
-    <?php if($this->session->flashdata('errors') != ''): ?>
-    <div class="alert alert-danger text-center" role="alert">
-    <?php echo $this->session->flashdata('errors'); ?>
-    </div>
-    <?php endif; ?>
-    <?php if($this->session->flashdata('success')!= ''): ?>
-    <div class="alert alert-success text-center" role="alert">
-    <?php echo $this->session->flashdata('success') ?>
-    </div>
-    <?php endif; ?>
-        <div class="row justify-content-center">
-            <div class="col-md-10 mb-5 text-center">
-                <ul class="product-category">
-                    <?php include APPPATH.'views/profile/menu.php'; ?>
-                </ul>
+   <!-- ::::::  Start  Breadcrumb Section  ::::::  -->
+    <div class="page-breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="page-breadcrumb__menu">
+                        <li class="page-breadcrumb__nav"><a href="#">Home</a></li>
+                        <li class="page-breadcrumb__nav active">Profile <?php echo $user['name']; ?></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <!-- content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 mb-2 justify-content-center ftco-animate">
-                        <?php if($user['photo'] == null): ?>
-                        <a href="<?php echo base_url('assets/images/no-photo.png') ?>" class="image-popup"><img src="<?php echo base_url('assets/images/no-photo.png') ?>" class="img-fluid" ></a>
-                        <?php else: ?>
-                            <a href="<?php $photos = explode(',',$user['photo']); echo base_url('assets/uploads/').$photos[0] ?>" class="image-popup mb-3"><img style="width:100%;margin-bottom:10px" src="<?php $photos = explode(',',$user['photo']); echo base_url('assets/uploads/').$photos[0] ?>" class="img-fluid" ></a>
-                            <?php if($this->session->userdata('username')==$user['username']): ?>
-                            <a class="btn btn-sm btn-primary py-2 px-5 text-white" style="margin-left: 20%" data-toggle="modal" data-target="#modal-photo">Ganti foto profile</a>
-                            <?php endif ?>
-                        <?php endif; ?>
+    </div> <!-- ::::::  End  Breadcrumb Section  ::::::  -->
+
+    <!-- ::::::  Start  Main Container Section  ::::::  -->
+    <main id="main-container" class="main-container">
+        <div class="container">
+            <div class="row flex-column-reverse flex-lg-row">
+                <!-- Start Leftside - Sidebar -->
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <!-- ::::::  Start banner Section  ::::::  -->
+                        <div class="sidebar__widget banner">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="banner__box">
+                                        <a href="single-1.html" class="banner__link">
+                                            <?php if($user['photo'] == null): ?>
+                                            <a href="<?php echo base_url('assets/images/no-photo.png') ?>" class="image-popup"><img src="<?php echo base_url('assets/images/no-photo.png') ?>" class="img-fluid" ></a>
+                                            <?php else: ?>
+                                                <a href="<?php $photos = explode(',',$user['photo']); echo base_url('assets/uploads/').$photos[0] ?>" class="image-popup mb-3"><img style="width:100%;margin-bottom:10px" src="<?php $photos = explode(',',$user['photo']); echo base_url('assets/uploads/').$photos[0] ?>" class="img-fluid" ></a>
+                                                <?php if($this->session->userdata('username')==$user['username']): ?>
+                                                <a class="btn btn-sm btn-primary py-2 px-5 text-white btn--block" data-toggle="modal" data-target="#modal-photo">Ganti Foto</a>
+                                                <?php endif ?>
+                                            <?php endif; ?>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- ::::::  End banner Section  ::::::  -->
+                        <!-- Start Single Sidebar Widget -->
+                        <div class="sidebar__widget gray-bg">
+                            <div class="sidebar__box">
+                                <h5 class="sidebar__title"><?php echo $user['name'] ?></h5>
+                            </div>
+                            <ul class="sidebar__menu-collapse">
+                                 <!-- Start Single Menu Collapse List -->
+                                <li class="sidebar__menu-collapse-list">
+                                    <div class="accordion">
+                                        <a href="#" class="accordion__title" data-toggle="collapse" data-target="#kids-fashion">Phone    : <?php echo $user['phone'] ?> </a>
+                                    </div>
+                                </li>  <!-- End Single Menu Collapse List -->
+                                <!-- Start Single Menu Collapse List -->
+                                <li class="sidebar__menu-collapse-list">
+                                    <div class="accordion">
+                                        <a href="#" class="accordion__title" data-toggle="collapse" data-target="#kids-fashion">E-mail   : <?php echo $user['email'] ?> </a>
+                                    </div>
+                                </li>  <!-- End Single Menu Collapse List -->
+                                
+                                 <?php if($this->session->userdata('username')==$user['username']): ?>
+                                    <?php if($this->session->userdata('role') == 1): ?>
+                                        <p id="status" class="btn btn--box btn--small btn-sm py-2 px-5 btn--block text-white"></p>
+                                    <?php endif; ?>
+                                    <!-- Start Single Menu Collapse List -->
+                                    <li class="sidebar__menu-collapse-list">
+                                        <div class="sidebar__box">
+                                            <a href="<?php echo site_url('profile/edit/').$user['username'] ?>" class="btn btn--box btn-warning btn--small btn-sm py-2 px-5 btn--block text-white">Ubah profile</a>
+                                        </div>
+                                    </li>  <!-- End Single Menu Collapse List -->
+                                    <p></p>
+                                    <li class="sidebar__menu-collapse-list">
+                                        <div class="sidebar__box">
+                                            <a data-toggle="modal" data-target="#modal-password" class="btn btn--box btn-secondary btn-sm py-2 px-5 text-white btn--small btn--block">Ganti password</a>
+                                        </div>
+                                    </li>  <!-- End Single Menu Collapse List -->
+
+                                <?php endif; ?>
+                            </ul>
+                        </div>  <!-- End Single Sidebar Widget -->
                     </div>
-                    <div class="col-lg-8 product-details pl-md-5 ftco-animate">
-                        <h3><?php echo $user['name'] ?></h3>
-                        <p>Phone    : <?php echo $user['phone'] ?></p>
-                        <p>E-mail   : <?php echo $user['email'] ?></p>
-                        <?php if($this->session->userdata('username')==$user['username']): ?>
-                            <?php if($this->session->userdata('role') == 1): ?>
-                                <p id="status" class="col-md-4 text-center"></p>
+                </div>  <!-- End Left Sidebar -->
+
+                 <!-- Start Rightside - Content -->
+                <div class="col-lg-9">
+                    <!-- ::::::  Start banner Section  ::::::  -->
+                    <div class="banner">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="sidebar__title">Alamat Warung</h5>
+                            </div>
+                        </div>
+                    </div> <!-- ::::::  End banner Section  ::::::  -->
+
+                    <div class="product-tab-area">
+                        <div class="tab-content ">
+                            <?php if($user['role']==1): ?>
+                                <div class="container-fluid">
+                                    <div id="map" class="mb-3" style="width: 100%;height:400px;"></div>
+                                    <span class="" style="font-weight: bold">Alamat: </span><span id="address"></span>
+                                </div>
                             <?php endif; ?>
-                            <a class="btn btn-sm btn-warning py-2 px-3 text-dark" href="<?php echo site_url('profile/edit/').$user['username'] ?>">Ubah profile</a>
-                            
-                            <a class="btn btn-sm btn-secondary py-2 px-3 text-white" data-toggle="modal" data-target="#modal-password">Ganti password</a>
-
-                        <?php endif; ?>
+                        </div>
                     </div>
-                </div>
+                </div>  <!-- Start Rightside - Content -->
+                
             </div>
-            <!-- endcontent -->
         </div>
-        <div class="row mt-5">
-            <?php if($user['role']==1): ?>
-                <div class="container-fluid">
-                    <div id="map" class="mb-3" style="width: 100%;height:400px;"></div>
-                    <span class="" style="font-weight: bold">Alamat: </span><span id="address"></span>
-                </div>
-            <?php endif; ?>
-        </div>
-    </div>
-</section>
+    </main> <!-- ::::::  End  Main Container Section  ::::::  -->
+
 <?php if($this->session->userdata('username')==$user['username']): ?>
     <!-- Modal -->
     <div class="modal fade" id="modal-photo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
