@@ -51,9 +51,12 @@ class warung extends CI_Controller
             'bank_accounts',
             ['warung_username'=>$this->session->userdata('username')]
         )->result_array();
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar', $data);
+        $this->load->view('include/responsive');
         $this->load->view('bank/index',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
         if ($this->session->userdata('role')==1) {
             $data['warung'] = $this->users->get_user_warung($this->session->userdata('username'));
             $this->load->view('profile/scriptMap',$data);            
@@ -110,9 +113,12 @@ class warung extends CI_Controller
             redirect('profile');
         };
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar', $data);
+        $this->load->view('include/responsive');
         $this->load->view('bank/create',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
     public function save_bank(){
         $this->form_validation->set_rules('name','Nama Bank', 'required');
@@ -139,12 +145,15 @@ class warung extends CI_Controller
             redirect('profile');
         };
 
-        $data['bank'] = $this->templates->view_where('bank_accounts',['id'=>$id])->result_array();
+        $data['bank'] = $this->templates->view_where('bank_accounts',['id_bank_account'=>$id])->result_array();
         // $data['categories'] = $this->categories->get_all();
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar', $data);
+        $this->load->view('include/responsive');
         $this->load->view('bank/edit',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
     public function update_bank($id){
         $this->form_validation->set_rules('name','Nama Bank', 'required');
@@ -156,11 +165,11 @@ class warung extends CI_Controller
             'account_name'=>$this->input->post('nama_rek'),
             'account_number'=>$this->input->post('nomor'),
         ];
-        $this->templates->update('bank_accounts',['id'=>$id],$data);
+        $this->templates->update('bank_accounts',['id_bank_account'=>$id],$data);
         redirect('warung/bank');
     }
     public function delete_bank($id){
-        if($this->templates->delete('bank_accounts',['id'=>$id])){
+        if($this->templates->delete('bank_accounts',['id_bank_account'=>$id])){
             $this->session->set_flashdata('success', 'Bank Account telah berhasil dihapus');
         }else{
             $this->session->set_flashdata('errors', 'Bank Account gagal dihapus');
