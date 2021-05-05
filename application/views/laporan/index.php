@@ -61,9 +61,21 @@
                                 <td><?=$key->name?></td>
                                 <td><?=$key->stock?></td>
                                 <td><?=$key->quantity?></td>
-                                <td><?=$key->billing?></td>
-                                <td><?=$key->delivery_fee?></td>
-                                <td><?=$key->total?></td>
+                                <td>
+                                    <?php 
+                                        echo "Rp " . number_format($key->billing, 0, ".", ".");
+                                    ?>        
+                                </td>
+                                <td>
+                                    <?php 
+                                        echo "Rp " . number_format($key->delivery_fee, 0, ".", ".");
+                                    ?>        
+                                </td>
+                                <td>
+                                    <?php 
+                                        echo "Rp " . number_format($key->total, 0, ".", ".");
+                                    ?>
+                                </td>
                             </tr>
                         <?php $i++;}?>
                         </tbody>

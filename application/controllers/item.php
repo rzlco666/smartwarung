@@ -30,9 +30,12 @@ class item extends CI_Controller {
 
         $data['categories'] = $this->categories->get_all();
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar',$data);
+        $this->load->view('include/responsive');
         $this->load->view('item/create',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
 
     public function store(){
@@ -127,9 +130,12 @@ class item extends CI_Controller {
         $data['item'] = $this->items->get_one_id($id);
         $data['categories'] = $this->categories->get_all();
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar',$data);
+        $this->load->view('include/responsive');
         $this->load->view('item/edit',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
 
     public function update($id){
@@ -176,7 +182,7 @@ class item extends CI_Controller {
                 redirect('profile/etalase/'.$this->session->userdata('username'));
             }
             }
-            redirect($this->session->userdata('url'));
+            redirect('profile/etalase/'.$this->session->userdata('username'));
         }else{
             $this->session->set_flashdata('errors', 'Barang tidak berhasil diperbarui!');
             redirect('warung', 'refresh');

@@ -105,9 +105,12 @@ class profile extends CI_Controller {
         // echo "<pre>";
         // print_r($data);
         // echo "</pre>";
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar',$data);
+        $this->load->view('include/responsive');
         $this->load->view('profile/etalase_warung',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
 
     public function etalase_warung($id){
@@ -117,9 +120,12 @@ class profile extends CI_Controller {
         $data['id'] = $id;
         $data['items'] = $this->categories->get_by_categories_warung($id);
 
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar',$data);
+        $this->load->view('include/responsive');
         $this->load->view('profile/etalase_category',$data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
     }
 
 
