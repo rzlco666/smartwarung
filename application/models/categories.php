@@ -40,4 +40,11 @@ class categories extends CI_Model {
         $this->db->where('items.username',$this->session->username);
         return $this->db->get()->result_array();        
     }
+    public function get_all_item_warung_user($username){
+        $this->db->select('*');
+        $this->db->from('items');
+        // $this->db->join('categories', 'items.category = categories.id');
+        $this->db->where('items.username',$username);
+        return $this->db->get()->result_array();        
+    }
 }?>

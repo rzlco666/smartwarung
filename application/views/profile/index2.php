@@ -82,25 +82,110 @@
 
                  <!-- Start Rightside - Content -->
                 <div class="col-lg-9">
-                    <!-- ::::::  Start banner Section  ::::::  -->
-                    <div class="banner">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5 class="sidebar__title">Alamat Warung</h5>
+                    <h5 class="sidebar__title">Etalase <?php echo $user['name']; ?></h5>
+
+                    <!-- ::::::  Start Sort Box Section  ::::::  -->
+                    <div class="sort-box m-tb-30">
+                        <!-- Start Sort Left Side -->
+                        <div class="sort-box__left">
+                            <div class="sort-box__tab">
+                                <ul class="sort-box__tab-list nav">
+                                    <li><a class="sort-nav-link active" data-toggle="tab" href="#sort-grid"><i class="icon-grid"></i>  </a></li>
+                                    <li><a class="sort-nav-link" data-toggle="tab" href="#sort-list"><i class="icon-list"></i></a></li>
+                                </ul>
+                            </div>
+                            <span>There Are 13 Products.</span>
+                        </div> <!-- Start Sort Left Side -->
+
+                        <div class="sort-box__right">
+                            <span>Sort By:</span>
+                            <div class="sort-box__option">
+                                <label class="select-sort__arrow">
+                                    <select name="select-sort" class="select-sort">
+                                        <option value="1">Relevance</option>
+                                        <option value="2">Name, A to Z</option>
+                                        <option value="3"> Name, Z to A </option>
+                                        <option value="4"> Price, low to high</option>
+                                        <option value="5">Price, high to low</option>
+                                    </select>
+                                </label>
                             </div>
                         </div>
-                    </div> <!-- ::::::  End banner Section  ::::::  -->
+                    </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
                     <div class="product-tab-area">
                         <div class="tab-content ">
-                            <?php if($user['role']==1): ?>
-                                <div class="container-fluid">
-                                    <div id="map" class="mb-3" style="width: 100%;height:400px;"></div>
-                                    <span class="" style="font-weight: bold">Alamat: </span><span id="address"></span>
-                                </div>
-                            <?php endif; ?>
+                            <div class="tab-pane show active clearfix" id="sort-grid">
+                                <!-- Start Single Default Product -->
+                                <?php foreach ($items as $item) : ?>
+                                <div class="product__box product__box--default product__box--border-hover text-center float-left float-3">
+                                    <div class="product__img-box">
+                                        <a href="<?php echo site_url('item/show/') . $item['id'] ?>" class="product__img--link">
+                                            <img class="product__img" src="<?php $photos = explode(',', $item['photo']); echo base_url('assets/uploads/') . $photos[0] ?>" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product__price m-t-10">
+                                        <?php
+                                            if ($item['discount'] > 0) {
+                                                echo "<span class='product__price-del'>Rp " . number_format($item['price'], 0, ".", ".") . "</span> " . "<span class='product__price-reg'>Rp " . number_format($item['price'] - (($item['discount'] / 100) * $item['price']), 0, ".</span>", ".");
+                                            } else {
+                                                echo "<span class='product__price-reg'>Rp " . number_format($item['price'], 0, ".</span>", ".");
+                                            }
+                                        ?>
+                                    </div>
+                                    <a href="<?php echo site_url('item/show/') . $item['id'] ?>" class="product__link product__link--underline product__link--weight-light m-t-15">
+                                        <?php echo $item['name'] ?>
+                                    </a>
+                                </div> <!-- End Single Default Product -->
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="tab-pane shop-list" id="sort-list">
+                                <!-- Start Single List Product -->
+                                <?php foreach ($items as $item) : ?>
+                                <div class="product__box product__box--list">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="product__img-box">
+                                                <a href="<?php echo site_url('item/show/') . $item['id'] ?>" class="product__img--link">
+                                                    <img class="product__img" src="<?php $photos = explode(',', $item['photo']); echo base_url('assets/uploads/') . $photos[0] ?>" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 pos-relative">
+                                            <div class="border-right pos-absolute"></div>
+                                            <div class="product__price">
+                                                <?php
+                                                    if ($item['discount'] > 0) {
+                                                        echo "<span class='product__price-del'>Rp " . number_format($item['price'], 0, ".", ".") . "</span> " . "<span class='product__price-reg'>Rp " . number_format($item['price'] - (($item['discount'] / 100) * $item['price']), 0, ".</span>", ".");
+                                                    } else {
+                                                        echo "<span class='product__price-reg'>Rp " . number_format($item['price'], 0, ".</span>", ".");
+                                                    }
+                                                ?>
+                                            </div>
+                                            <a href="<?php echo site_url('item/show/') . $item['id'] ?>" class="product__link product__link--underline product__link--weight-light m-t-15">
+                                                <?php echo $item['name'] ?>
+                                            </a>
+                                            <div class="product__desc m-t-25 m-b-30">
+                                                <p><?php echo $item['description'] ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- Start Single List Product -->
+                                <?php endforeach; ?>
+                                
+                            </div>
                         </div>
                     </div>
+                    <br>
+                    <?php if($user['role']==1): ?>
+                        <h5 class="sidebar__title">Alamat <?php echo $user['name']; ?></h5>
+                        <div class="container-fluid">
+                            <div id="map" class="mb-3" style="width: 100%;height:400px;"></div>
+                            <span class="" style="font-weight: bold">Alamat: </span><span id="address"></span>
+                        </div>
+                    <?php endif; ?>
+                        
+                    
                 </div>  <!-- Start Rightside - Content -->
                 
             </div>

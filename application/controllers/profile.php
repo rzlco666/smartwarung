@@ -9,6 +9,7 @@ class profile extends CI_Controller {
         $this->load->model('invoices');
         $this->load->model('items');
         $this->load->model('templates');
+        $this->load->model('categories');
 
         $this->load->library('form_validation');
         $this->load->helper('date');
@@ -36,6 +37,7 @@ class profile extends CI_Controller {
             $data['user'] = $this->users->get_username($this->session->userdata('username'));
             $data['invoices'] = $this->invoices->get_all_invoices($this->session->userdata('username'));
             $data['active'] = 'index';
+            $data['items'] = $this->categories->get_all_item_warung_user($this->session->userdata('username'));
 
             $this->load->view('include/meta');
             $this->load->view('include/header');
@@ -52,10 +54,10 @@ class profile extends CI_Controller {
             redirect('profile/');
         }
         
-        $data['items'] = $this->items->get_all_username($username);
         $data['user'] = $this->users->get_username($username);
         $data['active'] = 'index';
         $data['uswarung']=$username;
+        $data['items'] = $this->categories->get_all_item_warung_user($username);
         
         //$this->load->view('template/header');
         //$this->load->view('profile/index2',$data);
