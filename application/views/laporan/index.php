@@ -38,7 +38,7 @@
                     <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <br>
-                    <table class="table myTablesss">
+                    <table id="datatable-buttons" class="table myTablesss table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead class="thead-primary">
                             <tr class="text-center">
                                 <th>No</th>
@@ -82,7 +82,8 @@
                     </table>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <table class="table myTablesss">
+                    <br>
+                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead class="thead-primary">
                             <tr class="text-center">
                                 <th>No</th>
@@ -136,14 +137,3 @@
             </div>
         </div>
     </main> <!-- ::::::  End  Main Container Section  ::::::  -->
-    <script>
-$(document).ready( function () {
-    $('.myTablesss').append('<caption style="caption-side: top;text-align:center;">Pembukuan Periode <?=$type;?></caption>');
-    $('.myTablesss').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-} );
-</script>

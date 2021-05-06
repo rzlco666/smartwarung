@@ -61,7 +61,7 @@
                                         <div class="my-account-order account-wrapper">
                                             <h4 class="account-title">Pesanan</h4>
                                             <div class="account-table text-center m-t-30 table-responsive">
-                                                <table class="table">
+                                                <table class="table" id="datatable">
                                                     <thead>
                                                         <tr>
                                                             <th class="no">No</th>

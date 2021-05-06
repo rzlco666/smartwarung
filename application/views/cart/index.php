@@ -20,10 +20,20 @@
                     <div class="section-content">
                         <h5 class="section-content__title">Item keranjang anda</h5>
                     </div>
+                    <?php if($this->session->flashdata('errors') != ''): ?>
+                    <div class="alert alert-danger text-center" role="alert">
+                      <?php echo $this->session->flashdata('errors'); ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($this->session->flashdata('success')!= ''): ?>
+                    <div class="alert alert-success text-center" role="alert">
+                      <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php endif; ?>
                     <!-- Start Cart Table -->
-                    <div class="table-content table-responsive cart-table-content m-t-30">
+                    <div class="table-content cart-table-content m-t-30">
                         <form action="<?php echo site_url('cart/update/') ?>" method="post" id="target">
-                        <table>
+                        <table id="datatable">
                             <thead class="gray-bg" >
                                 <tr>
                                     <th>Foto Produk</th>

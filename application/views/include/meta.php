@@ -13,10 +13,17 @@
     <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
 
     <!-- Vendor CSS Files -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/vendor/jquery-ui.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/vendor/fontawesome.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/vendor/plaza-icon.css">
+
+    <!-- DataTables -->
+    <link href="<?php echo base_url('assets_admin/') ?>libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets_admin/') ?>libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="<?php echo base_url('assets_admin/') ?>libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/vendor/bootstrap.min.css">
 
     <!-- Plugin CSS Files -->
@@ -25,10 +32,6 @@
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/price_range_style.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/in-number.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/venobox.min.css">
-    
-    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
     <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>

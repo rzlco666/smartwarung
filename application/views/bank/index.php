@@ -22,7 +22,7 @@
                     </div>
                     <!-- Start Wishlist Table -->
                     <div class="table-content table-responsive cart-table-content m-t-30">
-                        <table>
+                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
                                     <th>Bank</th>

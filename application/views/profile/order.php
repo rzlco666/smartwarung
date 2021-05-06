@@ -22,7 +22,7 @@
                     </div>
                     <!-- Start Wishlist Table -->
                     <div class="table-content table-responsive cart-table-content m-t-30">
-                        <table>
+                        <table id="datatable-buttons">
                             <thead>
                                 <tr>
                                     <th>Invoice ID</th>
@@ -98,7 +98,7 @@
                                                 <?php endif; ?>
                                             <?php } elseif ($this->session->role == 1) { ?>
                                                 <?php if ($invoice['invoice_status'] == "Menunggu proses penjual") : ?>
-                                                    <a href="<?= base_url('profile/ubah_dikirim/' . $invoice['invoice_id']) ?>" class="btn btn-primary">Ubah sedang dikirim</a>
+                                                    <a href="<?= base_url('profile/ubah_dikirim/' . $invoice['invoice_id']) ?>" class="btn btn-warning">Ubah sedang dikirim</a>
                                                 <?php elseif ($invoice['invoice_status'] == "Menunggu verif pembayaran") : ?>
                                                 <?php elseif ($invoice['invoice_status'] == "Sedang dikirim") : ?>
                                                 <?php elseif ($invoice['invoice_status'] == "Sudah diterima") : ?>
@@ -114,7 +114,7 @@
                                                             <?= form_open_multipart('profile/upload_bukti/' . $invoice['invoice_id']) ?>
                                                         </div>
                                                     </div>
-                                                </td>
+                                    </td>
                                             </tr>
                                             <tr>
                                                 <td><span class="col-sm-3 text-small">Silahkan upload Bukti Transfer:</span></td>

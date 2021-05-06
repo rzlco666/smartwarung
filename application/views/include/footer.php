@@ -132,20 +132,31 @@
 
     <!-- ::::::::::::::All Javascripts Files here ::::::::::::::-->
 
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
-
     <!-- Vendor JS Files -->
     <script src="<?php echo base_url('assets_user/') ?>js/vendor/jquery-3.5.1.min.js"></script>
     <script src="<?php echo base_url('assets_user/') ?>js/vendor/modernizr-3.7.1.min.js"></script>
     <script src="<?php echo base_url('assets_user/') ?>js/vendor/jquery-ui.min.js"></script>
     <script src="<?php echo base_url('assets_user/') ?>js/vendor/bootstrap.bundle.js"></script>
+
+    <!-- Required datatable js -->
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        
+    <!-- Buttons examples -->
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/jszip/jszip.min.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <!-- Responsive examples -->
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?php echo base_url('assets_admin/') ?>libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="<?php echo base_url('assets_admin/') ?>js/pages/datatables.init.js"></script>
 
     <!-- Plugins JS Files -->
     <script src="<?php echo base_url('assets_user/') ?>js/plugin/swiper.min.js"></script>
