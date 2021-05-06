@@ -44,7 +44,7 @@ class users extends CI_Model {
         return $this->db->query('SELECT SUM(invoices.billing) AS total,warungs.username FROM warungs LEFT JOIN invoices ON invoices.warung=warungs.username WHERE invoices.method="COD" AND invoices.status ="Sudah diterima" GROUP BY warungs.username');
     }
 
-    public function store_warung($username,$photo,$ktp=null){
+    public function store_warung($username,$photo,$ktp){
 
         if($this->get_username($username) == null){
             

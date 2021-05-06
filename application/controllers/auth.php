@@ -81,8 +81,10 @@ class auth extends CI_Controller {
 
 	public function store_warung(){
 		$countfiles = count($_FILES['files']['name']);
+		$countfilesktp = count($_FILES['ktp']['name']);
 		// echo $countfiles;
 		$data_photos = array();
+		$data_photosktp = array();
 
 		$this->form_validation->set_rules('name','Full Name', 'required');
 		$this->form_validation->set_rules('address','Alamat', 'required');
@@ -91,6 +93,7 @@ class auth extends CI_Controller {
 		$this->form_validation->set_rules('email','E-mail', 'required|valid_email');
 
 		if($this->form_validation->run() == true){
+
 			for($i=0; $i < $countfiles;$i++){
 				if(!empty($_FILES['files']['name'][$i])){
 					$_FILES['photo']['name']    = $_FILES['files']['name'][$i];
@@ -114,12 +117,37 @@ class auth extends CI_Controller {
 					}
 				}
 			}
+
+			for($i=0; $i < $countfilesktp;$i++){
+				if(!empty($_FILES['ktp']['name'][$i])){
+					$_FILES['photo']['name']    = $_FILES['ktp']['name'][$i];
+					$_FILES['photo']['type']    = $_FILES['ktp']['type'][$i];
+					$_FILES['photo']['tmp_name']= $_FILES['ktp']['tmp_name'][$i];
+					$_FILES['photo']['error']   = $_FILES['ktp']['error'][$i];
+					$_FILES['photo']['size']    = $_FILES['ktp']['size'][$i];
+	
+					$config['upload_path']      = 'assets/uploads/';
+					$config['allowed_types']    = 'jpg|jpeg|png';
+					$config['max_size']         = '5000';
+					$config['encrypt_name'] 	= true;
+					// $config['file_name']        = $_FILES['files']['name'][$i];
+	
+					$this->load->library('upload',$config);
+	
+					if($this->upload->do_upload('photo')){
+						$upload_data = $this->upload->data();
+						$data_photosktp[$i] = $upload_data['file_name'];
+						// echo $countfiles;
+					}
+				}
+			}
 	
 			if(!empty($data_photos)){
 				$data_photo = implode(',',$data_photos);
+				$data_photoktp = implode(',',$data_photosktp);
 				// echo $data_photo;
 	
-				$this->users->store_warung($this->input->post('username'),$data_photo);
+				$this->users->store_warung($this->input->post('username'),$data_photo,$data_photoktp);
 				
 				$this->session->set_flashdata('success', 'Akun Anda berhasil dibuat!');
 				redirect('auth/login', 'refresh');
@@ -127,6 +155,7 @@ class auth extends CI_Controller {
 				$this->session->set_flashdata('errors', 'Register gagal!');
 				redirect('auth/register_warung', 'refresh');
 			}
+
 		}else{
 			$this->session->set_flashdata('errors', 'Register gagal!');
 			redirect('auth/register_warung');

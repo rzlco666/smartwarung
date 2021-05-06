@@ -69,7 +69,7 @@
                                                         </div>
                                                         <div class="form-box__single-group">
                                                             <label for="photo">Add KTP</label>
-                                                            <input type="file" name="ktp" multiple class="form-control" required>
+                                                            <input type="file" name="ktp[]" multiple class="form-control" required>
                                                         </div>
                                                         <div class="d-flex justify-content-between flex-wrap m-tb-20">
                                                             <a href=""></a>

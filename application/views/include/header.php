@@ -46,6 +46,8 @@
                                                 <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
                                                 <ul class="expand-dropdown-menu dropdown-menu">
                                                     <li><a href="<?php echo base_url('auth/login') ?>">Login</a></li>
+                                                    <li><a href="<?php echo base_url('auth/register') ?>">Daftar Pembeli</a></li>
+                                                    <li><a href="<?php echo base_url('auth/register_warung') ?>">Daftar Warung</a></li>
                                                 </ul>
                                             </div>
 
