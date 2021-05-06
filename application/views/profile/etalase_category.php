@@ -28,6 +28,18 @@
                             <?php endforeach; ?>
                         </div>
                     </div>
+                    <?php if($this->session->flashdata('errors') != ''): ?>
+                    <br>
+                    <div class="alert alert-danger text-center" role="alert">
+                      <?php echo $this->session->flashdata('errors'); ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($this->session->flashdata('success')!= ''): ?>
+                    <br>
+                    <div class="alert alert-success text-center" role="alert">
+                      <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php endif; ?>
                     <br>
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead class="thead-primary">
@@ -50,7 +62,8 @@
                                 <td><?=$i?></td>
                                 <td><img height="100px" class="product-dis__img m-b-30" src="<?php echo base_url('assets/uploads/') ?><?php echo $item['photo'] ?>" alt=""></td>
                                 <td><a href="<?php echo site_url('item/show/') . $item['id'] ?>" class="h4 text-info"><?php echo $item['name'] ?></a>
-                                                <p><?php echo $item['description'] ?></p></td>
+                                                <p><?php $phrase = $item['description'];
+                                                            echo implode(' ', array_slice(str_word_count($phrase, 2), 0, 5)); ?> ...</p></td>
                                 <td>
                                     <?php
                                         if ($item['discount'] > 0) {

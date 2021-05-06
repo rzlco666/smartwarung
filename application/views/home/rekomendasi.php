@@ -66,6 +66,16 @@
 
                  <!-- Start Rightside - Content -->
                 <div class="col-lg-9">
+                    <?php if($this->session->flashdata('errors') != ''): ?>
+                    <div class="alert alert-danger text-center" role="alert">
+                      <?php echo $this->session->flashdata('errors'); ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($this->session->flashdata('success')!= ''): ?>
+                    <div class="alert alert-success text-center" role="alert">
+                      <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php endif; ?>
                     <h1 class="sidebar__title">Rekomendasi</h1>
 
                     <!-- ::::::  Start Sort Box Section  ::::::  -->

@@ -20,6 +20,18 @@
                     <div class="section-content">
                         <a href="<?= site_url('warung/create_bank') ?>" class="btn btn-primary">Tambah Bank</a>
                     </div>
+                    <?php if($this->session->flashdata('errors') != ''): ?>
+                    <br>
+                    <div class="alert alert-danger text-center" role="alert">
+                      <?php echo $this->session->flashdata('errors'); ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($this->session->flashdata('success')!= ''): ?>
+                    <br>
+                    <div class="alert alert-success text-center" role="alert">
+                      <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php endif; ?>
                     <!-- Start Wishlist Table -->
                     <div class="table-content table-responsive cart-table-content m-t-30">
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

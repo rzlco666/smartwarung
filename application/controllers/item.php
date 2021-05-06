@@ -248,6 +248,7 @@ class item extends CI_Controller {
     public function hide($stat,$id)
     {
         $this->templates->update('items',['id'=>$id],['hide'=>$stat]);
+        $this->session->set_flashdata('success', 'Show/Hide berhasil diubah');
         redirect('profile/etalase/'.$this->session->username);
     }
 }

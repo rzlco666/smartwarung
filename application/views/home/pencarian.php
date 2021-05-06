@@ -20,6 +20,17 @@
                 <div class="col-12">
                     <h1 class="sidebar__title">Hasil Pencarian</h1>
 
+                    <?php if($this->session->flashdata('errors') != ''): ?>
+                    <div class="alert alert-danger text-center" role="alert">
+                      <?php echo $this->session->flashdata('errors'); ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($this->session->flashdata('success')!= ''): ?>
+                    <div class="alert alert-success text-center" role="alert">
+                      <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php endif; ?>
+
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-30">
                         <!-- Start Sort Left Side -->

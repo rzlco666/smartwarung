@@ -254,16 +254,19 @@ class profile extends CI_Controller {
     public function ubah_dikirim($invoice_id)
     {
         $this->templates->update('invoices',['id'=>$invoice_id],['status'=>"Sedang dikirim"]);
+        $this->session->set_flashdata('success', 'Status telah diubah menjadi "Dikirim".');
         redirect('profile/order');
     }
     public function ubah_diterima($invoice_id)
     {
         $this->templates->update('invoices',['id'=>$invoice_id],['status'=>"Sudah diterima"]);
+        $this->session->set_flashdata('success', 'Status telah diubah menjadi "Diterima".');
         redirect('profile/order');
     }
     public function ubah_dibatalkan($invoice_id)
     {
         $this->templates->update('invoices',['id'=>$invoice_id],['status'=>"Dibatalkan"]);
+        $this->session->set_flashdata('success', 'Status telah diubah menjadi "Dibatalkan".');
         redirect('profile/order');
     }
     public function comment(){

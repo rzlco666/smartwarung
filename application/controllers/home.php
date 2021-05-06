@@ -71,6 +71,8 @@ class home extends CI_Controller {
         	$data['hasil'] = $this->pencarians->pencarian_d($kategori,$nama);
         }
 
+        $this->session->set_flashdata('success', 'Barang pencarian telah ditampilkan.');
+
         $this->load->view('include/meta');
 		$this->load->view('include/header');
 		$this->load->view('include/topbar', $data);
@@ -110,6 +112,8 @@ class home extends CI_Controller {
         	$data['user'] = $this->users->get_username($this->session->userdata('username'));
         	$data['hasil'] = $this->pencarians->rekom_d($kategori,$budmin,$budmax);
         }
+
+        $this->session->set_flashdata('success', 'Barang rekomendasi telah ditampilkan.');
 
         $this->load->view('include/meta');
 		$this->load->view('include/header');

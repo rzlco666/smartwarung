@@ -50,9 +50,11 @@ class comment extends CI_Controller
                 echo json_encode(['status'=>'error']);
                 redirect('hubungi');
             }
+            $this->session->set_flashdata('success','Komentar berhasil dikirim');
         }else{
             // $this->session->set_flashdata('errors','Foto profile gagal diperbarui');
                 echo json_encode(['status'=>'error']);
+                $this->session->set_flashdata('errors','Komentar gagal dikirim');
                 redirect('hubungi');
         }
     }

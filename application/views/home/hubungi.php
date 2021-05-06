@@ -26,6 +26,16 @@
     <main id="main-container" class="main-container">
         <div class="container">
             <div class="row">
+                <?php if($this->session->flashdata('errors') != ''): ?>
+                    <div class="alert alert-danger text-center" role="alert">
+                      <?php echo $this->session->flashdata('errors'); ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($this->session->flashdata('success')!= ''): ?>
+                    <div class="alert alert-success text-center" role="alert">
+                      <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php endif; ?>
                 <!--
                 <div class="col-12">
                     <div id="map">

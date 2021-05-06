@@ -20,6 +20,16 @@
                     <div class="section-content">
                         <h5 class="section-content__title">Pesanan Saya</h5>
                     </div>
+                    <?php if($this->session->flashdata('errors') != ''): ?>
+                    <div class="alert alert-danger text-center" role="alert">
+                      <?php echo $this->session->flashdata('errors'); ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($this->session->flashdata('success')!= ''): ?>
+                    <div class="alert alert-success text-center" role="alert">
+                      <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php endif; ?>
                     <!-- Start Wishlist Table -->
                     <div class="table-content table-responsive cart-table-content m-t-30">
                         <table id="datatable-buttons">

@@ -138,6 +138,7 @@ class warung extends CI_Controller
                 'warung_username'=>$this->session->username,
             ];
             $this->templates->insert('bank_accounts',$data);
+            $this->session->set_flashdata('success', 'Bank berhasil ditambahkan.');
             redirect('warung/bank');
         }
     }
@@ -169,6 +170,7 @@ class warung extends CI_Controller
             'account_number'=>$this->input->post('nomor'),
         ];
         $this->templates->update('bank_accounts',['id_bank_account'=>$id],$data);
+        $this->session->set_flashdata('success', 'Bank berhasil diubah.');
         redirect('warung/bank');
     }
     public function delete_bank($id){
