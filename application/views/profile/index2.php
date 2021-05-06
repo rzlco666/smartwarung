@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="banner__box">
-                                        <a href="single-1.html" class="banner__link">
+                                        <a href="#" class="banner__link">
                                             <?php if($user['photo'] == null): ?>
                                             <a href="<?php echo base_url('assets/images/no-photo.png') ?>" class="image-popup"><img src="<?php echo base_url('assets/images/no-photo.png') ?>" class="img-fluid" ></a>
                                             <?php else: ?>
@@ -47,13 +47,13 @@
                                  <!-- Start Single Menu Collapse List -->
                                 <li class="sidebar__menu-collapse-list">
                                     <div class="accordion">
-                                        <a href="#" class="accordion__title" data-toggle="collapse" data-target="#kids-fashion">Phone    : <?php echo $user['phone'] ?> </a>
+                                        <a href="#" class="accordion__title">Phone    : <?php echo $user['phone'] ?> </a>
                                     </div>
                                 </li>  <!-- End Single Menu Collapse List -->
                                 <!-- Start Single Menu Collapse List -->
                                 <li class="sidebar__menu-collapse-list">
                                     <div class="accordion">
-                                        <a href="#" class="accordion__title" data-toggle="collapse" data-target="#kids-fashion">E-mail   : <?php echo $user['email'] ?> </a>
+                                        <a href="#" class="accordion__title">E-mail   : <?php echo $user['email'] ?> </a>
                                     </div>
                                 </li>  <!-- End Single Menu Collapse List -->
                                 
@@ -180,7 +180,7 @@
                     <?php if($user['role']==1): ?>
                         <h5 class="sidebar__title">Alamat <?php echo $user['name']; ?></h5>
                         <div class="container-fluid">
-                            <div id="map" class="mb-3" style="width: 100%;height:400px;"></div>
+                            <div id="map" class="mb-3" style="width: 100%;height:200px;"></div>
                             <span class="" style="font-weight: bold">Alamat: </span><span id="address"></span>
                         </div>
                     <?php endif; ?>

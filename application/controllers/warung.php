@@ -28,9 +28,12 @@ class warung extends CI_Controller
             'user'=>$this->users->get_username($this->session->userdata('username')),
             'total_user'=>$this->templates->query("SELECT count(*) as total, invoices.user as user FROM `invoices` WHERE invoices.warung='".$this->session->username."' group by invoices.user ORDER BY `total` DESC")->num_rows(),
     ];
-        $this->load->view('template/header');
+        $this->load->view('include/meta');
+        $this->load->view('include/header');
+        $this->load->view('include/topbar', $data);
+        $this->load->view('include/responsive');
         $this->load->view('warung/mywarung', $data);
-        $this->load->view('template/footer');
+        $this->load->view('include/footer');
         
     }
 
