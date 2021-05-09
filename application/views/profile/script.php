@@ -45,12 +45,12 @@
                 for (i = 0; i < length; i++) {
                     data +=
                         '<div class="row mb-3" style="">' +
-                        '<div class="col-sm-4"><img width="100%" src="<?php echo base_url('assets/uploads/') ?>' + response[i]['item_photo'] + '" alt=""></div>' +
-                        '<div class="col-sm-4 pl-2" style="padding-top:8%">' +
+                        '<div class="col-sm-4"><img width="25%" src="<?php echo base_url('assets/uploads/') ?>' + response[i]['item_photo'] + '" alt=""></div>' +
+                        '<div class="col-sm-4 pl-2" style="padding-top:2%">' +
                         '<span><a href="<?php echo site_url('item/show/') ?>' + response[i]['item_id'] + '" class="font-weight-bold">' + response[i]['item_name'] + '</a></span><br>' +
                         '<span>' + response[i]['details_quantity'] + ' x ' + formatNumber(response[i]['details_price']) + '</span>' +
                         '</div>' +
-                        '<div class="col-sm-4 text-center" style="border-left: 1px solid rgba(0, 0, 0, 0.1);padding-top:8%">' +
+                        '<div class="col-sm-4 text-center" style="border-left: 1px solid rgba(0, 0, 0, 0.1);padding-top:2%">' +
                         '<span class="text-danger font-weight-bold">Total Harga</span><br>' +
                         '<span>' + formatNumber(response[i]['details_quantity'] * response[i]['details_price']) + '</span>' +
                         '</div>';

@@ -20,11 +20,11 @@
                     <div class="section-content">
                         <h5 class="section-content__title">Laporan</h5>
                         <div class="text-center">
-                            <a href="<?=base_url('warung/laporan/')?>" class="btn btn-primary"> Semua</a>
-                            <a href="<?=base_url('warung/laporan/'.date('Y-m-d').'/Hari')?>" class="btn btn-primary"> Hari ini</a>
-                            <a href="<?=base_url('warung/laporan/Minggu')?>" class="btn btn-primary"> Minggu ini</a>
-                            <a href="<?=base_url('warung/laporan/'.date('Y-m').'/Bulan')?>" class="btn btn-primary"> Bulan ini</a>
-                            <a href="<?=base_url('warung/laporan/'.date('Y').'/Tahun')?>" class="btn btn-primary"> Tahun ini</a>
+                            <a href="<?=base_url('warung/laporan/')?>" style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary"> Semua</a>
+                            <a href="<?=base_url('warung/laporan/'.date('Y-m-d').'/Hari')?>" style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary"> Hari ini</a>
+                            <a href="<?=base_url('warung/laporan/Minggu')?>" style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary"> Minggu ini</a>
+                            <a href="<?=base_url('warung/laporan/'.date('Y-m').'/Bulan')?>" style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary"> Bulan ini</a>
+                            <a href="<?=base_url('warung/laporan/'.date('Y').'/Tahun')?>" style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary"> Tahun ini</a>
                         </div>
                     </div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">

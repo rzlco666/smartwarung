@@ -104,23 +104,7 @@
                                     <li><a class="sort-nav-link" data-toggle="tab" href="#sort-list"><i class="icon-list"></i></a></li>
                                 </ul>
                             </div>
-                            <span>There Are 13 Products.</span>
                         </div> <!-- Start Sort Left Side -->
-
-                        <div class="sort-box__right">
-                            <span>Sort By:</span>
-                            <div class="sort-box__option">
-                                <label class="select-sort__arrow">
-                                    <select name="select-sort" class="select-sort">
-                                        <option value="1">Relevance</option>
-                                        <option value="2">Name, A to Z</option>
-                                        <option value="3"> Name, Z to A </option>
-                                        <option value="4"> Price, low to high</option>
-                                        <option value="5">Price, high to low</option>
-                                    </select>
-                                </label>
-                            </div>
-                        </div>
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
                     <div class="product-tab-area">

@@ -19,12 +19,12 @@
                 <div class="col-12">
                     <div class="section-content">
                         <?php if ($this->session->userdata('username') == $user['username']) : ?>
-                            <a href="<?php echo site_url('item/create/') ?>" class="btn btn-primary">Tambah barang</a>
+                            <a href="<?php echo site_url('item/create/') ?>" style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary">Tambah barang</a>
                         <?php endif; ?>
                         <div class="text-center">
-                            <a href="<?=base_url('profile/etalase/'.$user['username'])?>" class="btn btn-primary"> Semua</a>
+                            <a href="<?=base_url('profile/etalase/'.$user['username'])?>" style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary"> Semua</a>
                             <?php foreach ($categories as $category) : ?>
-                                <a class="btn btn-primary" href="<?php echo site_url('profile/etalase_warung/') . $category['id'] ?>"><?php echo $category['name'] ?></a>
+                                <a style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary" href="<?php echo site_url('profile/etalase_warung/') . $category['id'] ?>"><?php echo $category['name'] ?></a>
                             <?php endforeach; ?>
                         </div>
                     </div>

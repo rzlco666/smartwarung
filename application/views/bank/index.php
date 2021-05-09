@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-content">
-                        <a href="<?= site_url('warung/create_bank') ?>" class="btn btn-primary">Tambah Bank</a>
+                        <a href="<?= site_url('warung/create_bank') ?>" style="padding: 7px 17px; font-size: 17px; border-radius: 7px;" class="btn btn-lg btn-primary">Tambah Bank</a>
                     </div>
                     <?php if($this->session->flashdata('errors') != ''): ?>
                     <br>
