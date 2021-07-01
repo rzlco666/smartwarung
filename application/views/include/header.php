@@ -39,8 +39,26 @@
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="header__wishlist-box">
+
                                         <!-- Start Header Wishlist Box -->
                                         <div class="header__wishlist pos-relative">
+                                            <?php if($this->session->userdata('role') == ""): ?>
+
+                                            <?php elseif($this->session->userdata('role') == 1): ?>
+
+                                            <?php elseif($this->session->userdata('role') == 0): ?>
+                                            <div class="user-info user-set-role">
+                                                <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-eye"></i> </a>
+                                                <ul class="expand-dropdown-menu dropdown-menu">
+                                                    <li><a href="#">Harga dapat berubah sewaktu-waktu.</a></li>
+                                                </ul>
+                                            </div>
+
+                                            <?php endif; ?>
+                                        </div> <!-- End Header Wishlist Box -->
+
+                                        <!-- Start Header Wishlist Box -->
+                                        <div class="header__wishlist pos-relative m-l-20">
                                             <?php if($this->session->userdata('role') == ""): ?>
                                             <div class="user-info user-set-role">
                                                 <a class="user-set-role__button" href="#" data-toggle="dropdown" aria-haspopup="true"><i class="icon-user"></i> </a>
@@ -79,7 +97,7 @@
                                         </div> <!-- End Header Wishlist Box -->
 
                                         <!-- Start Header Add Cart Box -->
-                                        <div class="header-add-cart pos-relative m-l-40">
+                                        <div class="header-add-cart pos-relative m-l-30">
                                             <!-- <a href="#offcanvas-add-cart__box" class="offcanvas-toggle"> -->
                                             <?php if($this->session->userdata('role') == ""): ?>
                                                 <a href="<?php echo base_url('cart') ?>">    
