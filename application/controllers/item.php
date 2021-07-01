@@ -100,7 +100,8 @@ class item extends CI_Controller {
         $data['item'] = $_item;
         $data['warung'] = $this->users->get_username($data['item']['username']);
         $data['rating'] = $this->ratings->get($id);
-        $data['list_like'] = $this->items->search_item_like($_item['username'],$_item['name'])->result();
+        //$data['list_like'] = $this->items->search_item_like($_item['username'],$_item['name'])->result();
+        $data['list_like'] = $this->items->search_item_like_new($_item['username'],$_item['category'])->result();
         $data['list_warung'] = $this->items->search_item_warung($id,$_item['username'])->result();
         if($data['rating'] == null){
             $data['rating']['rating'] = 0;

@@ -68,6 +68,16 @@ class items extends CI_Model {
         return $this->db->query('SELECT MATCH (name) AGAINST("'.$item.'") AS relevance,id,username,name,category,stock,price,description,photo,username as warung FROM `items` WHERE MATCH (name) AGAINST("'.$item.'") AND username != "'.$id.'"
         ORDER BY `relevance` DESC LIMIT 5');
     }
+
+    public function search_item_like_new($id,$category)
+    {
+        $this->db->select('id,username,name,category,stock,price,description,photo,username as warung');
+        $this->db->from('items');
+        $this->db->where("category",$category);
+        //$this->db->where("username" != $id);
+        return $this->db->get();
+    }
+
     public function search_item_warung($id,$warung)
     {
         return $this->db->query('SELECT items.id,items.username,items.name,items.category,items.stock,items.price,items.description,items.photo FROM `items` LEFT JOIN ratings ON ratings.item=items.id WHERE items.username = "'.$warung.'" AND items.id != '.$id.' ORDER BY ratings.rating DESC LIMIT 4');

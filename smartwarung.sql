@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Bulan Mei 2021 pada 11.27
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.1
+-- Waktu pembuatan: 01 Jul 2021 pada 09.13
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 8.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -303,14 +302,14 @@ INSERT INTO `items` (`id`, `username`, `name`, `category`, `stock`, `price`, `de
 (16, 'gallery', 'Sunlight', 1, 121, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
 (17, 'gallery', 'Shampo Rejoice', 4, 76, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
 (18, 'gallery', 'Shampo Zink', 4, 20, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(19, 'rajawali', 'Shampo Dove', 4, 117, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 16, 1, '2021-05-01', '2021-03-16 13:51:08'),
-(20, 'sukapura', 'Shampo Clear', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(21, 'sukapura', 'Sabun Lifeboy', 4, 77, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 29, 1, '2021-05-01', '2021-03-16 13:51:08'),
-(22, 'kerabat', 'Sabun Romano', 4, 18, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 4, 1, '2021-05-01', '2021-03-16 13:51:08'),
+(19, 'rajawali', 'Shampo Dove', 4, 117, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 26, 1, '2021-07-01', '2021-03-16 13:51:08'),
+(20, 'sukapura', 'Shampo Clear', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 15, 1, '2021-07-01', '2021-03-16 13:51:08'),
+(21, 'sukapura', 'Sabun Lifeboy', 4, 77, 15000, 'Bersih mengkilap, pembersih lantai', '2598bbcb533db9058ba43648ba8ac0fa.png', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
+(22, 'kerabat', 'Sabun Romano', 4, 18, 3000, 'Wangi', 'd14b89596d482122d6e37429d53c44cc.png', 0, 22, 1, '2021-07-01', '2021-03-16 13:51:08'),
 (23, 'rajawali', 'Sabun Dove', 4, 122, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
-(24, 'kerabat', 'Sabun Lux', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 11, 1, '2021-05-01', '2021-03-16 13:51:08'),
-(25, 'gallery', 'Shampo Dove 135 mL', 4, 123, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 6, 1, '2021-05-01', '2021-03-16 13:51:08'),
-(26, 'gallery', 'Indomie Rendang', 2, 15, 3000, '<p>Mie Instan</p>\r\n', '86b9efb592a7b11d8cb18008e50d4e5f.jpg', 0, 0, 0, NULL, '2021-05-05 06:40:43'),
+(24, 'kerabat', 'Sabun Lux', 4, 123, 3000, 'Jeruk nipis', '82ef105b29d0e65342b398a7680c2780.jpg', 0, 27, 1, '2021-07-01', '2021-03-16 13:51:08'),
+(25, 'gallery', 'Shampo Dove 135 mL', 4, 123, 12399, 'asdfadsf', '1f34fe68c8542c3592a2cd4e163ed056.jpg', 0, 0, 0, '0000-00-00', '2021-03-16 13:51:08'),
+(26, 'gallery', 'Indomie Rendang', 2, 15, 3000, '<p>Mie Instan</p>\r\n', '86b9efb592a7b11d8cb18008e50d4e5f.jpg', 0, 2, 1, '2021-07-01', '2021-05-05 06:40:43'),
 (27, 'alaw', 'KOBE Mi Bon Cabe', 2, 5, 6299, 'Mi Boncabe merupakan mie instan kenyal yang dipadukan dengan pedas sedapnya Boncabe, sehingga menjadi kombinasi mantap bagi Anda pecinta sensasi makan mie pedas yang HQQ. Kelebihan Mi Boncabe dengan produk Mie pedas lainnya adalah kepingan mie-nya sendiri sudah mengandung Boncabe. Mi Boncabe kepingan mie-nya tidak berwarna kuning, melainkan agak kemerahan karena kandungan Boncabe-nya. Selain itu, Mie goreng Boncahe ini juga bisa dimakan polos tanpa bumbu pun sudah ada sensasi khas Boncabe-nya.', 'e8d3b958968612f43a649380e5ba3be1.jpg', 0, 0, 0, NULL, '2021-05-06 08:52:36');
 
 -- --------------------------------------------------------
@@ -406,7 +405,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`name`, `username`, `password`, `phone`, `email`, `role`, `photo`, `is_aktif_cust`, `alasan`) VALUES
 ('Ulalalalala', 'abcd', 'e2fc714c4727ee9395f324cd2e7f331f', '08123', 'a@b.c', 0, NULL, 0, '<p>karena 123</p>'),
-('admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', '1', 99, NULL, 1, ''),
+('admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', '08111111', 'admin@smartwarung.com', 99, NULL, 1, ''),
 ('Toko Alaw', 'alaw', 'e2fc714c4727ee9395f324cd2e7f331f', '08123345665', 'alaw@gmail.com', 1, '851e30aef96292cb123a3efab99f19a4.png', 1, ''),
 ('Gallery', 'gallery', 'e2fc714c4727ee9395f324cd2e7f331f', '123', '1@s.c', 1, '7d6019698936a373c869ee6de7ed275e.jpg', 1, ''),
 ('Warung Ibu Ika', 'ibuika', 'e2fc714c4727ee9395f324cd2e7f331f', '086532515211', 'warungibuika@gmail.com', 1, '19747304c29bebbbdb059a5f877e07b2.jpg', 1, ''),

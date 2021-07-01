@@ -35,6 +35,19 @@ class auth extends CI_Controller {
 		$this->load->view('auth/register');
 		$this->load->view('include/footer');
 	}
+
+	 public function lupa()
+	{
+		$data['user'] = $this->users->get_username($this->session->userdata('username'));
+		
+		$this->load->view('include/meta');
+		$this->load->view('include/header');
+		$this->load->view('include/topbar', $data);
+		$this->load->view('include/responsive');
+		$this->load->view('include/detail_chart');
+		$this->load->view('auth/lupa');
+		$this->load->view('include/footer');
+	}
     
     public function register_warung()
 	{
@@ -75,6 +88,33 @@ class auth extends CI_Controller {
 			$this->load->view('template/footer');
 		}else{
 			$this->users->store($this->input->post('username'));
+			redirect('auth/login', 'refresh');
+		}
+	}
+
+	public function store_lupa()
+	{
+		$this->form_validation->set_rules('username','Username', 'required');
+		$this->form_validation->set_rules('phone','Phone', 'required|numeric');
+		$this->form_validation->set_rules('email','E-mail', 'required|valid_email');
+
+		// function username_check_blank($str){
+		// 	$pattern ='/ /';
+		// 	$result = preg_match($pattern,$str);
+
+		// 	if($result){
+		// 		$this->form_validation->set_message('username', 'The field cannot have spaces');
+		// 		return false;
+		// 	}else{
+		// 		return true;
+		// 	}
+		// }
+
+		if($this->form_validation->run() == false){
+			redirect('auth/login');
+		}else{
+			$this->users->update_password($this->input->post('username'));
+			$this->session->set_flashdata('success', 'Password berhasil diubah!');
 			redirect('auth/login', 'refresh');
 		}
 	}

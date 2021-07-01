@@ -123,6 +123,15 @@ class users extends CI_Model {
         return $this->db->update('users',$data);
     }
 
+    public function update_password($username){
+        $data = array(
+            'password' => md5($this->input->post('password'))
+        );
+
+        $this->db->where('username',$username);
+        return $this->db->update('users',$data);
+    }
+
     public function get_password($username){
         $this->db->select('password');
         $this->db->where('username',$username);

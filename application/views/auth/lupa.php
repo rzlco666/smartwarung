@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <ul class="page-breadcrumb__menu">
                         <li class="page-breadcrumb__nav"><a href="#">Home</a></li>
-                        <li class="page-breadcrumb__nav active">Login</li>
+                        <li class="page-breadcrumb__nav active">Lupa Password</li>
                     </ul>
                 </div>
             </div>
@@ -25,41 +25,35 @@
                                 <div class="login-register-wrapper">
                                     <div class="login-register-tab-list nav">
                                         <a class="active" data-toggle="tab">
-                                            <h4>login</h4>
+                                            <h4>Lupa Password</h4>
                                         </a>
                                     </div>
                                     <div class="tab-content">
                                         <div class="tab-pane active">
                                             <div class="login-form-container">
                                                 <div class="login-register-form">
-                                                    <?php if ($this->session->flashdata('errors') != '') : ?>
-                                                        <div class="alert alert-danger text-center" role="alert">
-                                                            <?php echo $this->session->flashdata('errors'); ?>
-                                                        </div>
-                                                    <?php endif; ?>
-                                                    <?php if ($this->session->flashdata('success') != '') : ?>
-                                                        <div class="alert alert-success text-center" role="alert">
-                                                            <?php echo $this->session->flashdata('success') ?>
-                                                        </div>
-                                                    <?php endif; ?>
-                                                    <form action="<?php echo site_url('auth/verif') ?>" method="post">
+                                                    <form action="<?php echo site_url('auth/store_lupa') ?>" method="post">
                                                         <div class="form-box__single-group">
                                                             <label>Username</label>
                                                             <input type="text" id="form-username" name="username" placeholder="Username">
                                                         </div>
                                                         <div class="form-box__single-group">
-                                                            <label>Password</label>
-                                                            <input type="password" id="form-username-password" name="password" placeholder="Enter password">
+                                                            <label>Email</label>
+                                                            <input type="email" id="form-username" name="email" placeholder="Email">
+                                                        </div>
+                                                        <div class="form-box__single-group">
+                                                            <label>No. Telepon</label>
+                                                            <input type="phone" id="form-username" name="phone" placeholder="No. Telepon">
+                                                        </div>
+                                                        <div class="form-box__single-group">
+                                                            <label>Password Baru</label>
+                                                            <input type="password" id="form-username-password" name="password" placeholder="password">
                                                         </div>
                                                         <div class="d-flex justify-content-between flex-wrap m-tb-20">
                                                             <a href=""></a>
-                                                            <a class="link--gray" href="<?php echo base_url('auth/lupa') ?>">Lupa Password?</a>
                                                         </div>
-                                                        <button class="btn btn--box btn--small btn--blue btn--uppercase btn--weight" type="submit">LOGIN</button>
+                                                        <button class="btn btn--box btn--small btn--blue btn--uppercase btn--weight" type="submit">PERBARUI</button>
                                                     </form>
-                                                    <div class="d-flex justify-content-center m-tb-20">
-                                                        <a href="<?php echo base_url('auth/register') ?>">Daftar</a> <p>&nbsp;atau&nbsp;</p> <a href="<?php echo base_url('auth/register_warung') ?>">Daftar sebagai warung</a>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
