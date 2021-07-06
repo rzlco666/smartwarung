@@ -30,7 +30,7 @@
                                     <li><a class="sort-nav-link" data-toggle="tab" href="#sort-list"><i class="icon-list"></i></a></li>
                                 </ul>
                             </div>
-                            <span>There Are 13 Products.</span>
+                            <span>There Are 5 Products.</span>
                         </div> <!-- Start Sort Left Side -->
 
                         <div class="sort-box__right">

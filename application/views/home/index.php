@@ -87,7 +87,7 @@
                                         	<div class="title title--normal title--white title--regular">Gratis Ongkir*</div>
                                             <div class="title title--normal title--white title--thin"></div>
                                             <div class="title title--description title--white">*Untuk transaksi pertama</div>
-                                            <a href="single-1.html" class="btn btn--box btn--large btn--blue btn--uppercase btn--weight">Belanja Sekarang</a>
+                                            <a href="category" class="btn btn--box btn--large btn--blue btn--uppercase btn--weight">Belanja Sekarang</a>
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
                                         <div class="col-9 offset-1">
                                             <div class="title title--normal title--white title--thin">Daftar Warung Terdekat</div>
                                             <div class="title title--description title--white">Semua ada di sini</div>
-                                            <a href="single-1.html" class="btn btn--box btn--large btn--blue btn--uppercase btn--weight">Belanja Sekarang</a>
+                                            <a href="category" class="btn btn--box btn--large btn--blue btn--uppercase btn--weight">Belanja Sekarang</a>
                                         </div>
                                     </div>
                                 </div> <!-- End Hero Image -->

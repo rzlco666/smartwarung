@@ -50,7 +50,7 @@
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div class="contact-info-dec">
-                                <a target="_blank" href="https://wa.me/">+62 345 678 102</a>
+                                <a target="_blank" href="https://api.whatsapp.com/">+62 82149638130</a>
                             </div>
                         </div>
                         <div class="contact-social m-t-40">
