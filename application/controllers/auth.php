@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class auth extends CI_Controller {
+class Auth extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
@@ -83,9 +83,8 @@ class auth extends CI_Controller {
 		// }
 
 		if($this->form_validation->run() == false){
-			$this->load->view('template/header');
-			$this->load->view('auth/register');
-			$this->load->view('template/footer');
+			$this->session->set_flashdata('errors', 'Register gagal!');
+			redirect('auth/register', 'refresh');
 		}else{
 			$this->users->store($this->input->post('username'));
 			redirect('auth/login', 'refresh');
@@ -111,6 +110,7 @@ class auth extends CI_Controller {
 		// }
 
 		if($this->form_validation->run() == false){
+		    $this->session->set_flashdata('errors', 'Password gagal diubah!');
 			redirect('auth/login');
 		}else{
 			$this->users->update_password($this->input->post('username'));

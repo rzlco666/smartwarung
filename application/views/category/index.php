@@ -65,10 +65,11 @@
                                     <li><a class="sort-nav-link" data-toggle="tab" href="#sort-list"><i class="icon-list"></i></a></li>
                                 </ul>
                             </div>
-                            <span>There Are 13 Products.</span>
+                            <span>Produk pada Semua Kategori.</span>
                         </div> <!-- Start Sort Left Side -->
 
                         <div class="sort-box__right">
+                            <!--
                             <span>Sort By:</span>
                             <div class="sort-box__option">
                                 <label class="select-sort__arrow">
@@ -81,6 +82,7 @@
                                     </select>
                                 </label>
                             </div>
+                            -->
                         </div>
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
@@ -149,7 +151,8 @@
                             </div>
                         </div>
                     </div>
-
+                    
+                    <!--
                     <div class="page-pagination">
                         <span>Showing 1-12 of 13 item(s)</span>
                         <ul class="page-pagination__list">
@@ -163,6 +166,7 @@
                             </li>
                           </ul>
                     </div>
+                    -->
                 </div>  <!-- Start Rightside - Content -->
                 
             </div>

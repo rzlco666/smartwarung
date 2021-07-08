@@ -72,11 +72,20 @@
                                     <li><a class="sort-nav-link" data-toggle="tab" href="#sort-list"><i class="icon-list"></i></a></li>
                                 </ul>
                             </div>
-                            <span>There Are 13 Products.</span>
+                            <span>
+                                <?php foreach ($categories as $category):
+                                    if($id == $category['id']){
+                                    ?>
+                                    <?php echo 'Produk pada '.$category['name'].'.'; ?>
+                                    <?php
+                                    } 
+                                    ?>
+                                <?php endforeach; ?>
+                            </span>
                         </div> <!-- Start Sort Left Side -->
 
                         <div class="sort-box__right">
-                            <span>Sort By:</span>
+                            <!--<span>Sort By:</span>
                             <div class="sort-box__option">
                                 <label class="select-sort__arrow">
                                     <select name="select-sort" class="select-sort">
@@ -88,6 +97,7 @@
                                     </select>
                                 </label>
                             </div>
+                            -->
                         </div>
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
@@ -157,7 +167,7 @@
                         </div>
                     </div>
 
-                    <div class="page-pagination">
+                    <!--<div class="page-pagination">
                         <span>Showing 1-12 of 13 item(s)</span>
                         <ul class="page-pagination__list">
                             <li class="page-pagination__item">
@@ -169,7 +179,7 @@
                               <a class="page-pagination__link btn btn--gray"  href="#">Next<i class="icon-chevron-right"></i></a>
                             </li>
                           </ul>
-                    </div>
+                    </div>-->
                 </div>  <!-- Start Rightside - Content -->
                 
             </div>

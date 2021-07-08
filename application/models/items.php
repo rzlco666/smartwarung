@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class items extends CI_Model {
+class Items extends CI_Model {
 
     public function store($username, $photo){
         $data = array(

@@ -32,6 +32,16 @@
                                         <div class="tab-pane active">
                                             <div class="login-form-container">
                                                 <div class="login-register-form">
+                                                    <?php if ($this->session->flashdata('errors') != '') : ?>
+                                                        <div class="alert alert-danger text-center" role="alert">
+                                                            <?php echo $this->session->flashdata('errors'); ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    <?php if ($this->session->flashdata('success') != '') : ?>
+                                                        <div class="alert alert-success text-center" role="alert">
+                                                            <?php echo $this->session->flashdata('success') ?>
+                                                        </div>
+                                                    <?php endif; ?>
                                                     <form action="<?php echo site_url('auth/store') ?>" method="post">
                                                         <div class="form-box__single-group">
                                                             <label>Nama Lengkap</label>

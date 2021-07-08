@@ -1,0 +1,96 @@
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP Notice:  Undefined index: base_url in /home/smartwar/public_html/application/config/config.php on line 29
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP Stack trace:
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   1. {main}() /home/smartwar/public_html/index.php:0
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   2. require_once() /home/smartwar/public_html/index.php:315
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   3. config_item() /home/smartwar/public_html/system/core/CodeIgniter.php:168
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   4. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   5. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   6. _error_handler() /home/smartwar/public_html/application/config/config.php:29
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   7. load_class() /home/smartwar/public_html/system/core/Common.php:617
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   8. config_item() /home/smartwar/public_html/system/core/Common.php:171
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP   9. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:28:42 Asia/Jakarta] PHP  10. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP Notice:  Undefined index: base_url in /home/smartwar/public_html/application/config/config.php on line 29
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP Stack trace:
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   1. {main}() /home/smartwar/public_html/index.php:0
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   2. require_once() /home/smartwar/public_html/index.php:315
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   3. config_item() /home/smartwar/public_html/system/core/CodeIgniter.php:168
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   4. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   5. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   6. _error_handler() /home/smartwar/public_html/application/config/config.php:29
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   7. load_class() /home/smartwar/public_html/system/core/Common.php:617
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   8. config_item() /home/smartwar/public_html/system/core/Common.php:171
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP   9. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:10 Asia/Jakarta] PHP  10. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP Notice:  Undefined index: base_url in /home/smartwar/public_html/application/config/config.php on line 29
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP Stack trace:
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   1. {main}() /home/smartwar/public_html/index.php:0
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   2. require_once() /home/smartwar/public_html/index.php:315
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   3. config_item() /home/smartwar/public_html/system/core/CodeIgniter.php:168
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   4. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   5. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   6. _error_handler() /home/smartwar/public_html/application/config/config.php:29
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   7. load_class() /home/smartwar/public_html/system/core/Common.php:617
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   8. config_item() /home/smartwar/public_html/system/core/Common.php:171
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP   9. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:18 Asia/Jakarta] PHP  10. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP Notice:  Undefined index: base_url in /home/smartwar/public_html/application/config/config.php on line 29
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP Stack trace:
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   1. {main}() /home/smartwar/public_html/index.php:0
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   2. require_once() /home/smartwar/public_html/index.php:315
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   3. config_item() /home/smartwar/public_html/system/core/CodeIgniter.php:168
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   4. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   5. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   6. _error_handler() /home/smartwar/public_html/application/config/config.php:29
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   7. load_class() /home/smartwar/public_html/system/core/Common.php:617
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   8. config_item() /home/smartwar/public_html/system/core/Common.php:171
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP   9. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:20 Asia/Jakarta] PHP  10. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP Notice:  Undefined index: base_url in /home/smartwar/public_html/application/config/config.php on line 29
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP Stack trace:
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   1. {main}() /home/smartwar/public_html/index.php:0
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   2. require_once() /home/smartwar/public_html/index.php:315
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   3. config_item() /home/smartwar/public_html/system/core/CodeIgniter.php:168
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   4. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   5. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   6. _error_handler() /home/smartwar/public_html/application/config/config.php:29
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   7. load_class() /home/smartwar/public_html/system/core/Common.php:617
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   8. config_item() /home/smartwar/public_html/system/core/Common.php:171
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP   9. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:38 Asia/Jakarta] PHP  10. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP Notice:  Undefined index: base_url in /home/smartwar/public_html/application/config/config.php on line 29
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP Stack trace:
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   1. {main}() /home/smartwar/public_html/index.php:0
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   2. require_once() /home/smartwar/public_html/index.php:315
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   3. config_item() /home/smartwar/public_html/system/core/CodeIgniter.php:168
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   4. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   5. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   6. _error_handler() /home/smartwar/public_html/application/config/config.php:29
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   7. load_class() /home/smartwar/public_html/system/core/Common.php:617
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   8. config_item() /home/smartwar/public_html/system/core/Common.php:171
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP   9. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:40 Asia/Jakarta] PHP  10. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP Notice:  Undefined index: base_url in /home/smartwar/public_html/application/config/config.php on line 29
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP Stack trace:
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   1. {main}() /home/smartwar/public_html/index.php:0
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   2. require_once() /home/smartwar/public_html/index.php:315
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   3. config_item() /home/smartwar/public_html/system/core/CodeIgniter.php:168
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   4. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   5. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   6. _error_handler() /home/smartwar/public_html/application/config/config.php:29
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   7. load_class() /home/smartwar/public_html/system/core/Common.php:617
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   8. config_item() /home/smartwar/public_html/system/core/Common.php:171
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP   9. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:42 Asia/Jakarta] PHP  10. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP Notice:  Undefined index: base_url in /home/smartwar/public_html/application/config/config.php on line 29
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP Stack trace:
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   1. {main}() /home/smartwar/public_html/index.php:0
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   2. require_once() /home/smartwar/public_html/index.php:315
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   3. config_item() /home/smartwar/public_html/system/core/CodeIgniter.php:168
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   4. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   5. require() /home/smartwar/public_html/system/core/Common.php:249
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   6. _error_handler() /home/smartwar/public_html/application/config/config.php:29
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   7. load_class() /home/smartwar/public_html/system/core/Common.php:617
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   8. config_item() /home/smartwar/public_html/system/core/Common.php:171
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP   9. get_config() /home/smartwar/public_html/system/core/Common.php:300
+[01-Jul-2021 21:29:45 Asia/Jakarta] PHP  10. require() /home/smartwar/public_html/system/core/Common.php:249

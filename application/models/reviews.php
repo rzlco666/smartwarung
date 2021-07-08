@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class reviews extends CI_Model {
+class Reviews extends CI_Model {
     public function store($data){
         return $this->db->insert('reviews',$data);
     }

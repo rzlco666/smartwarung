@@ -139,7 +139,7 @@
                                         <input type="text" class="form-control" name="account_name" id="input_account_name" placeholder="Nama Rekening">
                                 </div>
                                 <div class="col-sm-12 pb-3">
-                                    <label for="method" class="mt-3">Nomor Rekening Tujuan</label>
+                                    <label for="method" class="mt-3">Nomor Rekening Anda</label>
                                         <input type="text" class="form-control" name="account_number" id="input_account_number" placeholder="Nomor Rekening">
                                 </div>
                                 <div class="col-md-12">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class carts extends CI_Model {
+class Carts extends CI_Model {
     public function store($id){
         $data = array(
             'id'    => $id,

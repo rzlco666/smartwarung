@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class users extends CI_Model {
+class Users extends CI_Model {
     public function store($username){
         if($this->get_username($username) == null){
             $data = array(

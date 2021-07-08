@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/price_range_style.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/in-number.css">
     <link rel="stylesheet" href="<?php echo base_url('assets_user/') ?>css/plugin/venobox.min.css">
-
+    
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->

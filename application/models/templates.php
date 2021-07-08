@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class templates extends CI_Model
+class Templates extends CI_Model
 {
     public function insert($tabel, $data)
     {

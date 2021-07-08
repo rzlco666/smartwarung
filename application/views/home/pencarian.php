@@ -40,11 +40,11 @@
                                     <li><a class="sort-nav-link active" data-toggle="tab" href="#sort-grid"><i class="icon-grid"></i>  </a></li>
                                 </ul>
                             </div>
-                            <span>There Are 13 Products.</span>
+                            <span>Produk pada Hasil Pencarian.</span>
                         </div> <!-- Start Sort Left Side -->
 
                         <div class="sort-box__right">
-                            <span>Sort By:</span>
+                            <!--<span>Sort By:</span>
                             <div class="sort-box__option">
                                 <label class="select-sort__arrow">
                                     <select name="select-sort" class="select-sort">
@@ -55,7 +55,7 @@
                                         <option value="5">Price, high to low</option>
                                     </select>
                                 </label>
-                            </div>
+                            </div>-->
                         </div>
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
@@ -88,7 +88,7 @@
                         </div>
                     </div>
 
-                    <div class="page-pagination">
+                    <!--<div class="page-pagination">
                         <span>Showing 1-12 of 13 item(s)</span>
                         <ul class="page-pagination__list">
                             <li class="page-pagination__item">
@@ -100,7 +100,7 @@
                               <a class="page-pagination__link btn btn--gray"  href="#">Next<i class="icon-chevron-right"></i></a>
                             </li>
                           </ul>
-                    </div>
+                    </div>-->
                 </div>  <!-- Start Rightside - Content -->
             </div>
         </div>

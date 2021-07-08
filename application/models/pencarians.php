@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class pencarians extends CI_Model {
+class Pencarians extends CI_Model {
 
     public function pencarian_d($kategori,$nama){
         $this->db->select('*');

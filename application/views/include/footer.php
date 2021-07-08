@@ -24,27 +24,21 @@
                     </div>
                     <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
                         <div class="footer__menu">
-                            <h4 class="footer__nav-title">Products</h4>
+                            <h4 class="footer__nav-title">Menu</h4>
                             <ul class="footer__nav">
-                                <li class="footer__list"><a href="#" class="footer__link">Prices drop</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">New products</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">Best sales</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">Contact us</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">Sitemap</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">Login</a></li>
+                                <li class="footer__list"><a href="<?php echo base_url('') ?>" class="footer__link">Home</a></li>
+                                <li class="footer__list"><a href="<?php echo base_url('category/') ?>" class="footer__link">Kategori</a></li>
+                                <li class="footer__list"><a href="<?php echo base_url('home/week_sale') ?>" class="footer__link">Obral Mingguan</a></li>
+                                <li class="footer__list"><a href="<?php echo base_url('home/rekomendasi') ?>" class="footer__link">Rekomendasi</a></li>
+                                <li class="footer__list"><a href="<?php echo base_url('cart/') ?>" class="footer__link">Keranjang</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
                         <div class="footer__menu">
-                            <h4 class="footer__nav-title">Our Company</h4>
+                            <h4 class="footer__nav-title">Tentang Kami</h4>
                             <ul class="footer__nav">
-                                <li class="footer__list"><a href="#" class="footer__link">Delivery</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">Legal Notice</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">About us</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">Secure payment</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">Sitemap</a></li>
-                                <li class="footer__list"><a href="#" class="footer__link">Stores</a></li>
+                                <li class="footer__list"><a href="<?php echo base_url('hubungi/') ?>" class="footer__link">Hubungi Kami</a></li>
                             </ul>
                         </div>
                     </div>
@@ -72,29 +66,14 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="footer__quick-nav p-t-50">
-                            <a class="footer__quick-link" href="#">Online Shopping</a>
-                            <a class="footer__quick-link" href="#">Promotions</a>
-                            <a class="footer__quick-link" href="#">My Orders</a>
-                            <a class="footer__quick-link" href="#">Help</a>
-                            <a class="footer__quick-link" href="#">Customer Service</a>
-                            <a class="footer__quick-link" href="#">Support</a>
-                            <a class="footer__quick-link" href="#">Most Populars</a>
-                            <a class="footer__quick-link" href="#">New Arrivals</a>
-                            <a class="footer__quick-link" href="#">Special Products</a>
-                            <a class="footer__quick-link" href="#">Manufacturers</a>
-                            <a class="footer__quick-link" href="#">Our Stores</a>
-                            <a class="footer__quick-link" href="#">Shipping</a>
-                            <a class="footer__quick-link" href="#">Payments</a>
-                            <a class="footer__quick-link" href="#">Warantee</a>
-                            <a class="footer__quick-link" href="#">Refunds</a>
-                            <a class="footer__quick-link" href="#">Checkout</a>
-                            <a class="footer__quick-link" href="#">Discount</a>
-                            <a class="footer__quick-link" href="#">Terms & Conditions</a>
-                            <a class="footer__quick-link" href="#">Policy</a>
-                            <a class="footer__quick-link" href="#">Shipping</a>
-                            <a class="footer__quick-link" href="#">Payments</a>
-                            <a class="footer__quick-link" href="#">Returns</a>
-                            <a class="footer__quick-link" href="#">Refunds</a>
+                            <a class="footer__quick-link" href="<?php echo base_url('') ?>">Home</a>
+                            <a class="footer__quick-link" href="<?php echo base_url('category/') ?>">Kategori</a>
+                            <a class="footer__quick-link" href="<?php echo base_url('home/week_sale') ?>">Obral Mingguan</a>
+                            <a class="footer__quick-link" href="<?php echo base_url('home/rekomendasi') ?>">Rekomendasi</a>
+                            <a class="footer__quick-link" href="<?php echo base_url('cart/') ?>">Keranjang</a>
+                            <a class="footer__quick-link" href="<?php echo base_url('hubungi/') ?>">Hubungi Kami</a>
+                            <a class="footer__quick-link" href="<?php echo base_url('profile') ?>">Akun</a>
+                            <a class="footer__quick-link" href="<?php echo base_url('profile/order') ?>">Pesanan</a>
                         </div>
                     </div>
                 </div>

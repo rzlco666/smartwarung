@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class invoices extends CI_Model {
+class Invoices extends CI_Model {
     public function store(){
         if($this->input->post('method') == 'COD'){
             $data = array(
